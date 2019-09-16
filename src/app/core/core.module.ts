@@ -7,6 +7,6 @@ import { NgModule } from '@angular/core';
   imports: [
     CommonModule
   ],
-  exports: [ ]
+  exports: []
 })
 export class CoreModule { }

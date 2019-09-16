@@ -6,8 +6,7 @@ import { fade } from 'src/app/shared/animations/fade.animation';
 import { Subject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { ShoppingCartState } from '../../../modules/products/components/card-deck/card-deck.component';
-import { AppState } from '../../../../store/shopping-cart.state';
+import { AppState } from '../../../../store/state/shopping-cart.state';
 
 @Component({
   selector: 'app-navbar',
@@ -49,8 +48,9 @@ export class NavbarComponent implements OnInit, AfterContentInit {
               private router: Router) {
 
     this.productCounter$ = this.store
-                              .select('shoppingCart')
-                              .pipe(map(state => state.productCounter));
+                              .pipe(
+                                select('shoppingCart'),
+                                map(state => state.productCounter));
   }
 
   ngOnInit(): void { }
@@ -58,12 +58,6 @@ export class NavbarComponent implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     this.isLoading = this.loadingSpinnerService.isLoading;
   }
-
-  /*
-  ngDoCheck(): void {
-    this.username = this.authenticationService.getUsername();
-  }
-  */
 
   renderShoppingCart(): void {
     this.shoppingCartRenderEmitter.emit();
