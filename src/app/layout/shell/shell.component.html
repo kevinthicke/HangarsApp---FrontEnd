@@ -1,0 +1,5 @@
+<app-navbar
+(changeLanguageEmitter)='this.handleChangeLanguage()'
+(shoppingCartRenderEmitter)='this.handleRenderShoppingCart()'
+[activeLang]='this.activeLang'></app-navbar>
+<app-main [renderShoppingCart]='this.renderShoppingCart'></app-main>

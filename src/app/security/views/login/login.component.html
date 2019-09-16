@@ -1,0 +1,19 @@
+<div class='header'>
+  <h1>Inicio de sesión</h1>
+</div>
+<div class='container'>
+  <form class='card' [formGroup]='this.form' (ngSubmit)='handleSubmit()'>
+    <div class='form-group'>
+      <label for='username'>{{ 'login.username' | translate }}</label>
+      <input class='form-control' [formControl]='username' type='text' for='username' />
+    </div>
+    <div class='form-group'>
+      <label for='password'>{{ 'login.password' | translate }}</label>
+      <input class='form-control' [formControl]='password' type='password' for='password' />
+    </div>
+    <a class='text-primary' (click)='goCreateAccount()'>{{ 'login.create-account' | translate }}</a>
+    <div class='d-flex justify-content-end'>
+      <app-primary-button [text]=" 'login.submit' | translate" ></app-primary-button>
+    </div>
+  </form>
+</div>

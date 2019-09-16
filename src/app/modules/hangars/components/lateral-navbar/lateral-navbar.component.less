@@ -1,0 +1,72 @@
+.custom-lateral-nav {
+    background-size: 100% 300%;
+    background-position: 0 100%;
+    background-image: linear-gradient(to top, #29323c, #485563, #2b5876);
+
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    height: 40vh;
+    margin: 2px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.custom-lateral-nav:hover {
+    background-position: 0 0;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+
+.button-list {
+    list-style-type: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 5px;
+    width: 95%;
+}
+
+.button-list-item {
+    margin: 5px;
+    width: 100%;
+    height: 55px;
+    border-radius: 2pt;
+    text-decoration: none;
+    font-size: 15pt;
+    color: white;
+
+    box-shadow: 0 0 4px -2px white;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently */
+
+    transition: all 0.1s ease-in-out;
+}
+
+.button-list-item:hover {
+  background: #29323c;
+  transform: translateX(-3%);
+}

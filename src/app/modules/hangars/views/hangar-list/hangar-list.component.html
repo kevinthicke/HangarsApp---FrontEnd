@@ -1,0 +1,27 @@
+<app-aux-navbar
+[title]=' "hangars.list.title" | translate '>
+</app-aux-navbar>
+
+<div class='container'>
+  <app-list
+  [hangars]='this.hangars'
+  (event)='handleHangar($event)'
+  (nextPageEvent)='loadNextPage()'
+  (previousPageEvent)='loadPreviousPage()'>
+  </app-list>
+</div>
+
+
+<app-primary-button
+class='button float'
+[text]=' "More" '
+(click)='expandMenu()'>
+</app-primary-button>
+
+<app-lateral-navbar
+class='lateral-nav'
+[render]='this.showMenu'
+[hangar]='this.hangar'
+(hangarEvent)='this.handleHangarDeleteEvent($event)'
+(closeNavBarEmitter)='this.handleCloseNavBar()'>
+</app-lateral-navbar>

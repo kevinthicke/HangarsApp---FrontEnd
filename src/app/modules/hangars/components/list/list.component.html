@@ -1,0 +1,12 @@
+<div class="btn-group w-100 bg-grimary" role="group">
+  <button class="btn btn-primary" (click)="previousPage()">
+    {{ 'hangars.list.previous-page' | translate }}
+  </button>
+  <button class="btn btn-primary" (click)="nextPage()">{{ 'hangars.list.next-page' | translate }}</button></div>
+<ul class="list">
+  <li *ngFor="let hangar of this.hangars; let i = index;"
+  (click)="select(hangar, i)"
+  (dblclick)="goDetails(hangar)">
+    <a class="list-item text-primary selected" *ngIf="i==this.item">{{ hangar.name }}</a>
+    <a class="list-item text-primary" *ngIf="i!=this.item">{{ hangar.name }}</a></li>
+</ul>

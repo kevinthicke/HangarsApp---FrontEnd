@@ -1,0 +1,34 @@
+.card-header{
+  background: white;
+  border: 0;
+}
+
+.card {
+  height: 100%;
+  border: 0;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.card:hover .image {
+  opacity: 0.3;
+}
+
+.card:hover .middle {
+  opacity: 1;
+}
+
+.image {
+  background: teal;
+  width: 100%;
+  height: 100%;
+}

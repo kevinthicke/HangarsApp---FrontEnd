@@ -1,0 +1,20 @@
+<div *ngIf='this.submitFormError' class="float-toast" @fade>
+    <app-toast [text]=" 'hangars.details.product-form-error' | translate " [style]="'danger'"></app-toast>
+</div>
+
+<div *ngIf='this.submitFormComplete' class="float-toast" @fade>
+    <app-toast [text]=" 'hangars.details.product-form-ok' | translate " [style]="'primary'"></app-toast>
+</div>
+
+<app-aux-navbar [title]="this.state$.name"></app-aux-navbar>
+<div class="container" >
+  <app-form [hangar]="this.state$" [readonlyState]="true" [buttonDisabled]="true"></app-form>
+  <div class="button-container">
+    <app-primary-button
+    [text]=" 'hangars.details.insert-product' | translate "
+    (click)='this.handleInsertProduct()'></app-primary-button>
+  </div>
+  <div *ngIf='this.showProductForm' class="fixed-container" @fade>
+      <app-product-form (formEmitter)='this.handleProductForm($event)' ></app-product-form>
+  </div>
+</div>

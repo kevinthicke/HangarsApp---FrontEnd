@@ -1,0 +1,8 @@
+<div *ngIf='this.render' class='custom-lateral-nav' @fade>
+  <ul class='button-list d-flex flex-column'>
+    <a class='button-list-item' routerLink='/hangars/details' [state]='this.hangar'>{{ 'hangars.lateral-navbar.hangar-details' | translate }}</a>
+    <a class='button-list-item' routerLink='/hangars/modify' [state]='this.hangar'>{{ 'hangars.lateral-navbar.hangar-details' | translate }}</a>
+    <a class='button-list-item text-white' (click)='this.emitDelete()'>{{ 'hangars.lateral-navbar.delete-hangar' | translate }}</a>
+    <a class='button-list-item text-white' (click)='this.close()'>{{ 'hangars.lateral-navbar.close' | translate }}</a>
+  </ul>
+</div>

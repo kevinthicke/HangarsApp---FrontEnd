@@ -1,0 +1,48 @@
+@width: 100px;
+@height: 40px;
+
+.button-container {
+  width: @width + 10px;
+  height: @height;
+  border: none;
+}
+
+.button-primary {
+  margin: auto;
+  background: #2C5364;
+  color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: @width;
+  height: @height;
+  border-radius: 3px;
+  transition-duration: 200ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+
+  /* No select */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently*/
+}
+
+.button-primary:hover {
+  background: rgb(0, 106, 141);
+  -webkit-box-shadow: 0px 0px 2px 0px #2C5364;
+  -moz-box-shadow: 0px 0px 2px 0px #2C5364;
+  box-shadow: 0px 0px 2px 0px #2C5364;
+  width: 110px;
+}
+
+.button-primary:active {
+
+  -webkit-box-shadow: 0px 0px 2px 0px #2C5364;
+  -moz-box-shadow: 0px 0px 2px 0px #2C5364;
+  box-shadow: 0px 0px 2px 1px #2C5364;
+}

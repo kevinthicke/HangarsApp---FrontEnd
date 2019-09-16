@@ -1,0 +1,41 @@
+.toast-error-container {
+  height: 60px;
+  width: 20vw;
+
+  background: #fe8c00;
+  background-size: 300% 100%;
+  background-image: linear-gradient(to left, #f83600, #fe8c00);
+
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0% 5%;
+}
+
+.toast-error-container:hover {
+  background-position: 100% 0;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.error-message {
+  height: 80%;
+  padding: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-style: initial;
+  font-size: 14pt;
+  font-weight: bold;
+}
+

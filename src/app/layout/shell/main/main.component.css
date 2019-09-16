@@ -1,0 +1,14 @@
+.float-toast {
+  position: fixed;
+  z-index: 2;
+  right: 5vw;
+  top: 10vh;
+}
+.float-cart {
+  position: fixed;
+  z-index: 1;
+  right: 5vw;
+  top: 10vh;
+  width: 15%;
+  height: 40%;
+}

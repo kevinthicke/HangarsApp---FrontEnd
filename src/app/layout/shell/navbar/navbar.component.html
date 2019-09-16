@@ -1,0 +1,56 @@
+<nav
+class='navigation-bar sticky-top'>
+
+<!-- Brand -->
+<div
+class='navigation-bar-brand'>
+  <div
+  *ngIf='this.isLoading | async'
+  class="spinner-border text-primary"
+  role="status"
+  @fade>
+    <span class="sr-only">Loading...</span>
+  </div>
+  <span>{{ this.title }}</span>
+</div>
+
+<!-- Navigation buttons -->
+  <ul class='bar-list'>
+    <li
+    *ngFor='let button of this.buttons; let i = index'
+    [routerLink]='[button.link]'
+    routerLinkActive='router-link-active'
+    (click)='this.handleClickButton(i)'>
+      <span
+      [ngClass]="{
+        'bar-list-item-selected': this.buttonSelectedIndex === i,
+        'bar-list-item': this.buttonSelectedIndex !==i }">
+        {{ button.title | translate }}
+      </span>
+    </li>
+  </ul>
+
+<!-- Login buttons -->
+  <div class='button-container'>
+
+    <div *ngIf='this.authenticationService.isUserLoggedIn()' class='username-container'>
+      <span class='username'>{{ this.authenticationService.getUsername() }}</span>
+    </div>
+    <app-circle-button [text]=" this.activeLang | titlecase " (click)='this.emitChangeLanguage()'></app-circle-button>
+    <app-circle-button-aux [text]=" 'navbar.log-out' | translate " (click)='this.logOut()'></app-circle-button-aux>
+
+  </div>
+
+<!-- Shopping car float button -->
+<div class="float-button">
+
+    <app-shopping-cart-button
+    [text]=' "main.shopping-cart" | translate'
+    [quantity]=' this.productCounter$ | async '
+    (click)='this.renderShoppingCart()'
+    class='cart-button'>
+    </app-shopping-cart-button>
+
+</div>
+
+</nav>

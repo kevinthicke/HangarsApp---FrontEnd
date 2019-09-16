@@ -1,0 +1,4 @@
+<app-aux-navbar [title]="this.state$.name"></app-aux-navbar>
+<div class="container">
+    <app-form [readonlyState]="false" [hangar]="this.state$" (inputChange)="handleChange($event)"></app-form>
+</div>

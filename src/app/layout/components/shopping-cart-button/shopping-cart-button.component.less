@@ -1,0 +1,30 @@
+@width: 140px;
+@height: 45px;
+
+.tertiary-button-container {
+  width: @width + 10px;
+  height: @height;
+  cursor: pointer;
+}
+.tertiary-button {
+  margin: auto;
+  width: @width;
+  height: @height;
+  border-radius: 5px;
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #38ef7d, #11998e);
+  transition: all 200ms ease-in-out;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+.tertiary-button:hover {
+  background-position: 100% 0%;
+}
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+span:nth-child(2)::after {
+  content: "$";
+}

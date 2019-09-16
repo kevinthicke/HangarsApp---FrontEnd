@@ -1,0 +1,26 @@
+<main class='container'>
+
+  <div
+  *ngIf='this.renderShoppingCart'
+  class="float-cart" @fade>
+
+    <app-navigation-list-cart>
+    </app-navigation-list-cart>
+
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <div
+  *ngIf='this.errorToastService.getRenderStatus()'
+  class='float-toast'
+  @fade>
+
+    <app-error-service-toast
+    [status]='this.errorToastService.getStatus()'
+    [message]='this.errorToastService.getMessage()'
+    (closeToastEmitter)='this.handleCloseToast()'>
+    </app-error-service-toast>
+
+  </div>
+</main>

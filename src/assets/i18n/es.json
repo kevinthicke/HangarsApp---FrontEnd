@@ -1,0 +1,110 @@
+{
+  "main": {
+    "shopping-cart": "Carrito"
+  },
+  "navbar": {
+    "log-out": "Salir",
+    "home": "Inicio",
+    "hangars": "Hangares",
+    "products": "Productos",
+    "shop": "Tienda"
+  },
+  "aux-navbar": {
+    "home-button": "Inicio"
+  },
+  "home": {
+    "first-card-title": "Hangares",
+    "second-card-title": "Productos"
+  },
+  "login": {
+    "title": "Inicio de sesión",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "create-account": "Crear una nueva cuenta",
+    "submit": "Iniciar",
+    "login-error": "No se pudo iniciar sesión"
+  },
+  "logout": {
+    "title": "Cierre de sesión satisfactorio",
+    "submit": "Iniciar sesión con otra cuenta"
+  },
+  "register": {
+    "title": "Registro",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "password-repeat": "Confirmar contraseña",
+    "submit": "Registrar"
+  },
+  "search-bar": {
+    "search": "Buscar"
+  },
+  "primary-card": {
+    "button": "Ver {{ item }}"
+  },
+  "hangars": {
+    "list": {
+      "title": "Hangares",
+      "previous-page": "Anterior",
+      "next-page": "Siguiente"
+    },
+    "insert": {
+      "title": "Guardar hangar"
+    },
+    "details": {
+      "insert-product": "+ producto",
+      "product-form-error": "No se ha podido añadir producto",
+      "product-form-ok": "Añadido correctamente!"
+    },
+    "form": {
+      "name": "Nombre",
+      "location": "Dirección",
+      "owner": "Propietario",
+      "email": "Email",
+      "phone": "Teléfono",
+      "submit": "Guardar"
+    },
+    "search-results": {
+      "title": "Resultados de búsqueda",
+      "insert-button": "Insertar",
+      "load.button": "Ver más"
+    },
+    "lateral-navbar": {
+      "hangar-details": "Detalles del hangar",
+      "modify-hangar": "Modificar hangar",
+      "delete-hangar": "Borrar hangar",
+      "close": "Cerrar"
+    }
+  },
+  "products": {
+    "list": {
+      "title": "Productos",
+      "buttons": {
+        "insert-button": "Insertar",
+        "load-button": "Ver más"
+      }
+    },
+    "card-deck": {
+      "modify-button": "Modificar",
+      "details-button": "Detalles"
+    },
+    "hangar-list-bar": {
+      "all-products": "Ver todos"
+    },
+    "form": {
+      "name": "Nombre",
+      "description": "Descripción",
+      "select-hangar": "Seleccionar hangar",
+      "quantity": "Cantidad",
+      "price": "Precio",
+      "submit-button": "Guardar"
+    }
+  },
+  "validations": {
+    "field-required": "Este campo es requerido",
+    "field-email": "Debe debe ser una dirección de email",
+    "field-min-length": "Este campo debe tener como mínimo {{ minLength }} caractéres",
+    "username-unique": "El nombre de usuario debe ser único",
+    "password-special-characters": "La constraseña debe contener al menos un carácter especial",
+    "passwords-must-match": "Las contraseñas deben coincidir"
+  }
+}

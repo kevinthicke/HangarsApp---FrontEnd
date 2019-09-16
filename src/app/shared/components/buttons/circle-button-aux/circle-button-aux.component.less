@@ -1,0 +1,47 @@
+.button-container {
+  width: 85px;
+  height: 45px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-button {
+  background: #0F2027;
+  color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  transition-duration: 150ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+  cursor: default;
+
+  /* No select */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently*/
+}
+
+.circle-button:hover{
+  background: #2C5364;
+  -webkit-box-shadow: 0px 0px 2px 0px  #2C5364;
+  -moz-box-shadow: 0px 0px 2px 0px  #2C5364;
+  box-shadow: 0px 0px 2px 0px  #2C5364;
+  width: 85px;
+  height: 42px;
+}
+
+.circle-button:active {
+    -webkit-box-shadow: inset 0px 0px 2px 0px #2C5364;
+  -moz-box-shadow: inset 0px 0px 2px 0px #2C5364;
+  box-shadow: inset 0px 0px 2px 1px #2C5364;
+}

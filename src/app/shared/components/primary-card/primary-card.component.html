@@ -1,0 +1,9 @@
+<div class='card'>
+  <h5 class='card-header'>{{ title | translate }}</h5>
+  <div class='image'></div>
+  <div class='middle'>
+    <div class='btn btn-primary' [translate]=' "primary-card.button" '
+      [translateParams]='{ item: this.title | translate }' [routerLink]="[this.link]" routerLinkActive="router-link-active" ></div>
+  </div>
+</div>
+

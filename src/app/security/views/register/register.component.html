@@ -1,0 +1,33 @@
+<nav class="header">
+  <h1>{{ 'register.title' | translate }}</h1>
+</nav>
+<div class="container">
+  <form class="card" [formGroup]="form" (ngSubmit)="handleSubmit()">
+      <div class="form-group"><label for="username">{{ 'register.username' | translate }}</label><input class="form-control" [formControl]="username" type="text" for="username" />
+          <div *ngIf="username.touched && username.invalid">
+              <div class="invalid-feedback" *ngIf="username.errors.required">{{ 'validations.field-required' | translate }}</div>
+              <div class="invalid-feedback" *ngIf="username.errors.cannotContainsEmptySpace">{{ 'validations.field-required' | translate }}</div>
+              <div class="invalid-feedback" *ngIf="username.errors.shouldBeUnique"> {{ 'validations.username-unique' | translate }}</div>
+          </div>
+      </div>
+      <div class="form-group"><label for="password">{{ 'register.password' | translate }}</label><input class="form-control" [formControl]="password" type="password" id="password" />
+          <div *ngIf="password.touched && password.invalid">
+              <div class="invalid-feedback" *ngIf="password.errors.isNotSecurePassword">{{ 'validations.password-special-characters' | translate }}</div>
+              <div class="invalid-feedback" *ngIf="password.errors.required">{{ 'validations.passwords-must-match' | translate }}</div>
+          </div>
+      </div>
+      <div class="form-group"><label for="passwordConfirm">{{ 'register.password-repeat' | translate }}</label><input class="form-control" [formControl]="passwordConfirm" type="password" for="passwordConfirm" />
+          <div *ngIf="passwordConfirm.touched && passwordConfirm.invalid">
+              <div class="invalid-feedback" *ngIf="passwordConfirm.errors.required">{{ 'validations.field-required' | translate }}</div>
+              <div class="invalid-feedback" *ngIf="formFields.passwordConfirm.errors.mustMatch">{{ 'validations.passwords-must-match' | translate }}</div>
+          </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="this.invalidPassword" role="alert">{{ 'register.password-error' | translate }}</div>
+      <div class="d-flex justify-content-between mt-3">
+          <div class="btn-group w-50" role="group">
+              <div class="btn btn-primary" *ngFor="let role of this.roles" (click)="selectRole(role)"><span class="selected" *ngIf="this.roleSelected == role">{{ role }}</span><span *ngIf="this.roleSelected != role">{{ role }}</span></div>
+          </div>
+          <app-primary-button *ngIf="this.form.valid" [text]=" 'register.submit' " type="submit"></app-primary-button>
+      </div>
+  </form>
+</div>
