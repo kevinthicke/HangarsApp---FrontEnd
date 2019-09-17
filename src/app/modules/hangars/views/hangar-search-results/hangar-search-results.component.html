@@ -1,7 +1,7 @@
 <app-aux-navbar [title]="this.title"></app-aux-navbar>
 <div class="container">
     <div class="card pr-3">
-        <app-hangar-list [hangars]="this.hangars" (event)="handleHangar($event)"></app-hangar-list>
+        <app-hangar-list (event)="handleHangar($event)"></app-hangar-list>
     </div>
 </div>
 <app-primary-button class="button float" [text]=" 'More' " (click)="expandMenu()"></app-primary-button>

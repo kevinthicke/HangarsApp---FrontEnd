@@ -31,7 +31,7 @@ export class HangarDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private HangarService: HangarService,
+    private hangarService: HangarService,
   ) { }
 
   ngOnInit(): void {
@@ -68,7 +68,7 @@ export class HangarDetailsComponent implements OnInit {
     .insertProduct(product)
     .pipe(
       switchMap((product: RawProduct) => {
-        return this.HangarService.saveProductInHangarByHangarIdAndProductId(this.id, product.id);
+        return this.hangarService.saveProductInHangarByHangarIdAndProductId(this.id, product.id);
       }),
       switchMap((productsHangar: ProductsHangar) => {
         return this.productService.setProductQuantity(productsHangar.hangar_id, productsHangar.product_id, productsHangar.quantity);

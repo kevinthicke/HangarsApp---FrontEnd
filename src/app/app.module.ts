@@ -21,6 +21,9 @@ import { StoreModule } from '@ngrx/store';
 import { shoppingCartReducer } from 'src/store/reducers/shopping-cart.reducer';
 import { environment } from '../environments/environment';
 import { rootReducers, metaReducers } from '../store/reducers/index';
+import { EffectsModule } from '@ngrx/effects';
+import { HangarEffects } from '../store/effects/hangar.effect';
+import { effects } from '../store/effects/index';
 
 
 @NgModule({
@@ -48,7 +51,8 @@ import { rootReducers, metaReducers } from '../store/reducers/index';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    EffectsModule.forRoot(effects)
   ],
   providers: [
     {

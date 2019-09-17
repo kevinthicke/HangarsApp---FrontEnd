@@ -11,7 +11,10 @@ export function shoppingCartReducer(state: ShoppingCartState = initialState, act
       return { ... state, productCounter: state.productCounter + 1 };
 
     case ShoppingCartActionTypes.DECREMENT_PRODUCT_COUNTER:
-      return { ... state, productCounter: state.productCounter - 1 };
+      return (state.productCounter > 0)
+        ? { ... state, productCounter: state.productCounter - 1 }
+        : state;
+
     default:
       return state;
   }

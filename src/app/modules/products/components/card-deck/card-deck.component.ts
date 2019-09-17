@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store, select, Action } from '@ngrx/store';
 import { DecrementAction, IncrementAction } from '../../../../../store/actions/shopping-cart.action';
-import { AppState } from '../../../../../store/state/shopping-cart.state';
+import { AppState } from '../../../../../store/state/index';
 
 
 @Component({

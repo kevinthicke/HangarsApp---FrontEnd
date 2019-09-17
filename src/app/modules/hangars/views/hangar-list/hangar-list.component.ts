@@ -2,6 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Hangar } from '../../../../core/models/hangar.model';
 import { HangarService } from '../../../../core/services/hangar.service';
 import { Router } from '@angular/router';
+import { AppState } from 'src/store/state';
+import { Store, select } from '@ngrx/store';
+import { GetHangarsAction } from 'src/store/actions/hangar.action';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-hangar-list',
@@ -9,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./hangar-list.component.less']
 })
 export class HangarListComponent implements OnInit {
-  @Input() hangars: Hangar[];
+  hangars$: Observable<Hangar[]>;
   hangar: Hangar;
   page = 0;
   size = 18;
@@ -19,13 +24,23 @@ export class HangarListComponent implements OnInit {
   item = -1;
   showMenu = false;
 
-  constructor(private service: HangarService, private router: Router) {}
+  constructor(
+    private service: HangarService,
+    private router: Router,
+    private store: Store<AppState>) {
+
+      this.store.dispatch(new GetHangarsAction());
+
+      this.hangars$ = this.store.select('hangar').pipe(
+        map(state => state.hangars.content)
+      );
+    }
 
   ngOnInit() {
-    this.loadFirstPage();
+    //this.loadFirstPage();
   }
 
-  private expandMenu() {
+  expandMenu() {
     if (this.item == -1) {
       this.router.navigate(['hangars', 'insert']);
     } else {
@@ -33,7 +48,7 @@ export class HangarListComponent implements OnInit {
     }
   }
 
-  private handleHangar({ hangar, item }) {
+  handleHangar({ hangar, item }) {
     this.hangar = hangar;
     this.item = item;
   }
@@ -43,7 +58,7 @@ export class HangarListComponent implements OnInit {
     this.showMenu = false;
   }
 
-
+/*
   handleHangarDeleteEvent(hangar: Hangar): void {
 
     this.service
@@ -89,5 +104,5 @@ export class HangarListComponent implements OnInit {
           });
     }
   }
-
+  */
 }

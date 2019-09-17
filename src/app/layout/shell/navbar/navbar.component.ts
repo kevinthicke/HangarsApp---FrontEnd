@@ -6,7 +6,7 @@ import { fade } from 'src/app/shared/animations/fade.animation';
 import { Subject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { AppState } from '../../../../store/state/shopping-cart.state';
+import { AppState } from '../../../../store/state/index';
 
 @Component({
   selector: 'app-navbar',
