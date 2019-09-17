@@ -15,9 +15,7 @@ export class HangarEffects {
   ) { }
 
   @Effect() getHangars$ = this.actions$.pipe(
-
     ofType(HangarActionTypes.GET_HANGARS),
-
     switchMap(
       action => this.hangarService.getHangars().pipe(
                     map(hangars => new GetHangarsSuccessAction(hangars))

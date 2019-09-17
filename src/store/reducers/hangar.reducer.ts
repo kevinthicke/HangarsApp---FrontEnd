@@ -20,7 +20,6 @@ export function hangarReducer(state: HangarState, action: HangarActions) {
       };
 
     case HangarActionTypes.GET_HANGARS_SUCCESS:
-      //console.log(action.payload);
       return {
         ...state,
         hangars: action.payload,

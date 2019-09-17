@@ -7,6 +7,7 @@ import { Store, select } from '@ngrx/store';
 import { GetHangarsAction } from 'src/store/actions/hangar.action';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { HangarFacade } from '../../../../../store/facades/hangar.facade';
 
 @Component({
   selector: 'app-hangar-list',
@@ -27,13 +28,10 @@ export class HangarListComponent implements OnInit {
   constructor(
     private service: HangarService,
     private router: Router,
-    private store: Store<AppState>) {
+    private hangarFacade: HangarFacade) {
 
-      this.store.dispatch(new GetHangarsAction());
+      this.hangars$ = this.hangarFacade.hangars$;
 
-      this.hangars$ = this.store.select('hangar').pipe(
-        map(state => state.hangars.content)
-      );
     }
 
   ngOnInit() {
