@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HangarService } from '../../../../core/services/hangar.service';
 
 @Component({
@@ -8,21 +8,12 @@ import { HangarService } from '../../../../core/services/hangar.service';
 })
 export class HangarListBarComponent implements OnInit {
 
-  hangarsNames: string[];
+  @Input() hangarsName: string[];
   item = -1;
 
   @Output() clickEmitter = new EventEmitter<string>();
 
-
-  constructor(private hangarService: HangarService) { }
-
-  ngOnInit() {
-    this.hangarService
-        .getHangarsNames()
-        .subscribe(response => {
-          this.hangarsNames = response;
-        });
-  }
+  ngOnInit(): void { }
 
   handleSelectItem(hangarName: string, i: number) {
     this.item = i;

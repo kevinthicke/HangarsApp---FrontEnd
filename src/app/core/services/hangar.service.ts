@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Page } from '../models/page.model';
 import { Hangar } from '../models/hangar.model';
 import { Observable, ObservableInput, throwError } from 'rxjs';
 import { Product, ProductExtended } from '../models/product.model';
 import { ProductsHangar } from '../models/products-hangar.model';
 import { PaginableHangar } from '../models/paginableHangar.model';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,14 @@ export class HangarService {
   constructor(private http: HttpClient) {}
 
   public getHangars(page: number = 0, size: number = 10): Observable<PaginableHangar> {
-    return this.http.get<PaginableHangar>(`${ this.url }hangars?page=${ page }&size=${ size }`);
+    
+    const url = `${ this.url }hangars`;
+
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+
+    return this.http.get<PaginableHangar>(url, { params });
   }
 
   public getHangarsNames(): Observable<string[]> {

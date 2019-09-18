@@ -3,35 +3,46 @@ import { HangarActions, HangarActionTypes } from '../actions/hangar.action';
 
 export const initialState: HangarState = {
   hangars: null,
+  hangarsName: [],
   pending: false,
   error: null
 };
 
 
-export function hangarReducer(state: HangarState, action: HangarActions) {
+export function hangarReducer(state: HangarState, action: HangarActions): HangarState {
 
   switch (action.type) {
 
-    case HangarActionTypes.GET_HANGARS:
+    case HangarActionTypes.LOAD_HANGARS:
       return {
         ...state,
         pending: true,
         error: null
       };
 
-    case HangarActionTypes.GET_HANGARS_SUCCESS:
+    case HangarActionTypes.HANGARS_LOADED:
       return {
         ...state,
         hangars: action.payload,
-        peding: false
+        pending: false
       };
 
-    case HangarActionTypes.GET_HANGARS_ERROR:
+    case HangarActionTypes.LOAD_HANGARS_NAME:
       return {
         ...state,
-        peding: false,
-        error: 'ERROR!'
+        pending: true,
+        error: null
       };
+
+    case HangarActionTypes.HANGARS_NAME_LOADED:
+      return {
+        ...state,
+        pending: false,
+        hangarsName: action.payload
+      };
+
+    default:
+      return state;
   }
 
 }

@@ -2,27 +2,28 @@
 
 <!-- Card deck -->
 <div class='container'>
-    <app-card-deck [products]='this.products$ | async'
+    <app-card-deck [products]='this.products'
     [hangarName]='this.hangarSelectedName'>
     </app-card-deck>
 </div>
 
 <!-- Hangar list bar -->
 <app-hangar-list-bar
-class="lateral-bar-list"
-(clickEmitter)="this.handleHangar($event)">
+[hangarsName]='this.hangarsName'
+class='lateral-bar-list'
+(clickEmitter)='this.handleHangar($event)'>
 </app-hangar-list-bar>
 
 <!-- Button group -->
-<div class="fixed-top button d-flex justify-content-between">
+<div class='fixed-top button d-flex justify-content-between'>
     <app-secondary-button
-    class="m-1"
+    class='m-1'
     [text]=" 'products.list.buttons.insert-button' | translate "
-    (click)="goInsert()">
+    (click)='goInsert()'>
     </app-secondary-button>
     <app-secondary-button
-    class="m-1"
+    class='m-1'
     [text]=" 'products.list.buttons.load-button' | translate "
-    (click)="loadMore()">
+    (click)='loadMore()'>
     </app-secondary-button>
 </div>

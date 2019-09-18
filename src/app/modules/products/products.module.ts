@@ -11,11 +11,20 @@ import { CardDeckComponent } from './components/card-deck/card-deck.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormComponent } from './components/form/form.component';
 import { ProductModifyComponent } from './product-modify/product-modify.component';
-
+import { ProductContainerComponent } from './containers/product-container.component';
 
 
 @NgModule({
-  declarations: [ProductListComponent, ProductDetailsComponent, ProductInsertComponent, HangarListBarComponent, CardDeckComponent, FormComponent, ProductModifyComponent],
+  declarations: [
+    ProductListComponent,
+    ProductDetailsComponent,
+    ProductInsertComponent,
+    HangarListBarComponent,
+    CardDeckComponent,
+    FormComponent,
+    ProductModifyComponent,
+    ProductContainerComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

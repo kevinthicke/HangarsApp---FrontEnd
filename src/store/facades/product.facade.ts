@@ -17,6 +17,7 @@ export class ProductFacade {
   constructor(private store: Store<AppState>) {
 
     this.store.dispatch(new LoadProductsAction());
+
     this.products$ = this.store.pipe(
       select('product'),
       map((productState: ProductState) => productState.products)

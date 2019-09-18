@@ -9,7 +9,7 @@
       <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
     </li>
 
-    <div *ngFor='let hangar of this.hangarsNames; let i = index'>
+    <div *ngFor='let hangar of this.hangarsName; let i = index'>
       <li class='nav-item m-1 selected' *ngIf='i == item'>
         <a class='nav-link' (click)='handleSelectItem(hangar, i)'>{{ hangar }}</a>
       </li>

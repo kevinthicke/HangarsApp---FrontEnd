@@ -4,11 +4,12 @@ import { ProductListComponent } from './views/product-list/product-list.componen
 import { ProductDetailsComponent } from './views/product-details/product-details.component';
 import { ProductInsertComponent } from './views/product-insert/product-insert.component';
 import { ProductModifyComponent } from './product-modify/product-modify.component';
+import { ProductContainerComponent } from './containers/product-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProductListComponent
+    component: ProductContainerComponent
   },
   {
     path: 'details',

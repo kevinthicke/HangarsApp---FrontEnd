@@ -4,25 +4,38 @@ import { Hangar } from 'src/app/core/models/hangar.model';
 
 
 export enum HangarActionTypes {
-  GET_HANGARS = '[HANGAR] GET_HANGARS',
-  GET_HANGARS_SUCCESS = '[HANGAR] GET_HANGARS_SUCCESS',
-  GET_HANGARS_ERROR = '[HANGAR] GET_HANGARS_ERROR'
+
+  LOAD_HANGARS = '[HANGAR] LOAD_HANGARS',
+  HANGARS_LOADED = '[HANGAR] HANGARS_LOADED',
+
+  LOAD_HANGARS_NAME = '[HANGAR] LOAD_HANGARS_NAME',
+  HANGARS_NAME_LOADED = '[HANGAR] HANGARS_NAME_LOADED'
+
 }
 
-export class GetHangarsAction implements Action {
-  readonly type = HangarActionTypes.GET_HANGARS;
-
-  // constructor(public payload: any) { }
+export class LoadHangarsAction implements Action {
+  readonly type = HangarActionTypes.LOAD_HANGARS;
 }
 
-export class GetHangarsSuccessAction implements Action {
-  readonly type = HangarActionTypes.GET_HANGARS_SUCCESS;
+export class HangarsLoadedAction implements Action {
+  readonly type = HangarActionTypes.HANGARS_LOADED;
 
   constructor(public payload: Page<Hangar>) { }
 }
 
-export class GetHangarsErrorAction implements Action {
-  readonly type = HangarActionTypes.GET_HANGARS_ERROR;
+export class LoadHangarsNameAction implements Action {
+  readonly type = HangarActionTypes.LOAD_HANGARS_NAME;
 }
 
-export type HangarActions = GetHangarsAction | GetHangarsSuccessAction | GetHangarsErrorAction;
+export class HangarsNameLoadedAction implements Action {
+  readonly type = HangarActionTypes.HANGARS_NAME_LOADED;
+
+  constructor(public payload: string[]) { }
+}
+
+
+export type HangarActions = (
+  LoadHangarsAction |
+  HangarsLoadedAction |
+  LoadHangarsNameAction |
+  HangarsNameLoadedAction);

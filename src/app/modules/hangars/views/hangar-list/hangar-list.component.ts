@@ -1,13 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Hangar } from '../../../../core/models/hangar.model';
-import { HangarService } from '../../../../core/services/hangar.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppState } from 'src/store/state';
-import { Store, select } from '@ngrx/store';
-import { GetHangarsAction } from 'src/store/actions/hangar.action';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HangarFacade } from '../../../../../store/facades/hangar.facade';
+import { Hangar } from '../../../../core/models/hangar.model';
+import { HangarService } from '../../../../core/services/hangar.service';
 
 @Component({
   selector: 'app-hangar-list',
@@ -30,12 +26,12 @@ export class HangarListComponent implements OnInit {
     private router: Router,
     private hangarFacade: HangarFacade) {
 
+      this.hangarFacade.loadHangars();
       this.hangars$ = this.hangarFacade.hangars$;
 
     }
 
   ngOnInit() {
-    //this.loadFirstPage();
   }
 
   expandMenu() {
