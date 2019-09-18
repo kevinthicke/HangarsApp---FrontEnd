@@ -20,8 +20,7 @@ export class CardDeckComponent implements OnInit {
   constructor(private router: Router,
               private store: Store<AppState>) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   goModify(product: Product): void {
     this.router.navigate(

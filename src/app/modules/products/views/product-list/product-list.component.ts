@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { HangarService } from 'src/app/core/services/hangar.service';
 import { ProductExtended, RawProduct } from '../../../../core/models/product.model';
 import { ProductService } from '../../../../core/services/product.service';
+import { ProductFacade } from '../../../../../store/facades/product.facade';
 
 @Component({
   selector: 'app-product-list',
@@ -17,12 +18,23 @@ export class ProductListComponent implements OnInit {
   size = 18;
   hangarSelectedName: string;
 
-  constructor(private productService: ProductService,
-              private hangarService: HangarService,
-              private router: Router) { }
+  constructor(
+    private productService: ProductService,
+    private productFacade: ProductFacade,
+    private hangarService: HangarService,
+    private router: Router
+  ) {
+
+    this.products$ = this.productFacade.products$;
+
+    this.products$.subscribe(resp => {
+      console.log(resp);
+    });
+  }
 
   ngOnInit(): void {
-    this.loadProducts(this.size);
+    //this.loadProducts(this.size);
+
   }
 
   private loadProducts(size: number): void {
