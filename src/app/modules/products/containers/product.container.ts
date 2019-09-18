@@ -3,33 +3,43 @@ import { ProductFacade } from '../../../../store/facades/product.facade';
 import { Observable } from 'rxjs';
 import { ProductExtended, RawProduct } from '../../../core/models/product.model';
 import { HangarFacade } from '../../../../store/facades/hangar.facade';
+import { ShoppingCartFacade } from '../../../../store/facades/shopping-cart.facade';
 
 @Component({
   selector: 'app-product-container',
-  templateUrl: './product-container.component.html',
-  styleUrls: ['./product-container.component.less']
+  templateUrl: './product.container.html',
+  styleUrls: ['./product.container.less']
 })
-export class ProductContainerComponent implements OnInit {
+export class ProductContainer implements OnInit {
 
   products$: Observable<ProductExtended[] | RawProduct[]>;
-  hangarsName$: Observable<string[]>
+  hangarsName$: Observable<string[]>;
 
   constructor(
     private productFacade: ProductFacade,
-    private hangarFacade: HangarFacade
+    private hangarFacade: HangarFacade,
+    private shoppingCartFacade: ShoppingCartFacade
   ) {
 
     this.products$ = this.productFacade.products$;
 
     this.hangarFacade.loadHangarsName();
     this.hangarsName$ = this.hangarFacade.hangarsName$;
-    this.hangarsName$.subscribe(something => console.log(something));
+
   }
 
   ngOnInit(): void { }
 
-  handleHangarSelectedItem(hangarName: string): void {
+  handleHangarSelected(hangarName: string): void {
     this.productFacade.setHangarSelectedName(hangarName);
+  }
+
+  handleIncrementProductCounterEmitter(): void {
+    this.shoppingCartFacade.increaseProductCounter();
+  }
+
+  handleDecrementProductCounterEmitter(): void {
+    this.shoppingCartFacade.decreaseProductCounter();
   }
 
 }

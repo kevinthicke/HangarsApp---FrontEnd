@@ -1,15 +1,14 @@
-import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ProductListComponent } from './views/product-list/product-list.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductContainer } from './containers/product.container';
+import { ProductModifyComponent } from './product-modify/product-modify.component';
 import { ProductDetailsComponent } from './views/product-details/product-details.component';
 import { ProductInsertComponent } from './views/product-insert/product-insert.component';
-import { ProductModifyComponent } from './product-modify/product-modify.component';
-import { ProductContainerComponent } from './containers/product-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProductContainerComponent
+    component: ProductContainer
   },
   {
     path: 'details',

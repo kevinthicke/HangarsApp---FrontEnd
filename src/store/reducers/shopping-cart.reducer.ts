@@ -8,11 +8,11 @@ export const initialState: ShoppingCartState = {
 export function shoppingCartReducer(state: ShoppingCartState = initialState, action: ShoppingCartActions) {
   switch(action.type) {
     case ShoppingCartActionTypes.INCREMENT_PRODUCT_COUNTER:
-      return { ... state, productCounter: state.productCounter + 1 };
+      return { ... state, productCounter: ++state.productCounter };
 
     case ShoppingCartActionTypes.DECREMENT_PRODUCT_COUNTER:
       return (state.productCounter > 0)
-        ? { ... state, productCounter: state.productCounter - 1 }
+        ? { ... state, productCounter: --state.productCounter }
         : state;
 
     default:

@@ -2,8 +2,11 @@
 
 <!-- Card deck -->
 <div class='container'>
-    <app-card-deck [products]='this.products'
-    [hangarName]='this.hangarSelectedName'>
+    <app-card-deck
+    [products]='this.products'
+    [hangarName]='this.hangarSelectedName'
+    (incrementProductCounterEmitter)='this.handleIncrementProductCounterEmitter()'
+    (decrementProductCounterEmitter)='this.handleDecrementProductCounterEmitter()'>
     </app-card-deck>
 </div>
 
