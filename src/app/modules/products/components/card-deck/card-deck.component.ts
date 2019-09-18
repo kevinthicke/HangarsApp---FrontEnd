@@ -24,7 +24,13 @@ export class CardDeckComponent implements OnInit {
   }
 
   goModify(product: Product): void {
-    this.router.navigate(['products/modify'], { state: { product, hangarName: this.hangarName }});
+    this.router.navigate(
+      ['products/modify'],
+      { state:
+        { product,
+          hangarName: this.hangarName
+        }
+      });
   }
 
   goDetails(product: Product): void {
