@@ -3,6 +3,7 @@ import { ProductActionTypes, ProductActions } from '../actions/product.action';
 
 const initialState: ProductState = {
   products: [],
+  hangarSelectedName: '',
   pending: false
 };
 
@@ -15,6 +16,9 @@ export function productReducer(state: ProductState, action: ProductActions): Pro
 
     case ProductActionTypes.PRODUCTS_LOADED:
       return { ...state, products: action.payload, pending: false };
+
+    case ProductActionTypes.SET_HANGAR_SELECTED_NAME:
+      return { ...state, hangarSelectedName: action.payload, pending: false };
 
     default:
       return state;

@@ -28,4 +28,8 @@ export class ProductContainerComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  handleHangarSelectedItem(hangarName: string): void {
+    this.productFacade.setHangarSelectedName(hangarName);
+  }
+
 }

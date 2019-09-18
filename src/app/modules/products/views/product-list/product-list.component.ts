@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HangarService } from 'src/app/core/services/hangar.service';
 import { HangarFacade } from '../../../../../store/facades/hangar.facade';
@@ -15,8 +15,10 @@ export class ProductListComponent implements OnInit {
   @Input() products: ProductExtended[] | RawProduct[];
   @Input() hangarsName: string[];
 
+  @Output() hangarSelectedNameEmitter = new EventEmitter<string>();
+
   size = 18;
-  hangarSelectedName: string;
+  //hangarSelectedName: string;
 
   constructor(
     private productService: ProductService,
@@ -54,6 +56,14 @@ export class ProductListComponent implements OnInit {
     }
   }
   */
+
+  handleHangar(hangarName: string): void {
+
+    if (hangarName) {
+      this.hangarSelectedNameEmitter.emit(hangarName);
+    }
+
+  }
 
   goInsert(): void {
     this.router.navigate(['products/insert']);

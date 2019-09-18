@@ -11,18 +11,18 @@ export class HangarListBarComponent implements OnInit {
   @Input() hangarsName: string[];
   item = -1;
 
-  @Output() clickEmitter = new EventEmitter<string>();
+  @Output() hangarSelectedNameEmmiter = new EventEmitter<string>();
 
   ngOnInit(): void { }
 
   handleSelectItem(hangarName: string, i: number) {
     this.item = i;
-    this.clickEmitter.emit(hangarName);
+    this.hangarSelectedNameEmmiter.emit(hangarName);
   }
 
   handleSelectAllProducts() {
     this.item = -1;
-    this.clickEmitter.emit(null);
+    this.hangarSelectedNameEmmiter.emit(null);
   }
 
 }
