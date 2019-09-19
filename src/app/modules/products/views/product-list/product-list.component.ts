@@ -34,8 +34,7 @@ export class ProductListComponent implements OnInit {
 
     if (hangarName) {
       this.hangarSelectedNameEmitter.emit(hangarName);
-    }
-
+    }     
   }
 
   /*

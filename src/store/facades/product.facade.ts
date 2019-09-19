@@ -34,7 +34,6 @@ export class ProductFacade {
     this.store.dispatch(new LoadProductsAction());
   }
 
-
   setHangarSelectedName(hangarName: string): void {
     this.store.dispatch(new SetHangarSelectedNameAction(hangarName));
   }

@@ -9,10 +9,10 @@
     </li>
 
     <div *ngFor='let hangar of this.hangarsName; let i = index'>
-      <li class='nav-item m-1 selected' *ngIf='i == item'>
+      <li class='nav-item selected' *ngIf='i == item'>
         <a class='nav-link' (click)='this.handleHangarSelectedClick(hangar, i)'>{{ hangar }}</a>
       </li>
-      <li class='nav-item m-1' *ngIf='i != item'>
+      <li class='nav-item' *ngIf='i != item'>
         <a class='nav-link' (click)='this.handleHangarSelectedClick(hangar, i)'>{{ hangar }}</a>
       </li>
     </div>

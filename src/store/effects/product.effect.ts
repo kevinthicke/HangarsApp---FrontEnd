@@ -1,16 +1,17 @@
-import { Actions, Effect, ofType } from '@ngrx/effects';
-import { ProductService } from '../../app/core/services/product.service';
-import { ProductActionTypes, ProductsLoadedAction, ProductActions, ProductsInHangarLoadedAction, LoadProductsInHangarAction, SetHangarSelectedNameAction } from '../actions/product.action';
 import { Injectable } from '@angular/core';
-import { switchMap, map, tap } from 'rxjs/operators';
-import { Page } from '../../app/core/models/page.model';
-import { RawProduct, Product, ProductExtended } from '../../app/core/models/product.model';
-import { HangarService } from '../../app/core/services/hangar.service';
-import { select, Action } from '@ngrx/store';
-import { HangarFacade } from '../facades/hangar.facade';
-import { HangarState } from '../state/hangar.state';
-import { ProductState } from '../state/product.state';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { Page } from '../../app/core/models/page.model';
+import { ProductExtended, RawProduct } from '../../app/core/models/product.model';
+import { ProductService } from '../../app/core/services/product.service';
+import { 
+  LoadProductsInHangarAction, 
+  ProductActions, 
+  ProductActionTypes, 
+  ProductsInHangarLoadedAction, 
+  ProductsLoadedAction, 
+  SetHangarSelectedNameAction } from '../actions/product.action';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,8 @@ export class ProductEffects {
 
   @Effect() loadProducts$: Observable<ProductActions> = this.actions$.pipe(
     ofType<ProductActions>(ProductActionTypes.LOAD_PRODUCTS),
-    switchMap(action => this.productService.getProducts().pipe(
-        map((pageableProduct: Page<RawProduct>) => new ProductsLoadedAction(pageableProduct.content))
+    switchMap(() => this.productService.getProducts().pipe(
+      map((pageableProduct: Page<RawProduct>) => new ProductsLoadedAction(pageableProduct.content))
       )
     )
   );
@@ -42,8 +43,8 @@ export class ProductEffects {
       console.log(action);
       return this.productService.getProductsByHangarName(action.payload).pipe(
         map((products: ProductExtended[]) => new ProductsInHangarLoadedAction(products))
-        )
-      })
+      )
+    })
   );
 
 }
