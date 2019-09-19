@@ -1,8 +1,7 @@
-import { Product, RawProduct } from '../../app/core/models/product.model';
+import { RawProduct, ProductExtended } from '../../app/core/models/product.model';
 
 export interface ProductState {
-  products: RawProduct[];
+  products: RawProduct[] | ProductExtended[];
   hangarSelectedName: string;
   pending: boolean;
 }
-

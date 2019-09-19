@@ -9,13 +9,13 @@ import { HangarService } from '../../../../core/services/hangar.service';
 export class HangarListBarComponent implements OnInit {
 
   @Input() hangarsName: string[];
-  item = -1;
-
   @Output() hangarSelectedNameEmmiter = new EventEmitter<string>();
+
+  item = -1;
 
   ngOnInit(): void { }
 
-  handleSelectItem(hangarName: string, i: number) {
+  handleHangarSelectedClick(hangarName: string, i: number) {
     this.item = i;
     this.hangarSelectedNameEmmiter.emit(hangarName);
   }

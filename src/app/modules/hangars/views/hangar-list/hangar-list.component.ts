@@ -28,11 +28,10 @@ export class HangarListComponent implements OnInit {
 
       this.hangarFacade.loadHangars();
       this.hangars$ = this.hangarFacade.hangars$;
-
-    }
-
-  ngOnInit() {
+      
   }
+
+  ngOnInit(): void { }
 
   expandMenu() {
     if (this.item == -1) {

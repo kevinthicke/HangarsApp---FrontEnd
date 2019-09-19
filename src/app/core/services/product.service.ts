@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RawProduct, Product } from '../models/product.model';
+import { RawProduct, Product, ProductExtended } from '../models/product.model';
 import { Observable } from 'rxjs';
 import { Price } from '../models/price.model';
 import { Page } from '../models/page.model';
@@ -23,6 +23,12 @@ export class ProductService {
 
   public getProductByName(name: string): Observable<RawProduct> {
     return this.http.get<RawProduct>(`${ this.url}/?name=${ name }`);
+  }
+
+  public getProductsByHangarName(name: string): Observable<ProductExtended[]> {
+    return this.http.get<ProductExtended[]>(
+      `http://localhost:3011/api/hangars/products/by-name?name=${ name }`
+    );
   }
 
   public insertProduct(product: Product): Observable<RawProduct> {

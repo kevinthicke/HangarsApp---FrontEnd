@@ -17,7 +17,7 @@ export class HangarService {
   constructor(private http: HttpClient) {}
 
   public getHangars(page: number = 0, size: number = 10): Observable<PaginableHangar> {
-    
+
     const url = `${ this.url }hangars`;
 
     const params = new HttpParams()
@@ -56,12 +56,6 @@ export class HangarService {
 
   public deleteHangarById(id: number): Observable<Hangar> {
     return this.http.put<Hangar>(`${ this.url }hangars/safe-delete/${ id }`, null);
-  }
-
-  public getProductsByHangarName(name: string): Observable<ProductExtended[]> {
-    return this.http.get<ProductExtended[]>(
-      `http://localhost:3011/api/hangars/products/by-name?name=${ name }`
-    );
   }
 
   public saveProductInHangarByhangarId(hangarId: number, product: Product): Observable<any> {

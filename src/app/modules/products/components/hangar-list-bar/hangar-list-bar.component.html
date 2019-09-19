@@ -1,6 +1,5 @@
 <div class='ul-container'>
   <ul class='nav'>
-
     <li class='nav-item m-1 selected' *ngIf='item == -1'>
       <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
     </li>
@@ -11,10 +10,10 @@
 
     <div *ngFor='let hangar of this.hangarsName; let i = index'>
       <li class='nav-item m-1 selected' *ngIf='i == item'>
-        <a class='nav-link' (click)='handleSelectItem(hangar, i)'>{{ hangar }}</a>
+        <a class='nav-link' (click)='this.handleHangarSelectedClick(hangar, i)'>{{ hangar }}</a>
       </li>
       <li class='nav-item m-1' *ngIf='i != item'>
-        <a class='nav-link' (click)='handleSelectItem(hangar, i)'>{{ hangar }}</a>
+        <a class='nav-link' (click)='this.handleHangarSelectedClick(hangar, i)'>{{ hangar }}</a>
       </li>
     </div>
   </ul>

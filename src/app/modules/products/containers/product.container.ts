@@ -19,16 +19,20 @@ export class ProductContainer implements OnInit {
     private productFacade: ProductFacade,
     private hangarFacade: HangarFacade,
     private shoppingCartFacade: ShoppingCartFacade
-  ) {
+  ) { }
 
-    this.products$ = this.productFacade.products$;
+  ngOnInit(): void {
 
     this.hangarFacade.loadHangarsName();
     this.hangarsName$ = this.hangarFacade.hangarsName$;
 
-  }
+    this.hangarsName$.subscribe(resp => {
+      console.log(resp);
+    });
 
-  ngOnInit(): void { }
+    this.productFacade.loadProducts();
+    this.products$ = this.productFacade.products$;
+  }
 
   handleHangarSelected(hangarName: string): void {
     this.productFacade.setHangarSelectedName(hangarName);
