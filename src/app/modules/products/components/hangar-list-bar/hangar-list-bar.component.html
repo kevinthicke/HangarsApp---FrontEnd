@@ -1,12 +1,12 @@
 <div class='ul-container'>
   <ul class='nav'>
-    <li class='nav-item m-1 selected' *ngIf='item == -1'>
+    <!-- <li class='nav-item m-1 selected' *ngIf='item == -1'>
       <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
     </li>
 
     <li class='nav-item m-1' *ngIf='item != -1'>
       <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
-    </li>
+    </li> -->
 
     <div *ngFor='let hangar of this.hangarsName; let i = index'>
       <li class='nav-item selected' *ngIf='i == item'>

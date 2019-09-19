@@ -1,8 +1,6 @@
+import { ProductActions, ProductActionTypes } from '../actions/product.action';
 import { ProductState } from '../state/product.state';
-import { ProductActionTypes, ProductActions } from '../actions/product.action';
 
-import { EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { RawProduct } from '../../app/core/models/product.model';
 
 const initialState: ProductState = {
   products: [],
@@ -10,7 +8,7 @@ const initialState: ProductState = {
   pending: false
 };
 
-export function productReducer(state: ProductState, action: ProductActions): ProductState {
+export function productReducer(state: ProductState = initialState, action: ProductActions): ProductState {
 
   switch (action.type) {
 

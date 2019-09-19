@@ -16,8 +16,6 @@ export class ProductListComponent implements OnInit {
   @Output() incrementProductCounterEmitter = new EventEmitter<void>();
   @Output() decrementProductCounterEmitter = new EventEmitter<void>();
 
-  size = 18;
-
   constructor(private router: Router) { }
 
   ngOnInit(): void { }
@@ -34,7 +32,9 @@ export class ProductListComponent implements OnInit {
 
     if (hangarName) {
       this.hangarSelectedNameEmitter.emit(hangarName);
-    }     
+    } else {
+      this.hangar
+    }    
   }
 
   /*

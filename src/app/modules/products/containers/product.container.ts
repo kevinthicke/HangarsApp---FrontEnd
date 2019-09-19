@@ -26,16 +26,16 @@ export class ProductContainer implements OnInit {
     this.hangarFacade.loadHangarsName();
     this.hangarsName$ = this.hangarFacade.hangarsName$;
 
-    this.hangarsName$.subscribe(resp => {
-      console.log(resp);
-    });
-
     this.productFacade.loadProducts();
     this.products$ = this.productFacade.products$;
   }
 
-  handleHangarSelected(hangarName: string): void {
+  setHangarSelectedName(hangarName: string): void {
     this.productFacade.setHangarSelectedName(hangarName);
+  }
+
+  removeHangarSelected(): void {
+    this.productFacade.loadProducts();
   }
 
   handleIncrementProductCounterEmitter(): void {

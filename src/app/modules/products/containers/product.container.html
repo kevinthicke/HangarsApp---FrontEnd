@@ -1,6 +1,6 @@
 <app-product-list
 [products]='this.products$ | async'
 [hangarsName]='this.hangarsName$ | async'
-(hangarSelectedNameEmitter)='this.handleHangarSelected($event)'
+(hangarSelectedNameEmitter)='this.setHangarSelectedName($event)'
 (incrementProductCounterEmitter)='this.handleIncrementProductCounterEmitter()'
 (decrementProductCounterEmitter)='this.handleDecrementProductCounterEmitter()'>
