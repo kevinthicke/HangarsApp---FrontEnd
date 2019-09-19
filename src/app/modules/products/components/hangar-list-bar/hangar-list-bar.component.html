@@ -1,20 +1,27 @@
 <div class='ul-container'>
+
   <ul class='nav'>
-    <!-- <li class='nav-item m-1 selected' *ngIf='item == -1'>
-      <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
-    </li>
-
-    <li class='nav-item m-1' *ngIf='item != -1'>
-      <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
-    </li> -->
-
-    <div *ngFor='let hangar of this.hangarsName; let i = index'>
-      <li class='nav-item selected' *ngIf='i == item'>
-        <a class='nav-link' (click)='this.handleHangarSelectedClick(hangar, i)'>{{ hangar }}</a>
+    <div *ngFor='let hangarName of this.hangarsName; let i = index'>
+      
+      <li 
+      [ngClass]='{
+        "nav-item selected": i == this.hangarSelectedIndex,
+        "nav-item": i != this.hangarSelectedIndex }'>
+        <a class='nav-link' (click)='this.handleHangarSelectedClick(hangarName, i)'>{{ hangarName }}</a>
       </li>
-      <li class='nav-item' *ngIf='i != item'>
-        <a class='nav-link' (click)='this.handleHangarSelectedClick(hangar, i)'>{{ hangar }}</a>
-      </li>
+     
     </div>
   </ul>
+
 </div>
+
+
+<!-- 
+<li class='nav-item m-1 selected' *ngIf='item == -1'>
+  <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
+ </li>
+
+<li class='nav-item m-1' *ngIf='item != -1'>
+  <a class='nav-link main-item' (click)='handleSelectAllProducts()'>{{ 'products.hangar-list-bar.all-products' | translate }}</a>
+</li> 
+-->
