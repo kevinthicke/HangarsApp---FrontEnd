@@ -4,7 +4,6 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProductDetailsComponent } from './views/product-details/product-details.component';
-import { ProductListComponent } from './views/product-list/product-list.component';
 import { ProductInsertComponent } from './views/product-insert/product-insert.component';
 import { HangarListBarComponent } from './components/hangar-list-bar/hangar-list-bar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -12,11 +11,12 @@ import { FormComponent } from './components/form/form.component';
 import { ProductModifyComponent } from './product-modify/product-modify.component';
 import { CardDeckComponent } from './components/card-deck/card-deck.component';
 import { ProductContainer } from './containers/product.container';
+import { ProductsComponent } from './views/product-list/products.component';
 
 
 @NgModule({
   declarations: [
-    ProductListComponent,
+    ProductsComponent,
     ProductDetailsComponent,
     ProductInsertComponent,
     HangarListBarComponent,

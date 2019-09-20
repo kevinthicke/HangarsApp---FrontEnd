@@ -22,11 +22,11 @@ class='lateral-bar-list'
     <app-secondary-button
     class='m-1'
     [text]=" 'products.list.buttons.insert-button' | translate "
-    (click)='goInsert()'>
+    [routerLink]=" ['insert'] ">
     </app-secondary-button>
-    <app-secondary-button
+<!--     <app-secondary-button
     class='m-1'
     [text]=" 'products.list.buttons.load-button' | translate "
     (click)='loadMore()'>
-    </app-secondary-button>
+    </app-secondary-button> -->
 </div>
