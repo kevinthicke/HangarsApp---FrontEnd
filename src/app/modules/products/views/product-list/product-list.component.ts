@@ -32,9 +32,8 @@ export class ProductListComponent implements OnInit {
 
     if (hangarName) {
       this.hangarSelectedNameEmitter.emit(hangarName);
-    } else {
-      this.hangar
-    }    
+    }
+
   }
 
   /*
@@ -65,7 +64,7 @@ export class ProductListComponent implements OnInit {
   }
   */
 
- 
+
 
   goInsert(): void {
     this.router.navigate(['products/insert']);

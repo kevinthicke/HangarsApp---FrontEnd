@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { HangarService } from '../../../../core/services/hangar.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hangar-list-bar',
@@ -20,20 +19,8 @@ export class HangarListBarComponent implements OnInit {
   handleHangarSelectedClick(hangarName: string, index: number) {
 
     this.hangarSelectedIndex = index;
-
     this.hangarSelectedNameEmmiter.emit(hangarName);
 
   }
 
-  trackByFn(index: number, hangarName: string): string {
-    return hangarName;
-  }
-
-
-  /* handleSelectAllProducts() {
-  //  this.item = -1;
-    this.hangarSelectedNameEmmiter.emit(null);
-  } */
-
-  
 }
