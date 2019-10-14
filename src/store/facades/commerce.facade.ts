@@ -5,6 +5,7 @@ import { ShoppingCart } from 'src/app/core/models/commerce/shopping-cart.model';
 import { CartProduct } from '../../app/core/models/commerce/cart-product.model';
 import { AddToShoppingCartAction, PurchaseOrderAction, RemoveFromShoppingCartAction } from '../actions/commerce.action';
 import { AppState } from '../state';
+import { getShoppingCart } from '../selectors/commerce.selector';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class CommerceFacade {
   shoppingCart$: Observable<ShoppingCart>;
 
   constructor(private store$: Store<AppState>) {
-    this.shoppingCart$ = this.store$.select('commerce', 'shoppingCart');
+    this.shoppingCart$ = this.store$.select(getShoppingCart);
   }
 
   addToShoppingCart(cartProduct: CartProduct): void {
