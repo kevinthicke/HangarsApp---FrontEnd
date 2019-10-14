@@ -9,6 +9,7 @@ import { Product } from '../../app/core/models/product/product.model';
 import { SaveProductAction, SetHangarSelectedAction } from '../actions/product.action';
 import { AppState } from '../state/index';
 import { ProductState } from '../state/product.state';
+import { getProducts } from '../selectors/product.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,12 @@ export class ProductFacade {
 
   constructor(private store: Store<AppState>) {
 
-    this.productsMinified$ = this.store.pipe(
+    this.productsMinified$ = this.store.select(getProducts);
+/*     this.productsMinified$ = this.store.pipe(
       select('product'),
       map((productState: ProductState) => productState.products)
     );
-
+ */
     this.hangarSelected$ = this.store.pipe(
       select('product'),
       map((productState: ProductState) => productState.hangarSelected)
