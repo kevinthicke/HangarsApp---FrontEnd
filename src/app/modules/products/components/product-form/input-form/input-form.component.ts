@@ -21,6 +21,7 @@ import { NgModel, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormCo
 export class InputFormComponent implements OnInit, ControlValueAccessor {
 
   @Input() label: string;
+  @Input() isTextArea: boolean = false;
 
   value: string;
   onChange: () => void;
@@ -49,7 +50,6 @@ export class InputFormComponent implements OnInit, ControlValueAccessor {
   validate(formControl: FormControl): void {
 
     this.formControl = formControl;
-    console.log(formControl)
   }
 
 }
