@@ -1,0 +1,9 @@
+<app-aux-navbar *ngIf='this.product' [title]='this.product.name'></app-aux-navbar>
+<app-aux-navbar *ngIf='!this.product' [title]=" 'products.insert.title' | translate "></app-aux-navbar>
+
+<app-product-form
+[product]='this.product'
+[isFormEnabled]='this.isFormEnabled'
+[hangarsMinified]='this.hangarsMinified'
+(productFormEmitter)='this.handleProductFormEmitter($event)'>
+</app-product-form>

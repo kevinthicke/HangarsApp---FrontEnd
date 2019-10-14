@@ -1,19 +1,25 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
-
-import { NavbarComponent } from './shell/navbar/navbar.component';
-import { MainComponent } from './shell/main/main.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ShellComponent } from './shell/shell.component';
+import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
-import { HttpClient } from '@angular/common/http';
 import { ErrorServiceToastComponent } from './components/error-service-toast/error-service-toast.component';
 import { ShoppingCartButtonComponent } from './components/shopping-cart-button/shopping-cart-button.component';
+import { MainComponent } from './shell/main/main.component';
+import { NavbarComponent } from './shell/navbar/navbar.component';
+import { ShellComponent } from './shell/shell.component';
+import { NavbarContainer } from './containers/navbar/navbar.container';
+
 
 @NgModule({
-  declarations: [NavbarComponent, MainComponent, ShellComponent, ErrorServiceToastComponent, ShoppingCartButtonComponent],
+  declarations: [
+    NavbarComponent,
+    NavbarContainer,
+    MainComponent,
+    ShellComponent,
+    ErrorServiceToastComponent,
+    ShoppingCartButtonComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,

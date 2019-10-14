@@ -1,0 +1,73 @@
+<app-aux-navbar *ngIf='this.product' [title]='this.product.name'></app-aux-navbar>
+<app-aux-navbar *ngIf='!this.product' [title]=' "products.insert.title" | translate '></app-aux-navbar>
+
+<div class='container'>
+  {{ this.isFormEnabled }}
+  <form [formGroup]='form' (ngSubmit)='submit()'>
+
+    <div class='form-group'>
+
+      <!-- Name -->
+      <label for='name'>
+        {{ 'products.form.name' | translate }}
+      </label>
+      <input
+      formControlName='name'
+      class='form-control'
+      id='name'
+      autocomplete='off'/>
+
+    </div>
+
+    <!-- Description -->
+    <div class='form-group'>
+
+      <label for='description'>
+        {{ 'products.form.description' | translate }}
+      </label>
+      <textarea
+      formControlName='description'
+      class='form-control'
+      id='description'
+      rows='5'
+      autocomplete='off'>
+      </textarea>
+
+    </div>
+
+    <!-- Hangar List-->
+    <div>
+
+      <app-hangar-list-form
+      [hangarsMinified]='this.hangarsMinified'
+      [hangarSelectedId]='this.form.controls[hangarId].value'
+      (hangarSelectedIdEmitter)='this.handleHangarSelected($event)'>
+      </app-hangar-list-form>
+
+    </div>
+
+    <div *ngIf='!this.isFormEnabled' class='form-group'>
+
+      <label for='description'>
+        {{ 'products.form.hangar' | translate }}
+      </label>
+      <textarea
+      formControlName='hangarId'
+      class='form-control'
+      id='description'
+      rows='5'
+      autocomplete='off'>
+      </textarea>
+
+    </div>
+
+    <div *ngIf='this.form.valid && this.isFormEnabled' class='d-flex justify-content-end'>
+
+      <app-primary-button
+      [text]=' "products.form.submit-button" | translate '>
+      </app-primary-button>
+
+    </div>
+
+  </form>
+</div>

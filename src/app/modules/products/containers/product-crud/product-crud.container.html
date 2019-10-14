@@ -1,0 +1,14 @@
+<!--
+<app-product
+[product]='this.product$ | async '
+[isFormEnabled]='this.isFormEnabled$ | async'
+[hangarsMinified]='this.hangarsMinified$ | async'
+(productFormEmitter)='this.handleProductFormEmitter($event)'>
+</app-product>
+
+ -->
+<app-product-crud
+[product]='this.product$ | async'
+[hangarsMinified]='this.hangarsMinified$ | async'
+[isFormEnabled]='this.isFormEnabled$ | async'>
+</app-product-crud>

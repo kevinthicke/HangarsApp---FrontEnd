@@ -1,17 +1,12 @@
-import {
-  HttpEvent,
-  HttpInterceptor,
-  HttpHandler,
-  HttpRequest,
-  HttpErrorResponse
- } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { ErrorToastService } from '../services/error-toast.service';
+import { catchError, retry } from 'rxjs/operators';
+import { ErrorFacade } from '../../../store/facades/error.facade';
+import { Error } from '../models/auxiliary/error.model';
 
 export class HttpErrorInterceptor implements HttpInterceptor {
 
-  constructor(private errorToastService: ErrorToastService) { }
+  constructor(private errorFacade: ErrorFacade) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -19,23 +14,25 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       .pipe(
         retry(1),
         catchError((error: HttpErrorResponse) => {
+          
+          let message: string;
+          let status: number;
 
-          let errorMessage: string;
           const isClientSideError = error.error instanceof ErrorEvent;
 
           if(isClientSideError) {
-
-            errorMessage = `Error: ${ error.error.message }`;
-            this.errorToastService.renderize(500, error.message);
-
+            status = 500;
+            message = `Error: ${ error.error.message }`;
           } else {
-
-            errorMessage = `Error Code: ${ error.error.status } \n Message: ${ error.error.message }`;
-            this.errorToastService.renderize(error.error.status, error.error.message);
-
+            status = error.error.status;
+            message = `Error ${ error.error.message }`;
           }
-          //TODO: esto sirve para algo??
-          return throwError(errorMessage);
+
+          let customError = new Error(status.toString(), message);
+          this.errorFacade.renderizeError(customError);
+          
+
+          return throwError(customError);
         })
       );
   }

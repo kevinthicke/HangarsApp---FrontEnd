@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../../core/models/authentication/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class AuthenticationService {
 
   constructor(private httpClient: HttpClient) { }
 
-  authenticate(username: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(`${ this.url }/authenticate`, { username, password });
+  authenticate(user: User): Observable<any> {
+    return this.httpClient.post<any>(`${ this.url }/authenticate`, user);
   }
 
   register(username: string, password: string, role: string): Observable<any> {
@@ -23,11 +24,4 @@ export class AuthenticationService {
     return !(user == null);
   }
 
-  logOut(): void {
-    sessionStorage.removeItem('username');
-  }
-
-  public getUsername(): string {
-    return sessionStorage.getItem('username');
-  }
 }

@@ -1,0 +1,83 @@
+<div class="container">
+  {{ this.product | json }}
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+
+      <label for="name">
+        {{ "products.form.name" | translate }}
+      </label>
+      <input class="form-control" formControlName="name" type="text" id="name"
+        autocomplete="off" value="this.name"/>
+      <!-- <input class="form-control is-invalid" *ngIf="name.touched && name.invalid" [formControl]="name" type="text"
+        id="name" autocomplete="off" />
+
+      <div *ngIf="name.touched && name.invalid">
+        <div class="invalid-feedback" *ngIf="name.errors.required">
+          {{ "validations.field-required" | translate }}
+        </div>
+        <div class="invalid-feedback" *ngIf="name.errors.minlength" [translate]=" 'validations.field-min-length' "
+          [translateParams]=" { minLength: name.errors.minlength.requiredLength }">
+        </div>
+      </div>
+ -->
+    </div>
+
+    <div class="form-group">
+
+      <label for="description">
+        {{ "products.form.description" | translate }}
+      </label>
+      <textarea class="form-control"  formControlName="description"
+        id="description" rows="5" autocomplete="off">
+        </textarea>
+      <!-- <textarea class="form-control is-invalid" *ngIf="description.touched && description.invalid"
+        [formControl]="description" id="description" rows="5" autocomplete="off">
+        </textarea>
+
+      <div *ngIf="description.touched && description.invalid">
+        <div class="invalid-feedback" *ngIf="description.errors.required">
+          {{ "validations.field-required" | translate }}
+        </div>
+      </div> -->
+
+    </div>
+
+    <div>
+
+      <app-hangar-list-form
+      [hangarsMinified]='this.hangarsMinified'
+      [hangarSelectedId]='this.form.controls["hangarId"].value'
+      (hangarSelectedIdEmitter)='this.handleSelectedHangarEmitter($event)'>
+      </app-hangar-list-form>
+
+    </div>
+
+    <div class='d-flex justify-content-between'>
+      <div *ngIf='this.isFormEnabled'>
+        <app-quantity-counter-form
+        (quantityChangeEmitter)='this.handleQuantityChangeEmitter($event)'>
+        </app-quantity-counter-form>
+      </div>
+
+      <div class="form-group">
+        <label for="price">{{ "products.form.price" | translate }}</label>
+        <input class="form-control"  formControlName="price" id="price"
+          cols="1" autocomplete="off" />
+          <!-- <input class="ml-2 form-control is-invalid"
+          *ngIf="price.touched && price.invalid" [formControl]="price" id="price" cols="2" autocomplete="off" /></div> -->
+      </div>
+    </div>
+    <div class='d-flex justify-content-between'>
+    <div *ngIf='!this.isFormEnabled' class="form-group">
+        <label for="quantity">
+            {{ "products.form.quantity" | translate }}
+          </label>
+          <input class="form-control" formControlName="quantity" type="text" id="quantity" 
+            autocomplete="off" value="this.quantity"/>
+    </div>
+  </div>
+      <div *ngIf="this.isFormEnabled" class='d-flex justify-content-end'>
+        <app-primary-button [text]=" 'products.form.submit-button' | translate "></app-primary-button>
+      </div>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
-import { Page } from 'src/app/core/models/page.model';
-import { Hangar } from 'src/app/core/models/hangar.model';
+import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
+import { PaginableHangar } from '../../app/core/models/hangar/paginable-hangar.model';
 
 
 export enum HangarActionTypes {
@@ -20,7 +20,7 @@ export class LoadHangarsAction implements Action {
 export class HangarsLoadedAction implements Action {
   readonly type = HangarActionTypes.HANGARS_LOADED;
 
-  constructor(public payload: Page<Hangar>) { }
+  constructor(public payload: PaginableHangar) { }
 }
 
 export class LoadHangarsNameAction implements Action {
@@ -30,7 +30,7 @@ export class LoadHangarsNameAction implements Action {
 export class HangarsNameLoadedAction implements Action {
   readonly type = HangarActionTypes.HANGARS_NAME_LOADED;
 
-  constructor(public payload: string[]) { }
+  constructor(public payload: HangarMinified[]) { }
 }
 
 
@@ -38,4 +38,5 @@ export type HangarActions = (
   LoadHangarsAction |
   HangarsLoadedAction |
   LoadHangarsNameAction |
-  HangarsNameLoadedAction);
+  HangarsNameLoadedAction
+);

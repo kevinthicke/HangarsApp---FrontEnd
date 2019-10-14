@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ErrorToastService } from '../../../core/services/error-toast.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Error } from 'src/app/core/models/auxiliary/error.model';
 import { fade } from '../../../shared/animations/fade.animation';
 
 @Component({
@@ -10,14 +10,11 @@ import { fade } from '../../../shared/animations/fade.animation';
 })
 export class MainComponent implements OnInit {
 
+  @Input() error: Error;
   @Input() renderShoppingCart: boolean;
 
-  constructor(public errorToastService: ErrorToastService) { }
+  constructor() { }
 
   ngOnInit(): void { }
-
-  handleCloseToast(): void {
-    this.errorToastService.hide();
-  }
 
 }

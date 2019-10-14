@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { HangarService } from '../../../../core/services/hangar.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 
 @Component({
   selector: 'app-hangar-list-bar',
@@ -8,21 +8,22 @@ import { HangarService } from '../../../../core/services/hangar.service';
 })
 export class HangarListBarComponent implements OnInit {
 
-  @Input() hangarsName: string[];
-  @Output() hangarSelectedNameEmmiter = new EventEmitter<string>();
+  @Input() hangarsMinified: HangarMinified[];
+  @Output() hangarSelectedEmmiter = new EventEmitter<HangarMinified>();
 
-  item = -1;
+  hangarSelectedIndex: number;
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
 
-  handleHangarSelectedClick(hangarName: string, i: number) {
-    this.item = i;
-    this.hangarSelectedNameEmmiter.emit(hangarName);
+    this.hangarSelectedIndex = (this.hangarsMinified) ? this.hangarsMinified.length: null;
+
   }
 
-  handleSelectAllProducts() {
-    this.item = -1;
-    this.hangarSelectedNameEmmiter.emit(null);
+  handleHangarSelectedClick(hangarMinified: HangarMinified, index: number) {
+    
+    this.hangarSelectedIndex = index;
+    this.hangarSelectedEmmiter.emit(hangarMinified);
+
   }
 
 }

@@ -1,0 +1,13 @@
+<label>{{ "products.form.select-hangar" | translate }}</label>
+
+<ul class='custom-list-group'>
+
+  <li *ngFor='let hangar of this.hangarsMinified'>
+    <span
+    class='custom-list-item'
+    [ngClass]="{ 'selected': hangar.id === hangarSelectedId }"
+    (click)='this.isEnabled && (hangarSelectedId = hangar.id); this.isEnabled && this.selectHangar(hangar)'>
+      {{ hangar.name }}
+    </span>
+  </li>
+</ul>

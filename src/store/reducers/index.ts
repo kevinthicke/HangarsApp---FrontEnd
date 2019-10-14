@@ -1,14 +1,20 @@
+import { routerReducer } from '@ngrx/router-store';
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
-import { shoppingCartReducer } from './shopping-cart.reducer';
 import { environment } from '../../environments/environment';
-import { hangarReducer } from './hangar.reducer';
 import { AppState } from '../state/index';
+import { commerceReducer } from './commerce.reducer';
+import { hangarReducer } from './hangar.reducer';
 import { productReducer } from './product.reducer';
+import { securityReducer } from './security.reducer';
+import { errorReducer } from './error.reducer';
 
 export const rootReducers: ActionReducerMap<AppState> = {
-  shoppingCart: shoppingCartReducer,
+  router: routerReducer,
   hangar: hangarReducer,
-  product: productReducer
+  product: productReducer,
+  commerce: commerceReducer,
+  security: securityReducer,
+  error: errorReducer
 };
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

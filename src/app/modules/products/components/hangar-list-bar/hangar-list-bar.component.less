@@ -1,12 +1,18 @@
-.nav-item {
+.nav-item, .selected {
+  margin: 1px;
   border-radius: 0px 5px 5px 0px;
-  transition-property: all;
-  transition-duration: 200ms
 }
 
-.nav-item:hover {
-  background: #C6CACE;
-  transform: translate(1rem, 0);
+.nav-item {
+ 
+  transition-property: all;
+  transition-duration: 200ms;
+  
+  &:hover {
+    background: #C6CACE;
+    transform: translate(1rem, 0);
+  }
+  
 }
 
 ul {

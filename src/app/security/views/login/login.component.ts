@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 import { fade } from '../../../shared/animations/fade.animation';
+import { User } from '../../../core/models/authentication/user.model';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,19 @@ import { fade } from '../../../shared/animations/fade.animation';
 })
 export class LoginComponent implements OnInit {
 
-  private form = new FormGroup({
-    'username': new FormControl(''),
-    'password': new FormControl('')
-  });
+  @Output() loginFormEmitter = new EventEmitter<User>();
 
-  constructor(private authenticationService: AuthenticationService,
-              private router: Router) { }
+  form: FormGroup;
 
-  ngOnInit() {
+  constructor() { }
+
+  ngOnInit(): void {
+
+    this.form = new FormGroup({
+      'username': new FormControl(''),
+      'password': new FormControl('')
+    });
+
   }
 
   get username() {
@@ -31,21 +36,8 @@ export class LoginComponent implements OnInit {
     return this.form.get('password');
   }
 
-  handleSubmit() {
-    const { username, password } = this.form.value;
-
-    this.authenticationService.authenticate(username, password).subscribe(resp => {
-
-      if(resp.token) {
-        sessionStorage.setItem('username', username);
-        sessionStorage.setItem('token', `Bearer ${ resp.token }`);
-        this.router.navigate(['']);
-      }
-    });
-  }
-
-  goCreateAccount() {
-    this.router.navigate(['register']);
+  submit(): void {
+    this.loginFormEmitter.emit(this.form.value);
   }
 
 }

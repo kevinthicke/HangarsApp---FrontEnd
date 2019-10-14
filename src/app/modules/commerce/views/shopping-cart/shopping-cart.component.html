@@ -1,0 +1,40 @@
+<app-aux-navbar [title]=" 'commerce.title' | translate "></app-aux-navbar>
+
+<div *ngIf='this.shoppingCart.cart.length > 0'>
+  <ul>
+    <li
+    class='custom-list-item'
+    *ngFor='let cartProduct of this.shoppingCart.cart'>
+      <div class='d-flex'>
+          <span class="badge badge-primary badge-pill">
+            {{ cartProduct.quantity }}
+          </span>
+          <span>
+            {{ cartProduct.productMinified.name }}
+          </span>
+      </div>
+      <div class='btn-group btn-group-toggle'>
+        <span class='cart-product-price'>{{cartProduct.quantity}} x {{ cartProduct.productMinified.price }} $</span>
+        <button class='btn btn-success' (click)='this.increaseCartProductQuantity(cartProduct)' >+</button>
+        <button class='btn btn-danger' (click)='this.decreaseCartProductQuantity(cartProduct)'>-</button>
+      </div>
+    </li>
+
+  </ul>
+  <div class="d-flex justify-content-end">
+    <input
+    class='input-group-text'
+    [value]='this.shoppingCart.totalPrice + " $" '
+    disabled>
+    <app-primary-button
+    [text]='"commerce.purchase" | translate '
+    (click)='this.purchaseOrder()'>
+    </app-primary-button>
+</div>
+</div>
+
+  <div class='jumbotron' *ngIf='this.shoppingCart.cart.length == 0'>
+    <div class="container">
+      <h1 class="display-4">{{ 'commerce.cart-empty' | translate }}</h1>
+    </div>
+  </div>

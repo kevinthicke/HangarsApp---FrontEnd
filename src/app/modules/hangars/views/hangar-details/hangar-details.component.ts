@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Hangar } from '../../../../core/models/hangar.model';
-import { ActivatedRoute } from '@angular/router';
 import { fade } from 'src/app/shared/animations/fade.animation';
-import { ProductService } from '../../../../core/services/product.service';
-import { ProductForm } from '../../../../core/models/product-form.model';
-import { HangarService } from '../../../../core/services/hangar.service';
-import { RawProduct } from 'src/app/core/models/product.model';
+import { Hangar } from '../../../../core/models/hangar.model';
 import { ProductsHangar } from '../../../../core/models/products-hangar.model';
+import { HangarService } from '../../../../core/services/hangar.service';
+import { ProductService } from '../../../../core/services/product.service';
 
 
 @Component({
@@ -62,13 +60,13 @@ export class HangarDetailsComponent implements OnInit {
   }
   */
 
- handleProductForm({ quantity, ... product }: ProductForm): void {
+ handleProductForm({ quantity, ... product }: any): void {
 
   this.productService
     .insertProduct(product)
     .pipe(
-      switchMap((product: RawProduct) => {
-        return this.hangarService.saveProductInHangarByHangarIdAndProductId(this.id, product.id);
+      switchMap((product: any) => {
+        return this.hangarService.saveProductInHangar(this.id, product.id);
       }),
       switchMap((productsHangar: ProductsHangar) => {
         return this.productService.setProductQuantity(productsHangar.hangar_id, productsHangar.product_id, productsHangar.quantity);

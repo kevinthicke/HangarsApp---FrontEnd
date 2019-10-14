@@ -1,8 +1,9 @@
 import { HangarState } from '../state/hangar.state';
 import { HangarActions, HangarActionTypes } from '../actions/hangar.action';
+import { PaginableHangar } from 'src/app/core/models/hangar/paginable-hangar.model';
 
 export const initialState: HangarState = {
-  hangars: null,
+  hangars: new PaginableHangar(),
   hangarsName: [],
   pending: false,
   error: null

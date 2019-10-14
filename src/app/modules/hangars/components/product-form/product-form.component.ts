@@ -12,7 +12,7 @@ import { ProductForm } from '../../../../core/models/product-form.model';
 })
 export class ProductFormComponent implements OnInit {
   form: FormGroup;
-  @Output() formEmitter = new EventEmitter<ProductForm>();
+  @Output() formEmitter = new EventEmitter<any>();
 
   constructor() { }
 

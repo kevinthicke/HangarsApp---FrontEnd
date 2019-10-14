@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { RawProduct } from 'src/app/core/models/product.model';
-import { ProductExtended } from '../../app/core/models/product.model';
-import { LoadProductsAction, SetHangarSelectedNameAction } from '../actions/product.action';
+import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
+import { ProductForm } from '../../app/core/models/product-form.model';
+import { ProductMinified } from '../../app/core/models/product/product-minified';
+import { Product } from '../../app/core/models/product/product.model';
+import { SaveProductAction, SetHangarSelectedAction } from '../actions/product.action';
 import { AppState } from '../state/index';
 import { ProductState } from '../state/product.state';
 
@@ -13,29 +15,34 @@ import { ProductState } from '../state/product.state';
 })
 export class ProductFacade {
 
-  products$: Observable<RawProduct[] | ProductExtended[]>;
-  hangarSelectedName$: Observable<string>;
+  productsMinified$: Observable<ProductMinified[]>;
+  product$: Observable<Product>;
+  hangarSelected$: Observable<HangarMinified>;
 
   constructor(private store: Store<AppState>) {
 
-    this.products$ = this.store.pipe(
+    this.productsMinified$ = this.store.pipe(
       select('product'),
       map((productState: ProductState) => productState.products)
     );
 
-    this.hangarSelectedName$ = this.store.pipe(
+    this.hangarSelected$ = this.store.pipe(
       select('product'),
-      map((productState: ProductState) => productState.hangarSelectedName)
+      map((productState: ProductState) => productState.hangarSelected)
     );
 
+    this.product$ = this.store.pipe(
+      select('product', 'product')
+    )
+
   }
 
-  loadProducts(): void {
-    this.store.dispatch(new LoadProductsAction());
+  setHangarSelectedName(hangarMinified: HangarMinified): void {
+    this.store.dispatch(new SetHangarSelectedAction(hangarMinified));
   }
 
-  setHangarSelectedName(hangarName: string): void {
-    this.store.dispatch(new SetHangarSelectedNameAction(hangarName));
+  saveProduct(product: Product): void {
+    this.store.dispatch(new SaveProductAction(product));
   }
 
 }

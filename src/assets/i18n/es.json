@@ -81,11 +81,13 @@
       "buttons": {
         "insert-button": "Insertar",
         "load-button": "Ver más"
-      }
+      },
+      "message": "Selecciona un hangar para ver los productos que contiene o inserta uno nuevo"
     },
     "card-deck": {
       "modify-button": "Modificar",
-      "details-button": "Detalles"
+      "details-button": "Detalles",
+      "add-to-cart": "Añadir al carrito"
     },
     "hangar-list-bar": {
       "all-products": "Ver todos"
@@ -93,11 +95,21 @@
     "form": {
       "name": "Nombre",
       "description": "Descripción",
+      "hangar": "Hangar",
       "select-hangar": "Seleccionar hangar",
       "quantity": "Cantidad",
       "price": "Precio",
       "submit-button": "Guardar"
+    },
+    "insert": {
+      "title": "Insertar un nuevo producto"
     }
+  },
+  "commerce": {
+    "title": "Tienda",
+    "delete-product": "Quitar producto",
+    "cart-empty": "No hay productos en el carrito de compra!",
+    "purchase": "Comprar!"
   },
   "validations": {
     "field-required": "Este campo es requerido",

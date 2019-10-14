@@ -9,14 +9,9 @@ export class ErrorServiceToastComponent implements OnInit {
 
   @Input() status: string;
   @Input() message: string;
-  @Output() closeToastEmitter = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void { }
-
-  closeToast(): void {
-    this.closeToastEmitter.emit();
-  }
 
 }

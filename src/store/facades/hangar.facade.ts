@@ -1,30 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { AppState } from '../state/index';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Hangar } from '../../app/core/models/hangar.model';
-import { selectHangarList } from '../selectors/hangar.selector';
+import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
 import { LoadHangarsAction, LoadHangarsNameAction } from '../actions/hangar.action';
 import { HangarState } from '../state/hangar.state';
-import { map } from 'rxjs/operators';
+import { AppState } from '../state/index';
+import { PaginableHangar } from '../../app/core/models/hangar/paginable-hangar.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HangarFacade {
 
-  hangars$: Observable<Hangar[]>;
-  hangarsName$: Observable<string[]>;
+  hangars$: Observable<PaginableHangar>;
+  hangarsMinified$: Observable<HangarMinified[]>;
 
   constructor(private store: Store<AppState>) {
 
-    this.hangars$ = this.store.pipe(select(selectHangarList));
+    this.hangars$ = this.store.pipe(select('hangar', 'hangars'));
 
-    this.hangarsName$ = this.store.pipe(
+    this.hangarsMinified$ = this.store.pipe(
       select('hangar'),
-      map((hangarState: HangarState) => {
-        return hangarState.hangarsName;
-      }));
+      map((hangarState: HangarState) => hangarState.hangarsName ));
 
   }
 

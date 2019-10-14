@@ -1,0 +1,6 @@
+<label>{{ "products.form.quantity" | translate }}</label>
+<div class="counter-container">
+  <app-circle-button [text]=" ' - ' " (click)="this.decreaseQuantity()"></app-circle-button>
+  <span class="number-box">{{ this.quantity }}</span>
+  <app-circle-button [text]=" ' + ' " (click)="this.increaseQuantity()"></app-circle-button>
+</div>

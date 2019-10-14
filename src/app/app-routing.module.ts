@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './shared/views/home/home.component';
-import { AboutComponent } from './shared/views/about/about.component';
-import { LoginComponent } from './security/views/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { RegisterContainer } from './security/containers/register/register.container';
 import { AuthGaurdService } from './security/services/auth-gaurd.service';
 import { LogoutComponent } from './security/views/logout/logout.component';
+import { HomeComponent } from './shared/views/home/home.component';
 import { RegisterComponent } from './security/views/register/register.component';
+import { LoginContainer } from './security/containers/login/login.container';
 
 const routes: Routes = [
   {
@@ -14,12 +14,8 @@ const routes: Routes = [
     canActivate: [AuthGaurdService]
   },
   {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
     path: 'login',
-    component: LoginComponent
+    component: LoginContainer
   },
   {
     path: 'logout',
@@ -37,6 +33,11 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () => import('./modules/products/products.module').then(module => module.ProductsModule),
+    canActivate: [AuthGaurdService]
+  },
+  {
+    path: 'commerce',
+    loadChildren: () => import('./modules/commerce/commerce.module').then(module => module.CommerceModule),
     canActivate: [AuthGaurdService]
   },
   {

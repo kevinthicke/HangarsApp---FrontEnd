@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../core/services/user.service';
 import { AuthenticationService } from '../../services/authentication.service';
-import { RegisterValidators, RegisterAsyncValidators } from '../../validators/register.validators';
-import { Role } from '../../../core/models/Role';
+import { RegisterAsyncValidators, RegisterValidators } from '../../validators/register.validators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,9 +20,9 @@ export class RegisterComponent implements OnInit {
   private roleSelected: string;
 
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private router: Router,
     private authenticationService: AuthenticationService
   ) { }
 

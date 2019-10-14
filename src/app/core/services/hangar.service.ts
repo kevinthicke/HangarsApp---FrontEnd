@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Page } from '../models/page.model';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Hangar } from '../models/hangar.model';
-import { Observable, ObservableInput, throwError } from 'rxjs';
-import { Product, ProductExtended } from '../models/product.model';
+import { HangarMinified } from '../models/hangar/hangar-minified.model';
+import { PaginableHangar } from '../models/hangar/paginable-hangar.model';
 import { ProductsHangar } from '../models/products-hangar.model';
-import { PaginableHangar } from '../models/paginableHangar.model';
-import { retry, catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +23,22 @@ export class HangarService {
       .set('page', page.toString())
       .set('size', size.toString());
 
-    return this.http.get<PaginableHangar>(url, { params });
+    return this.http.get(url, { params }).pipe(
+      map(hangarsData => new PaginableHangar().deserialize(hangarsData))
+    );
   }
 
-  public getHangarsNames(): Observable<string[]> {
-    return this.http.get<string[]>(`${this.url}hangars/names`);
+  //verified
+  public getHangarsNames(): Observable<HangarMinified[]> {
+    const endpoint = `${ this.url }hangars/names`;
+
+    return this.http.get(endpoint).pipe(
+      map(hangarsData => {
+        if (Array.isArray(hangarsData)) {
+          return hangarsData.map(hangarData => new HangarMinified().deserialize(hangarData));
+        } 
+      })
+    );
   }
 
   public getHangarById(id: number): Observable<Hangar> {
@@ -58,14 +68,14 @@ export class HangarService {
     return this.http.put<Hangar>(`${ this.url }hangars/safe-delete/${ id }`, null);
   }
 
-  public saveProductInHangarByhangarId(hangarId: number, product: Product): Observable<any> {
+  public saveProductInHangarByhangarId(hangarId: number, product: any): Observable<any> {
     return this.http.post<any>(
       `http://localhost:3011/api/hangars/${ hangarId }/products`,
       product
     );
   }
 
-  public saveProductInHangarByHangarIdAndProductId(hangarId: number, productId: number): Observable<ProductsHangar> {
+  public saveProductInHangar(hangarId: number, productId: number): Observable<ProductsHangar> {
     return this.http.post<ProductsHangar>(
       `${ this.url }include?hangar_id=${ hangarId }&product_id=${ productId }`,
       null

@@ -1,6 +1,4 @@
 <div class='toast-error-container'>
   <div class='error-message'>{{ this.message }}</div>
-  <div class='error-close'>
-    <app-circle-button [text]=" 'x' " (click)='this.closeToast()'></app-circle-button>
-  </div>
+  <span class='error-status'>{{ this.status }}</span>
 </div>

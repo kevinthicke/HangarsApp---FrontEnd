@@ -1,10 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Product, ProductExtended, RawProduct } from '../../../../core/models/product.model';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Store, select, Action } from '@ngrx/store';
-import { DecrementProductCounterAction, IncrementProductCounterAction } from '../../../../../store/actions/shopping-cart.action';
-import { AppState } from '../../../../../store/state/index';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ProductMinified } from '../../../../core/models/product/product-minified';
 
 
 @Component({
@@ -14,37 +9,16 @@ import { AppState } from '../../../../../store/state/index';
 })
 export class CardDeckComponent implements OnInit {
 
-  @Input() products: RawProduct[];
-  @Input() hangarName: string;
+  @Input() products: ProductMinified[];
 
-  @Output() incrementProductCounterEmitter = new EventEmitter<void>();
-  @Output() decrementProductCounterEmitter = new EventEmitter<void>();
+  @Output() addToShoppingCartEmitter = new EventEmitter<ProductMinified>();
 
-  constructor(private router: Router,
-              private store: Store<AppState>) { }
+  constructor() { }
 
   ngOnInit(): void { }
 
-  goModify(product: Product): void {
-    this.router.navigate(
-      ['products/modify'],
-      { state:
-        { product,
-          hangarName: this.hangarName
-        }
-      });
-  }
-
-  goDetails(product: Product): void {
-    this.router.navigate(['products/details'], { state: product });
-  }
-
-  incrementProductCounter(): void {
-    this.incrementProductCounterEmitter.emit();
-  }
-
-  decrementProductCounter(): void {
-    this.decrementProductCounterEmitter.emit();
+  addToShoppingCart(productMinified: ProductMinified): void {
+    this.addToShoppingCartEmitter.emit(productMinified);
   }
 
 }

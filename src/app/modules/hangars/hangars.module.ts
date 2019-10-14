@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HangarListComponent } from './views/hangar-list/hangar-list.component';
 
-import { HangarsRoutingModule } from './hangars-routing,module';
+import { HangarsRoutingModule } from './hangars-routing.module';
 import { ListComponent } from './components/list/list.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../../shared/shared.module';
@@ -32,6 +32,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     HangarsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule, SharedModule]
+    TranslateModule,
+    SharedModule
+  ]
 })
 export class HangarsModule { }

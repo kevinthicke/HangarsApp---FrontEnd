@@ -3,27 +3,30 @@ import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProductDetailsComponent } from './views/product-details/product-details.component';
-import { ProductListComponent } from './views/product-list/product-list.component';
-import { ProductInsertComponent } from './views/product-insert/product-insert.component';
 import { HangarListBarComponent } from './components/hangar-list-bar/hangar-list-bar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FormComponent } from './components/form/form.component';
-import { ProductModifyComponent } from './product-modify/product-modify.component';
-import { CardDeckComponent } from './components/card-deck/card-deck.component';
-import { ProductContainer } from './containers/product.container';
-
+import { ProductContainer } from './containers/product/product.container';
+import { ProductsComponent } from './views/product-list/products.component';
+import { ProductCrudContainer } from './containers/product-crud/product-crud.container';
+import { ProductComponent } from './views/product/product.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
+import { HangarListFormComponent } from './components/product-form/hangar-list-form/hangar-list-form.component';
+import { QuantityCounterFormComponent } from './components/product-form/quantity-counter-form/quantity-counter-form.component';
+import { CardDeckComponent } from './components/card-deck/card-deck.component'
+import { ProductCrudComponent } from '../../products/views/product-crud/product-crud.component';
 
 @NgModule({
   declarations: [
-    ProductListComponent,
-    ProductDetailsComponent,
-    ProductInsertComponent,
-    HangarListBarComponent,
+    ProductsComponent,
     CardDeckComponent,
-    FormComponent,
+    HangarListBarComponent,
     ProductContainer,
-    ProductModifyComponent,
+    ProductCrudContainer,
+    ProductCrudComponent,
+    ProductComponent,
+    ProductFormComponent,
+    HangarListFormComponent,
+    QuantityCounterFormComponent
   ],
   imports: [
     CommonModule,

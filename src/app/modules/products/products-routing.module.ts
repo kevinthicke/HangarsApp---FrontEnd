@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductContainer } from './containers/product.container';
-import { ProductModifyComponent } from './product-modify/product-modify.component';
-import { ProductDetailsComponent } from './views/product-details/product-details.component';
-import { ProductInsertComponent } from './views/product-insert/product-insert.component';
+import { ProductCrudContainer } from './containers/product-crud/product-crud.container';
+import { ProductContainer } from './containers/product/product.container';
 
 const routes: Routes = [
   {
@@ -11,16 +9,16 @@ const routes: Routes = [
     component: ProductContainer
   },
   {
-    path: 'details',
-    component: ProductDetailsComponent
+    path: 'details/:id',
+    component: ProductCrudContainer
   },
   {
     path: 'insert',
-    component: ProductInsertComponent
+    component: ProductCrudContainer
   },
   {
-    path: 'modify',
-    component: ProductModifyComponent
+    path: 'modify/:id',
+    component: ProductCrudContainer
   }
 ];
 

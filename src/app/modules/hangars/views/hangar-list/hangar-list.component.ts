@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HangarFacade } from '../../../../../store/facades/hangar.facade';
 import { Hangar } from '../../../../core/models/hangar.model';
 import { HangarService } from '../../../../core/services/hangar.service';
+import { PaginableHangar } from '../../../../core/models/hangar/paginable-hangar.model';
 
 @Component({
   selector: 'app-hangar-list',
@@ -11,7 +12,7 @@ import { HangarService } from '../../../../core/services/hangar.service';
   styleUrls: ['./hangar-list.component.less']
 })
 export class HangarListComponent implements OnInit {
-  hangars$: Observable<Hangar[]>;
+  hangars$: Observable<PaginableHangar>;
   hangar: Hangar;
   page = 0;
   size = 18;

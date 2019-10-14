@@ -14,9 +14,8 @@ import { AppState } from '../../../../store/state/index';
   styleUrls: ['./navbar.component.less'],
   animations: [ fade ]
 })
-export class NavbarComponent implements OnInit, AfterContentInit {
-  title = 'Hangars App';
-  buttonSelectedIndex = -1;
+export class NavbarComponent implements OnInit {
+
   buttons = [
     {
       title: 'navbar.home',
@@ -32,47 +31,26 @@ export class NavbarComponent implements OnInit, AfterContentInit {
     },
     {
       title: 'navbar.shop',
-      link: '/about'
+      link: '/commerce'
     },
   ];
-  isLoading: Subject<boolean>;
 
   @Input() activeLang: string;
+  @Input() userName: string;
+
   @Output() changeLanguageEmitter = new EventEmitter<void>();
-  @Output() shoppingCartRenderEmitter = new EventEmitter<void>();
-  productCounter$: Observable<number>;
+  @Output() logOutEmitter = new EventEmitter<void>();
 
-  constructor(public authenticationService: AuthenticationService,
-              private loadingSpinnerService: LoadingSpinnerService,
-              private store: Store<AppState>,
-              private router: Router) {
-
-    this.productCounter$ = this.store
-                              .pipe(
-                                select('shoppingCart'),
-                                map(state => state.productCounter));
-  }
+  constructor() { }
 
   ngOnInit(): void { }
 
-  ngAfterContentInit(): void {
-    this.isLoading = this.loadingSpinnerService.isLoading;
-  }
-
-  renderShoppingCart(): void {
-    this.shoppingCartRenderEmitter.emit();
-  }
-
-  handleClickButton(index: number): void {
-    this.buttonSelectedIndex = index;
-  }
-
-  emitChangeLanguage(): void {
+  changeLanguage(): void {
     this.changeLanguageEmitter.emit();
   }
 
   logOut(): void {
-    this.router.navigate(['logout']);
+    this.logOutEmitter.emit();
   }
 
 }

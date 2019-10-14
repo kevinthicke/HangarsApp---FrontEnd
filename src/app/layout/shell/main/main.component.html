@@ -12,14 +12,13 @@
   <router-outlet></router-outlet>
 
   <div
-  *ngIf='this.errorToastService.getRenderStatus()'
+  *ngIf='this.error'
   class='float-toast'
   @fade>
 
     <app-error-service-toast
-    [status]='this.errorToastService.getStatus()'
-    [message]='this.errorToastService.getMessage()'
-    (closeToastEmitter)='this.handleCloseToast()'>
+    [status]='this.error.status'
+    [message]='this.error.message'>
     </app-error-service-toast>
 
   </div>

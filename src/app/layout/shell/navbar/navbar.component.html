@@ -13,7 +13,7 @@ class='navigation-bar-brand'>
     <span class="sr-only">Loading...</span>
   </div>
   -->
-  <span>{{ this.title }}</span>
+  <span>Hangars App</span>
 </div>
 
 <!-- Navigation buttons -->
@@ -22,11 +22,11 @@ class='navigation-bar-brand'>
     *ngFor='let button of this.buttons; let i = index'
     [routerLink]='[button.link]'
     routerLinkActive='router-link-active'
-    (click)='this.handleClickButton(i)'>
+    (click)='itemSelected = i'>
       <span
       [ngClass]="{
-        'bar-list-item-selected': this.buttonSelectedIndex === i,
-        'bar-list-item': this.buttonSelectedIndex !==i }">
+        'bar-list-item-selected': itemSelected === i,
+        'bar-list-item': itemSelected !==i }">
         {{ button.title | translate }}
       </span>
     </li>
@@ -35,15 +35,14 @@ class='navigation-bar-brand'>
 <!-- Login buttons -->
   <div class='button-container'>
 
-    <div *ngIf='this.authenticationService.isUserLoggedIn()' class='username-container'>
-      <span class='username'>{{ this.authenticationService.getUsername() }}</span>
+    <div class='username-container'>
+      <span class='username'>{{ this.userName }}</span>
     </div>
-    <app-circle-button [text]=" this.activeLang | titlecase " (click)='this.emitChangeLanguage()'></app-circle-button>
+    <app-circle-button [text]=" this.activeLang | titlecase " (click)='this.changeLanguage()'></app-circle-button>
     <app-circle-button-aux [text]=" 'navbar.log-out' | translate " (click)='this.logOut()'></app-circle-button-aux>
 
   </div>
-
-<!-- Shopping car float button -->
+<!--
 <div class="float-button">
 
     <app-shopping-cart-button
@@ -55,4 +54,5 @@ class='navigation-bar-brand'>
 
 </div>
 
+ -->
 </nav>

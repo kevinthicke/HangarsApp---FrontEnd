@@ -1,0 +1,6 @@
+<app-shopping-cart
+[shoppingCart]='this.shoppingCart$ | async'
+(increaseCartProductQuantityEmitter)='this.handleIncreaseCartProductQuantity($event)'
+(decreaseCartProductQuantityEmitter)='this.handleDecreaseCartProductQuantity($event)'
+(purchaseOrderEmitter)='this.handlePurchaseOrder()'>
+</app-shopping-cart>
