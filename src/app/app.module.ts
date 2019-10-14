@@ -19,7 +19,7 @@ import { HttpErrorInterceptor } from './core/utils/http-error-interceptor';
 import { HttpLoaderInterceptor } from './core/utils/http-loader-interceptor';
 import { LayoutModule } from './layout/layout.module';
 import { BasicAuthorizationHttpInterceptService } from './security/services/basic-authorization-http-intercept.service';
-import { LoginContainer } from './security/containers/login/login.container';g
+import { LoginContainer } from './security/containers/login/login.container';
 import { LoginComponent } from './security/views/login/login.component';
 import { LogoutComponent } from './security/views/logout/logout.component';
 import { RegisterComponent } from './security/views/register/register.component';
