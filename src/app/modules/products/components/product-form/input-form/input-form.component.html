@@ -1,0 +1,21 @@
+<form>
+
+  <div class='form-group'>
+    <label for='input'>{{ this.label }}</label>
+    <input
+    [value]='this.value'
+    [disabled]='this.disabled'
+    (input)='this.onChange($event.target.value)'
+    (blur)='this.onTouched()'
+    class='form-control' id='input' autocomplete='off'>
+  </div>
+  <div *ngIf='this.formControl.invalid && this.formControl.touched'>
+
+    <div *ngIf='this.formControl.hasError("required")' class='alert alert-danger'>
+      {{ 'validations.field-required' | translate }}
+    </div>
+    <div *ngIf='this.formControl.hasError("minlength")' class='alert alert-danger'>
+      {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
+    </div>
+  </div>
+</form>

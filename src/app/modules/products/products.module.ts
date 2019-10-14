@@ -14,6 +14,7 @@ import { HangarListFormComponent } from './components/product-form/hangar-list-f
 import { QuantityCounterFormComponent } from './components/product-form/quantity-counter-form/quantity-counter-form.component';
 import { CardDeckComponent } from './components/card-deck/card-deck.component'
 import { ProductCrudComponent } from '../../products/views/product-crud/product-crud.component';
+import { InputFormComponent } from './components/product-form/input-form/input-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductCrudComponent } from '../../products/views/product-crud/product-
     ProductComponent,
     ProductFormComponent,
     HangarListFormComponent,
-    QuantityCounterFormComponent
+    QuantityCounterFormComponent,
+    InputFormComponent
   ],
   imports: [
     CommonModule,

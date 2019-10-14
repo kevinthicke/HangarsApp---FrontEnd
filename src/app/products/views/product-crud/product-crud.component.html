@@ -1,13 +1,17 @@
 <app-aux-navbar *ngIf='this.product' [title]='this.product.name'></app-aux-navbar>
 <app-aux-navbar *ngIf='!this.product' [title]=' "products.insert.title" | translate '></app-aux-navbar>
 
+
 <div class='container'>
-  {{ this.isFormEnabled }}
+  {{ this.form.controls['name'].errors | json }}
   <form [formGroup]='form' (ngSubmit)='submit()'>
+    <app-input-form
+    formControlName='name'
+    [label]= ' "products.form.name" | translate'>
+    </app-input-form>
+<!--     <div class='form-group'>
 
-    <div class='form-group'>
 
-      <!-- Name -->
       <label for='name'>
         {{ 'products.form.name' | translate }}
       </label>
@@ -18,8 +22,9 @@
       autocomplete='off'/>
 
     </div>
-
+ -->
     <!-- Description -->
+    <!--
     <div class='form-group'>
 
       <label for='description'>
@@ -34,8 +39,7 @@
       </textarea>
 
     </div>
-
-    <!-- Hangar List-->
+¡
     <div>
 
       <app-hangar-list-form
@@ -68,6 +72,6 @@
       </app-primary-button>
 
     </div>
-
+ -->
   </form>
 </div>

@@ -5,8 +5,8 @@ import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.mod
 import { ProductMinified } from '../../app/core/models/product/product-minified';
 import { Product } from '../../app/core/models/product/product.model';
 import { SaveProductAction, SetHangarSelectedAction } from '../actions/product.action';
-import { getHangarSelected, getProduct, getProducts } from '../selectors/product.selector;
 import { ProductState } from '../state/product.state';
+import { getProducts, getProduct, getHangarSelected } from '../selectors/product.selector';
 
 @Injectable({
   providedIn: 'root'
