@@ -4,5 +4,5 @@
         <app-hangar-list (event)="handleHangar($event)"></app-hangar-list>
     </div>
 </div>
-<app-primary-button class="button float" [text]=" 'More' " (click)="expandMenu()"></app-primary-button>
+<app-rectangle-button class="button float" [text]=" 'More' " (click)="expandMenu()"></app-rectangle-button>
 <app-lateral-navbar class="lateral-nav" *ngIf="this.showMenu" [hangar]="this.hangar"></app-lateral-navbar>

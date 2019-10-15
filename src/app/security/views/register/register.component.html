@@ -27,7 +27,7 @@
           <div class="btn-group w-50" role="group">
               <div class="btn btn-primary" *ngFor="let role of this.roles" (click)="selectRole(role)"><span class="selected" *ngIf="this.roleSelected == role">{{ role }}</span><span *ngIf="this.roleSelected != role">{{ role }}</span></div>
           </div>
-          <app-primary-button *ngIf="this.form.valid" [text]=" 'register.submit' " type="submit"></app-primary-button>
+          <app-rectangle-button *ngIf="this.form.valid" [text]=" 'register.submit' " type="submit"></app-rectangle-button>
       </div>
   </form>
 </div>

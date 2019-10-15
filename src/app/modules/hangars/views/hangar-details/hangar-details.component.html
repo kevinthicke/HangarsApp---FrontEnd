@@ -10,9 +10,9 @@
 <div class="container" >
   <app-form [hangar]="this.state$" [readonlyState]="true" [buttonDisabled]="true"></app-form>
   <div class="button-container">
-    <app-primary-button
+    <app-rectangle-button
     [text]=" 'hangars.details.insert-product' | translate "
-    (click)='this.handleInsertProduct()'></app-primary-button>
+    (click)='this.handleInsertProduct()'></app-rectangle-button>
   </div>
   <div *ngIf='this.showProductForm' class="fixed-container" @fade>
       <app-product-form (formEmitter)='this.handleProductForm($event)' ></app-product-form>
