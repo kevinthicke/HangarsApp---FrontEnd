@@ -1,19 +1,22 @@
-label {
-  font-weight: bold;
-}
-
 .counter-container {
   display: grid;
-  width: 100%;
+  width: 15%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2pt;
 }
 
-span {
-  background:#f7f7f7;
+.quantity {
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+
   border-radius: 3px;
 
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+.is-invalid {
+  border-color: #dc3545;
 }

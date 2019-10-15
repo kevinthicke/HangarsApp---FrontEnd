@@ -1,6 +1,21 @@
-<label>{{ "products.form.quantity" | translate }}</label>
-<div class="counter-container">
-  <app-circle-button [text]=" ' - ' " (click)="this.decreaseQuantity()"></app-circle-button>
-  <span class="number-box">{{ this.quantity }}</span>
-  <app-circle-button [text]=" ' + ' " (click)="this.increaseQuantity()"></app-circle-button>
+<label for='quantity-counter'>{{ this.label }}</label>
+
+<div class='counter-container' id='quantity-counter'>
+
+  <app-circle-button
+  *ngIf='!this.disabled'
+  [text]=" ' - ' "
+  (click)='this.decreaseQuantity()'>
+  </app-circle-button>
+  <span
+  [ngClass]='{ "is-invalid": this.isInvalid }'
+  class='quantity'>
+  {{ this.value }}
+  </span>
+  <app-circle-button
+  *ngIf='!this.disabled'
+  [text]=" ' + ' "
+  (click)='this.increaseQuantity()'>
+  </app-circle-button>
+
 </div>

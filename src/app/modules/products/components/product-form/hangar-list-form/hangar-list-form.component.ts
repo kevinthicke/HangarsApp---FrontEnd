@@ -17,7 +17,7 @@ import { InputFormComponent } from '../input-form/input-form.component';
       provide: NG_VALIDATORS,
       useExisting: HangarListFormComponent,
       multi: true
-    } 
+    }
   ]
 })
 export class HangarListFormComponent implements OnInit, ControlValueAccessor {
@@ -25,13 +25,12 @@ export class HangarListFormComponent implements OnInit, ControlValueAccessor {
   @Input() hangarsMinified: HangarMinified[];
   @Input() label: string
 
-  value: number;  
+  value: number;
   onChange: (hangarId: number) => void;
   onTouched: () => void;
   disabled: boolean;
 
-  hangarSelectedId: number = null;
-  formControl: FormControl;
+  formControl: FormControl = new FormControl;
 
   ngOnInit(): void { }
 
@@ -52,17 +51,16 @@ export class HangarListFormComponent implements OnInit, ControlValueAccessor {
   }
 
   selectHangar(hangarId: number): void {
-    
-    const existsHangarSelected: boolean = this.hangarSelectedId === hangarId;
-    this.hangarSelectedId = existsHangarSelected ? null : hangarId;
 
-    this.onChange(this.hangarSelectedId);
+    const existsHangarSelected: boolean = this.value === hangarId;
+    this.value = existsHangarSelected ? null : hangarId;
+
+    this.onChange(this.value);
 
   }
 
   validate(formControl: FormControl): void {
     this.formControl = formControl;
-    console.log(formControl)
   }
 
 }

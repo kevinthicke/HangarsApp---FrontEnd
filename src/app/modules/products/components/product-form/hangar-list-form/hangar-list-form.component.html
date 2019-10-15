@@ -7,13 +7,14 @@ class='custom-list-group'>
 
   <li *ngFor='let hangar of this.hangarsMinified'>
     <span
-    (click)='this.selectHangar(hangar.id)' 
-    [ngClass]="{ 'selected': hangar.id === this.hangarSelectedId }"
+    (click)='!this.disabled && this.selectHangar(hangar.id)' 
+    [ngClass]="{ 'selected': hangar.id === this.value }"
     class='custom-list-item'>
       {{ hangar.name }}
     </span>
   </li>
 </ul>
+
 <div *ngIf='this.formControl.invalid && this.formControl.touched'>
 
   <div *ngIf='this.formControl.hasError("required")' class='invalid-feedback d-block'>

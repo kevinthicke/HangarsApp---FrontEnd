@@ -1,8 +1,9 @@
 import { AbstractControl, FormGroup, ValidationErrors } from "@angular/forms";
 import { UserService } from '../../core/services/user.service';
 
-export class RegisterValidators {
-  static isNotSecurePassword(control: AbstractControl) {
+export class RegisterValidator {
+
+  static isNotSecurePassword(control: AbstractControl): ValidationErrors | null {
     let strangeCharacters = '!"·$%&/()=?¿|@#~€¬';
     let isNotSecurePassword = true;
 
@@ -17,7 +18,7 @@ export class RegisterValidators {
     return isNotSecurePassword ? { isNotSecurePassword } : null;
   }
 
-  static cannotContainsEmptySpace(control: AbstractControl) {
+  static cannotContainsEmptySpace(control: AbstractControl): ValidationErrors | null {
     return (control.value as string).includes(" ")
       ? { cannotContainsEmptySpace: true }
       : null;
@@ -37,7 +38,7 @@ export class RegisterValidators {
   }
 }
 
-export class RegisterAsyncValidators {
+export class RegisterAsyncValidator {
   static shouldBeUnique(userService: UserService) {
     return (control: AbstractControl): Promise<ValidationErrors | null> =>
       new Promise((resolve, reject) => {

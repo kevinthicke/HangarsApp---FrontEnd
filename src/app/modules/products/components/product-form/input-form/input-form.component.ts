@@ -27,7 +27,7 @@ export class InputFormComponent implements OnInit, ControlValueAccessor {
   onChange: () => void;
   onTouched: () => void;
   disabled: boolean;
-  formControl: FormControl;
+  formControl: FormControl = new FormControl();
 
   ngOnInit(): void { }
 

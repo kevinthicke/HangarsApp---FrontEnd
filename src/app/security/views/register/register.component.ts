@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../core/services/user.service';
 import { AuthenticationService } from '../../services/authentication.service';
-import { RegisterAsyncValidators, RegisterValidators } from '../../validators/register.validators';
 import { Router } from '@angular/router';
+import { RegisterValidator, RegisterAsyncValidator } from '../../../shared/validators/register.validator';
+
 
 @Component({
   selector: 'app-register',
@@ -31,17 +32,17 @@ export class RegisterComponent implements OnInit {
       {
         username: new FormControl(
           '',
-          [Validators.required, RegisterValidators.cannotContainsEmptySpace],
-          RegisterAsyncValidators.shouldBeUnique(this.userService)
+          [Validators.required, RegisterValidator.cannotContainsEmptySpace],
+          RegisterAsyncValidator.shouldBeUnique(this.userService)
         ),
         password: new FormControl('', [
           Validators.required,
-          RegisterValidators.isNotSecurePassword
+          RegisterValidator.isNotSecurePassword
         ]),
         passwordConfirm: new FormControl('', Validators.required)
       },
       {
-        validator: RegisterValidators.mustMatch('password', 'passwordConfirm')
+        validator: RegisterValidator.mustMatch('password', 'passwordConfirm')
       }
     );
 

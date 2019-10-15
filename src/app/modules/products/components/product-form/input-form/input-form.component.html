@@ -22,17 +22,17 @@
     class='form-control' id='input' autocomplete='off'
     rows='5'>
     </textarea>
-    
+
     <div *ngIf='this.formControl.invalid && this.formControl.touched'>
 
-        <div *ngIf='this.formControl.hasError("required")' class='invalid-feedback d-block'>
-          {{ 'validations.field-required' | translate }}
-        </div>
-        <div *ngIf='this.formControl.hasError("minlength")' class='invalid-feedback d-block'>
-          {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
-        </div>
-    
+      <div *ngIf='this.formControl.hasError("required")' class='invalid-feedback d-block'>
+        {{ 'validations.field-required' | translate }}
       </div>
+      <div *ngIf='this.formControl.hasError("minlength")' class='invalid-feedback d-block'>
+        {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
+      </div>
+    
+    </div>
   </div>
 
   
