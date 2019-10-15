@@ -43,7 +43,8 @@ export class ProductCrudComponent implements OnInit, OnChanges {
       name: ['', [Validators.required, Validators.minLength(2) ]],
       description: ['', Validators.required ],
       hangarId: [ -1, Validators.required ],
-      quantity: [  1, [ Validators.required, CustomValidator.shouldBeGreaterThanZero ] ]
+      quantity: [  1, [ Validators.required, CustomValidator.shouldBeGreaterThanZero ] ],
+      price: [ '0', [ Validators.required, CustomValidator.shouldBeGreaterThanZero ]]
     });
 
   }

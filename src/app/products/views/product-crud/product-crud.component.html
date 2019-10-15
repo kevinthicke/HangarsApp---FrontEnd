@@ -22,18 +22,25 @@
     [label]=' "products.form.select-hangar" | translate '
     [hangarsMinified]='this.hangarsMinified'>
     </app-hangar-list-form>
-    
-    <app-quantity-counter-form
-    formControlName='quantity'
-    [label]=' "products.form.quantity" | translate'>
-    </app-quantity-counter-form>
+
+    <div class='d-flex justify-content-between'>
+      <app-quantity-counter-form
+      formControlName='quantity'
+      [label]=' "products.form.quantity" | translate'>
+      </app-quantity-counter-form>
+
+      <app-input-form
+      formControlName='price'
+      [label]= ' "products.form.price" | translate'>
+      </app-input-form>
+    </div>
 
     <div class='d-flex justify-content-end'>
       <app-primary-button
       [text]=' "products.form.submit-button" | translate '>
       </app-primary-button>
     </div>
-  
+
   </form>
 
 </div>

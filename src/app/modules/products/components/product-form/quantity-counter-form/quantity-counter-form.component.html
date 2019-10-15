@@ -1,21 +1,25 @@
-<label for='quantity-counter'>{{ this.label }}</label>
+<div class='form-group'>
+  <label for='quantity-counter'>{{ this.label }}</label>
 
-<div class='counter-container' id='quantity-counter'>
+  <div class='counter-container' id='quantity-counter'>
 
-  <app-circle-button
-  *ngIf='!this.disabled'
-  [text]=" ' - ' "
-  (click)='this.decreaseQuantity()'>
-  </app-circle-button>
-  <span
-  [ngClass]='{ "is-invalid": this.isInvalid }'
-  class='quantity'>
-  {{ this.value }}
-  </span>
-  <app-circle-button
-  *ngIf='!this.disabled'
-  [text]=" ' + ' "
-  (click)='this.increaseQuantity()'>
-  </app-circle-button>
+    <app-circle-button
+    *ngIf='!this.disabled'
+    [text]=" ' - ' "
+    (click)='this.decreaseQuantity()'>
+    </app-circle-button>
+    <input
+    (input)='this.onChange(+$event.target.value)'
+    (blur)='this.onTouched()'
+    [value]='this.value'
+    [disabled]='this.disabled'
+    [ngClass]='{ "is-custom-invalid": this.isInvalid }'
+    class='form-control quantity'>
+    <app-circle-button
+    *ngIf='!this.disabled'
+    [text]=" ' + ' "
+    (click)='this.increaseQuantity()'>
+    </app-circle-button>
 
+  </div>
 </div>

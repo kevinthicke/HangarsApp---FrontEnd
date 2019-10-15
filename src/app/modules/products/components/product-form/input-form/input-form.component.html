@@ -31,9 +31,12 @@
       <div *ngIf='this.formControl.hasError("minlength")' class='invalid-feedback d-block'>
         {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
       </div>
-    
+      <div *ngIf='this.formControl.hasError("shouldBeGreaterThanZero")' class='invalid-feedback d-block'>
+        {{ 'validations.number-greater-than-zero' | translate }}
+      </div>
+
     </div>
   </div>
 
-  
+
 </form>

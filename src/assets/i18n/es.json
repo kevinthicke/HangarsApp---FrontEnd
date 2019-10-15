@@ -115,6 +115,7 @@
     "field-required": "Este campo es requerido",
     "field-email": "Debe debe ser una dirección de email",
     "field-min-length": "Este campo debe tener como mínimo {{ minLength }} caractéres",
+    "number-greater-than-zero": "Este campo debe ser mayor que cero",
     "username-unique": "El nombre de usuario debe ser único",
     "password-special-characters": "La constraseña debe contener al menos un carácter especial",
     "passwords-must-match": "Las contraseñas deben coincidir"
