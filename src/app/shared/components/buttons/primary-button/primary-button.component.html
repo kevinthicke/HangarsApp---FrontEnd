@@ -1,3 +1,6 @@
-<div class="button-container">
-  <button class="button-primary">{{ this.text }}</button>
+<div class='button-container'>
+  <button [ngClass]='{
+    "custom-button-primary": this.style === "primary",
+    "custom-button-secondary": this.style === "secondary"
+  }'>{{ this.text }}</button>
 </div>

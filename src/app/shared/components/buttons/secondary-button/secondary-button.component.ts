@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SecondaryButtonComponent implements OnInit {
   @Input() text: string;
+  
   constructor() { }
 
   ngOnInit() {

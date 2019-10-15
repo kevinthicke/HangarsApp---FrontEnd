@@ -8,11 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PrimaryButtonComponent implements OnInit {
 
   @Input() text: string;
+  @Input() style: string = 'secondary';
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit(): void { }
 
 
 }
