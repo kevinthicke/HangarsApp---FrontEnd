@@ -1,13 +1,23 @@
-<label>{{ "products.form.select-hangar" | translate }}</label>
+<label>{{ this.label }}</label>
 
-<ul class='custom-list-group'>
+<ul 
+(click)='this.onTouched()'
+[ngClass]='{"is-invalid": this.formControl.invalid && this.formControl. touched }'
+class='custom-list-group'>
 
   <li *ngFor='let hangar of this.hangarsMinified'>
     <span
-    class='custom-list-item'
-    [ngClass]="{ 'selected': hangar.id === hangarSelectedId }"
-    (click)='this.isEnabled && (hangarSelectedId = hangar.id); this.isEnabled && this.selectHangar(hangar)'>
+    (click)='this.selectHangar(hangar.id)' 
+    [ngClass]="{ 'selected': hangar.id === this.hangarSelectedId }"
+    class='custom-list-item'>
       {{ hangar.name }}
     </span>
   </li>
 </ul>
+<div *ngIf='this.formControl.invalid && this.formControl.touched'>
+
+  <div *ngIf='this.formControl.hasError("required")' class='invalid-feedback d-block'>
+    {{ 'validations.field-required' | translate }}
+  </div>
+
+</div>

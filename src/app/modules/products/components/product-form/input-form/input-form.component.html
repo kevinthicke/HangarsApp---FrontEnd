@@ -10,6 +10,7 @@
     [disabled]='this.disabled'
     (input)='this.onChange($event.target.value)'
     (blur)='this.onTouched()'
+    [ngClass]='{ "is-invalid": this.formControl.invalid && this.formControl.touched }'
     class='form-control' id='input' autocomplete='off'>
     <textarea
     *ngIf='this.isTextArea'
@@ -17,20 +18,22 @@
     [disabled]='this.disabled'
     (input)='this.onChange($event.target.value)'
     (blur)='this.onTouched()'
+    [ngClass]='{ "is-invalid": this.formControl.invalid && this.formControl.touched }'
     class='form-control' id='input' autocomplete='off'
     rows='5'>
     </textarea>
+    
+    <div *ngIf='this.formControl.invalid && this.formControl.touched'>
 
+        <div *ngIf='this.formControl.hasError("required")' class='invalid-feedback d-block'>
+          {{ 'validations.field-required' | translate }}
+        </div>
+        <div *ngIf='this.formControl.hasError("minlength")' class='invalid-feedback d-block'>
+          {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
+        </div>
+    
+      </div>
   </div>
 
-  <div *ngIf='this.formControl.invalid && this.formControl.touched'>
-
-    <div *ngIf='this.formControl.hasError("required")' class='alert alert-danger'>
-      {{ 'validations.field-required' | translate }}
-    </div>
-    <div *ngIf='this.formControl.hasError("minlength")' class='alert alert-danger'>
-      {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
-    </div>
-
-  </div>
+  
 </form>

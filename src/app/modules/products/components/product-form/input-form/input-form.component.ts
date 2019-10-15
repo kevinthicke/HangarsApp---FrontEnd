@@ -48,7 +48,6 @@ export class InputFormComponent implements OnInit, ControlValueAccessor {
   }
 
   validate(formControl: FormControl): void {
-
     this.formControl = formControl;
   }
 

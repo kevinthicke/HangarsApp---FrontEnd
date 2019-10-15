@@ -1,28 +1,68 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, forwardRef } from '@angular/core';
 import { HangarMinified } from '../../../../../core/models/hangar/hangar-minified.model';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl } from '@angular/forms';
+import { InputFormComponent } from '../input-form/input-form.component';
 
 @Component({
   selector: 'app-hangar-list-form',
   templateUrl: './hangar-list-form.component.html',
-  styleUrls: ['./hangar-list-form.component.less']
+  styleUrls: ['./hangar-list-form.component.less'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => HangarListFormComponent),
+      multi: true
+    },
+     {
+      provide: NG_VALIDATORS,
+      useExisting: HangarListFormComponent,
+      multi: true
+    } 
+  ]
 })
-export class HangarListFormComponent implements OnInit {
+export class HangarListFormComponent implements OnInit, ControlValueAccessor {
 
   @Input() hangarsMinified: HangarMinified[];
-  @Input() hangarSelectedId: number;
+  @Input() label: string
 
-  @Output() hangarSelectedIdEmitter = new EventEmitter<HangarMinified>();
+  value: number;  
+  onChange: (hangarId: number) => void;
+  onTouched: () => void;
+  disabled: boolean;
 
-  isEnabled: boolean;
+  hangarSelectedId: number = null;
+  formControl: FormControl;
 
-  constructor() { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    this.isEnabled = this.hangarSelectedId === undefined;
+  writeValue(hangarSelectedId: number): void {
+    this.value = hangarSelectedId ? hangarSelectedId: -1;
   }
 
-  selectHangar(hangar: HangarMinified): void {
-    this.hangarSelectedIdEmitter.emit(hangar);
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  selectHangar(hangarId: number): void {
+    
+    const existsHangarSelected: boolean = this.hangarSelectedId === hangarId;
+    this.hangarSelectedId = existsHangarSelected ? null : hangarId;
+
+    this.onChange(this.hangarSelectedId);
+
+  }
+
+  validate(formControl: FormControl): void {
+    this.formControl = formControl;
+    console.log(formControl)
   }
 
 }

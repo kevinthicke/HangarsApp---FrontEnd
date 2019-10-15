@@ -42,11 +42,11 @@ export class ProductCrudComponent implements OnInit, OnChanges {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2), RegisterValidators.cannotContainsEmptySpace]],
       description: ['', Validators.required ],
-      hangarId: null,
+      hangarId: [ -1, Validators.required ]
     });
 
   }
-
+/*
   handleHangarSelected(hangar: HangarMinified): void {
 
     if (this.form.enabled) {
@@ -62,7 +62,7 @@ export class ProductCrudComponent implements OnInit, OnChanges {
     this.form.controls[formControlName].setValue(value);
     console.log(this.form.controls['name']);
   }
-
+ */
   submit(): void {
     console.log(this.form.value);
   }
