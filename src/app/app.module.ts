@@ -25,7 +25,7 @@ import { LogoutComponent } from './security/views/logout/logout.component';
 import { RegisterComponent } from './security/views/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { RegisterContainer } from './security/containers/register/register.container';
-import { ProductCrudComponent } from './products/views/product-crud/product-crud.component';
+import { ProductCrudComponent } from './modules/products/views/product-crud/product-crud.component';
 
 export const routerStateConfig = {
   stateKey: 'router', // state-slice name for routing state

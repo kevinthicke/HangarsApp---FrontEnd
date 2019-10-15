@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, forwardRef } from '@angular/core';
 import { HangarMinified } from '../../../../../core/models/hangar/hangar-minified.model';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl } from '@angular/forms';
-import { InputFormComponent } from '../input-form/input-form.component';
+import { InputFormComponent } from '../../../../../shared/components/form/input-form/input-form.component';
 
 @Component({
   selector: 'app-hangar-list-form',

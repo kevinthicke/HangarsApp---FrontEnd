@@ -13,6 +13,7 @@ import { PrimaryCardComponent } from './components/primary-card/primary-card.com
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { HomeComponent } from './views/home/home.component';
+import { InputFormComponent } from '../shared/components/form/input-form/input-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './views/home/home.component';
     PrimaryButtonComponent,
     AuxNavbarComponent,
     ToastComponent,
-    NavigationListCartComponent
+    NavigationListCartComponent,
+    InputFormComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { HomeComponent } from './views/home/home.component';
     PrimaryButtonComponent,
     SecondaryButtonComponent,
     AuxNavbarComponent,
-    ToastComponent
+    ToastComponent,
+    InputFormComponent
   ]
 })
 export class SharedModule {}

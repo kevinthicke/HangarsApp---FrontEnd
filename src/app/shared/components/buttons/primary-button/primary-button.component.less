@@ -1,29 +1,13 @@
-@width: 100px;
+@width:  100px;
 @height: 40px;
 
-.button-container {
-  width: @width + 10px;
-  height: @height;
-  border: none;
-}
+@primary-blue:   #2C5364;
+@secondary-blue: rgb(0, 106, 141);
+@white:          #f9f9f9;
 
-.button-primary {
-  margin: auto;
-  background: #2C5364;
-  color: #f9f9f9;
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: @width;
-  height: @height;
-  border-radius: 3px;
-  transition-duration: 200ms;
-  transition-property: all;
-  border: 0;
-  outline: 0;
+/* Utils */
 
-  /* No select */
+.no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
@@ -32,17 +16,63 @@
           user-select: none; /* Non-prefixed version, currently*/
 }
 
-.button-primary:hover {
-  background: rgb(0, 106, 141);
-  -webkit-box-shadow: 0px 0px 2px 0px #2C5364;
-  -moz-box-shadow: 0px 0px 2px 0px #2C5364;
-  box-shadow: 0px 0px 2px 0px #2C5364;
-  width: 110px;
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.button-primary:active {
-
-  -webkit-box-shadow: 0px 0px 2px 0px #2C5364;
-  -moz-box-shadow: 0px 0px 2px 0px #2C5364;
-  box-shadow: 0px 0px 2px 1px #2C5364;
+.transition {
+  transition-duration: 200ms;
+  transition-property: all;
 }
+
+.remove-default-button-border {
+  border: 0;
+  outline: 0;
+}
+
+.shadow(@outer-border, @color) {
+  -webkit-box-shadow: 0px 0px 2px @outer-border @color;
+  -moz-box-shadow: 0px 0px 2px @outer-border @color;
+  box-shadow: 0px 0px 2px @outer-border @color;
+}
+
+/* Styles */
+
+.button-container {
+  width: @width + 10px;
+  height: @height;
+  border: none;
+}
+
+.button-primary {
+
+  width: @width;
+  height: @height;
+
+  margin: auto;
+  border-radius: 3px;
+
+  background: @primary-blue;
+  color: @white;
+
+  font-family: 'Roboto', sans-serif;
+
+  .no-select();
+  .d-flex-center();
+  .transition();
+  .remove-default-button-border();
+
+  &:hover {
+    background: @secondary-blue;
+    width: @width+10px;
+  }
+
+  &:active {
+    background: @primary-blue;
+    .shadow(1px, @primary-blue);
+    }
+  }
+
+

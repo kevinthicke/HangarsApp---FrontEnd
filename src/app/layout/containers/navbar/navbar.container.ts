@@ -1,7 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../security/services/authentication.service';
-import { Observable } from 'rxjs';
 import { SecurityFacade } from '../../../../store/facades/security.facade';
 
 @Component({
@@ -31,3 +28,4 @@ export class NavbarContainer implements OnInit {
   }
 
 }
+ 

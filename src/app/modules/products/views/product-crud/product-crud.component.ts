@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Product } from '../../../core/models/product/product.model';
+import { Product } from '../../../../core/models/product/product.model';
 import { FormBuilder, Validators, FormGroup, NgModel } from '@angular/forms';
-import { HangarMinified } from '../../../core/models/hangar/hangar-minified.model';
+import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 import { CustomValidator } from 'src/app/shared/validators/custom.validator';
 
 @Component({

@@ -8,13 +8,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductContainer } from './containers/product/product.container';
 import { ProductsComponent } from './views/product-list/products.component';
 import { ProductCrudContainer } from './containers/product-crud/product-crud.container';
-import { ProductComponent } from './views/product/product.component';
-import { ProductFormComponent } from './components/product-form/product-form.component';
 import { HangarListFormComponent } from './components/product-form/hangar-list-form/hangar-list-form.component';
 import { QuantityCounterFormComponent } from './components/product-form/quantity-counter-form/quantity-counter-form.component';
 import { CardDeckComponent } from './components/card-deck/card-deck.component'
-import { ProductCrudComponent } from '../../products/views/product-crud/product-crud.component';
-import { InputFormComponent } from './components/product-form/input-form/input-form.component';
+import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +21,8 @@ import { InputFormComponent } from './components/product-form/input-form/input-f
     ProductContainer,
     ProductCrudContainer,
     ProductCrudComponent,
-    ProductComponent,
-    ProductFormComponent,
     HangarListFormComponent,
-    QuantityCounterFormComponent,
-    InputFormComponent
+    QuantityCounterFormComponent
   ],
   imports: [
     CommonModule,
