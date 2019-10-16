@@ -7,5 +7,14 @@ export class CustomValidator {
       ? { shouldBeGreaterThanZero: true }
       : null;
   }
+  static shouldBeANumber(control: AbstractControl): ValidationErrors | null {
+
+    const parsedValue = Number(control.value as string);
+    const isNumber = !isNaN(parsedValue);
+
+    return isNumber
+      ? null
+      : { shouldBeANumber: true }
+  }
 
 }

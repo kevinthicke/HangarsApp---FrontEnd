@@ -1,26 +1,6 @@
 <div class='header'>
-  <h1>Inicio de sesión</h1>
+  <h1>{{ 'login.title' | translate }}</h1>
 </div>
-<!-- <div class='container'>
-  <form class='card' [formGroup]='this.form' (ngSubmit)='this.submit()'>
-    <div class='form-group'>
-      <label for='username'>{{ 'login.username' | translate }}</label>
-      <input class='form-control' [formControl]='username' type='text' for='username' />
-    </div>
-    <div class='form-group'>
-      <label for='password'>{{ 'login.password' | translate }}</label>
-      <input class='form-control' [formControl]='password' type='password' for='password' />
-    </div>
-    <a class='text-primary' [routerLink]="['/register']" routerLinkActive="router-link-active" >{{ 'login.create-account' | translate }}</a>
-    <div class='d-flex justify-content-end'>
-      <app-button
-      ButtonType bclass='button-rectangle-primary'
-      [text]=" 'login.submit' | translate" >
-      </app-button>
-    </div>
-  </form>
-</div>
- -->
 
 <div class='container'>
   <form [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()' class='card'>

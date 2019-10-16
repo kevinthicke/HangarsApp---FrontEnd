@@ -40,11 +40,26 @@ export class ProductCrudComponent implements OnInit, OnChanges {
   buildForm(): void {
 
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2) ]],
-      description: ['', Validators.required ],
-      hangarId: [ -1, Validators.required ],
-      quantity: [  1, [ Validators.required, CustomValidator.shouldBeGreaterThanZero ] ],
-      price: [ '0', [ Validators.required, CustomValidator.shouldBeGreaterThanZero ]]
+      name: [
+        '', 
+        [ Validators.required, Validators.minLength(2) ]
+      ],
+      description: [
+        '', 
+        Validators.required 
+      ],
+      hangarId: [ 
+        -1, 
+        Validators.required 
+      ],
+      quantity: [  
+        '1', 
+        [ Validators.required, CustomValidator.shouldBeANumber, CustomValidator.shouldBeGreaterThanZero ]
+      ],
+      price: [ 
+        '0', 
+        [ Validators.required, CustomValidator.shouldBeANumber, CustomValidator.shouldBeGreaterThanZero ]
+      ]
     });
 
   }

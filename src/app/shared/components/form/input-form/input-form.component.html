@@ -35,9 +35,11 @@
       <div *ngIf='this.formControl.hasError("shouldBeGreaterThanZero")' class='invalid-feedback d-block'>
         {{ 'validations.number-greater-than-zero' | translate }}
       </div>
+      <div *ngIf='this.formControl.hasError("shouldBeANumber")' class='invalid-feedback d-block'>
+          {{ 'validations.field-number' | translate }}
+      </div>
 
     </div>
   </div>
-
 
 </form>
