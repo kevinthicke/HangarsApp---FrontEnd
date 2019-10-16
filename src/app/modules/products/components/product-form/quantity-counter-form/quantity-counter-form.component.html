@@ -3,12 +3,12 @@
 
   <div class='counter-container' id='quantity-counter'>
 
-    <app-rectangle-button
+    <app-button
     ButtonType bclass='button-circle-primary'
     *ngIf='!this.disabled'
     [text]=" ' - ' "
     (click)='this.decreaseQuantity()'>
-    </app-rectangle-button>
+    </app-button>
     <input
     (input)='this.onChange(+$event.target.value)'
     (blur)='this.onTouched()'
@@ -16,12 +16,12 @@
     [disabled]='this.disabled'
     [ngClass]='{ "is-custom-invalid": this.isInvalid }'
     class='form-control quantity'>
-    <app-rectangle-button
+    <app-button
     ButtonType bclass='button-circle-primary'
     *ngIf='!this.disabled'
     [text]=" ' + ' "
     (click)='this.increaseQuantity()'>
-    </app-rectangle-button>
+    </app-button>
 
   </div>
 </div>

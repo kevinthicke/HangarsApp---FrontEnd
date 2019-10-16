@@ -6,6 +6,9 @@
 @primary-color:     #2C5364;
 @primary-color-aux: rgb(0, 106, 141);
 
+@primary-color-darker:     #0F2027;
+@primary-color-darker-aux: #2C5364;
+
 @secondary-color:     #137645;
 @secondary-color-aux: #10492d;
 
@@ -78,4 +81,8 @@
 
 .button-circle-primary {
   .button-container(@circle-width, @circle-height, @primary-color, @primary-color-aux, true);
+}
+
+.button-circle-primary-darker {
+  .button-container(@circle-width, @circle-height, @primary-color-darker, @primary-color-darker-aux, true);
 }
