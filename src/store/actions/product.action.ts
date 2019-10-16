@@ -16,6 +16,7 @@ export enum ProductActionTypes {
   LOAD_PRODUCT_DETAILS = '[PRODUCT] LOAD_PRODUCT_DETAILS',
   PRODUCT_DETAILS_LOADED = '[PRODUCT] PRODUCT_DETAILS_LOADED',
 
+  MANAGE_INSERT_PRODUCT = '[PRODUCT] MANAGE_INSERT_PRODUCT',
   SAVE_PRODUCT = '[PRODUCT] SAVE',
 
   UPDATE_PRODUCT = '[PRODUCT] UPDATE'
@@ -68,6 +69,12 @@ export class UpdateproductAction implements Action {
   constructor(public payload: Product) { }
 }
 
+export class ManageInsertProductAction implements Action {
+  readonly type = ProductActionTypes.MANAGE_INSERT_PRODUCT;
+
+  constructor(public payload: Product) { }
+}
+
 export type ProductActions = (
   ResetProductStateAction |
   SetHangarSelectedAction |
@@ -75,7 +82,8 @@ export type ProductActions = (
   ProductsInHangarLoadedAction |
   LoadProductDetailsAction |
   ProductDetailsLoadedAction |
-  SaveProductAction
+  SaveProductAction |
+  ManageInsertProductAction
 );
 
 

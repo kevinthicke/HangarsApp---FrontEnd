@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
-import { ProductsHangar } from '../../app/core/models/products-hangar.model';
-import { HangarService } from '../../app/core/services/hangar.service';
-import { ProductService } from '../../app/core/services/product.service';
-import { LoadProductDetailsAction, LoadProductsInHangarAction, ProductActions, ProductActionTypes, ProductDetailsLoadedAction, ProductsInHangarLoadedAction, SaveProductAction, SetHangarSelectedAction, UpdateproductAction } from '../actions/product.action';
+import { map, switchMap, tap, withLatestFrom, combineLatest } from 'rxjs/operators';
 import { ProductMinified } from '../../app/core/models/product/product-minified';
 import { Product } from '../../app/core/models/product/product.model';
+import { HangarService } from '../../app/core/services/hangar.service';
+import { ProductService } from '../../app/core/services/product.service';
+import { LoadProductDetailsAction, LoadProductsInHangarAction, ProductActions, ProductActionTypes, ProductDetailsLoadedAction, ProductsInHangarLoadedAction, SetHangarSelectedAction, ManageInsertProductAction, UpdateproductAction, SaveProductAction } from '../actions/product.action';
+import { AppState } from '../state';
+import { Store } from '@ngrx/store';
+import { utils } from 'protractor';
+import { ProductsHangar } from '../../app/core/models/products-hangar.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +19,11 @@ import { Product } from '../../app/core/models/product/product.model';
 export class ProductEffects {
 
   constructor(
-    private actions$: Actions,
-    private hangarService: HangarService,
     private router: Router,
+    private actions$: Actions,
+    private store$: Store<AppState>,
     private productService: ProductService,
+    private hangarService: HangarService
   ) { }
 
   @Effect() setHangarSelectedName$: Observable<ProductActions> = this.actions$.pipe(
@@ -46,18 +50,28 @@ export class ProductEffects {
     map((product: Product) => new ProductDetailsLoadedAction(product))
   );
 
-  @Effect({ dispatch: false }) saveProduct$: Observable<ProductActions> = this.actions$.pipe(
+  @Effect() manageInsertProduct$: Observable<UpdateproductAction | SaveProductAction> | null = this.actions$.pipe(
+    ofType<ProductActions>(ProductActionTypes.MANAGE_INSERT_PRODUCT),
+
+    withLatestFrom(this.store$.select('router', 'state', 'url')),
+    map(([action, url]: [ManageInsertProductAction, string]) => {
+      
+      if (url.includes('modify')) {
+        return new UpdateproductAction(action.payload);
+      }
+
+      if (url.includes('insert')) {
+        return new SaveProductAction(action.payload);
+      }
+
+    })
+  )
+
+   @Effect({ dispatch: false }) saveProduct$: Observable<ProductActions> = this.actions$.pipe(
     ofType<ProductActions>(ProductActionTypes.SAVE_PRODUCT),
 
     switchMap((action: SaveProductAction) => this.saveProductInHangar(action))
   );
-
- /*  @Effect({ dispatch: false }) modifyProduct$: Observable<ProductActions> = this.actions$.pipe(
-    ofType<ProductActions>(ProductActionTypes.UPDATE_PRODUCT),
-
-    switchMap((action: UpdateproductAction) => this.productService.update(action.payload)),
-    tap(() => this.router.navigate(['products']))
-  ) */
 
   private saveProductInHangar(action: SaveProductAction): Observable<ProductActions> {
 
@@ -77,13 +91,5 @@ export class ProductEffects {
     );
 
   }
-
-/*   @Effect({ dispatch: false }) SaveProduct$: Observable<ProductActions> = this.actions$.pipe(
-    ofType<ProductActions>(ProductActionTypes.SAVE_PRODUCT),
-
-    switchMap((action: SaveProductAction) => this.saveProductInHangar(action))
-  );
-
- */
 
 }

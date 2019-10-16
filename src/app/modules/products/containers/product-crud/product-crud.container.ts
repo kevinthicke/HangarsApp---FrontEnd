@@ -41,13 +41,8 @@ export class ProductCrudContainer implements OnInit {
 
   handleProductFormEmitter(productForm: Product): void {
     
-    const saveType = productForm.id ? 'modify' : 'insert';
-
-    if (saveType === 'modify') {
-      console.log('uy!');
-    } else {
-      this.productFacade.saveProduct(productForm);
-    }
+    this.productFacade.manageInsertProduct(productForm);
+  
   }
 
 }

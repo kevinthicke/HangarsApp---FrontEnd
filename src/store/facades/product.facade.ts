@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
 import { ProductMinified } from '../../app/core/models/product/product-minified';
 import { Product } from '../../app/core/models/product/product.model';
-import { SaveProductAction, SetHangarSelectedAction } from '../actions/product.action';
+import { SaveProductAction, SetHangarSelectedAction, ManageInsertProductAction } from '../actions/product.action';
 import { ProductState } from '../state/product.state';
 import { getProducts, getProduct, getHangarSelected } from '../selectors/product.selector';
 
@@ -29,8 +29,8 @@ export class ProductFacade {
     this.store.dispatch(new SetHangarSelectedAction(hangarMinified));
   }
 
-  saveProduct(product: Product): void {
-    this.store.dispatch(new SaveProductAction(product));
+  manageInsertProduct(product: Product): void {
+    this.store.dispatch(new ManageInsertProductAction(product));
   }
 
 }
