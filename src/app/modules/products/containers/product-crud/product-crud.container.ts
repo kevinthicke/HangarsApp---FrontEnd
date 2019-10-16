@@ -40,9 +40,7 @@ export class ProductCrudContainer implements OnInit {
   }
 
   handleProductFormEmitter(productForm: Product): void {
-    
     this.productFacade.manageInsertProduct(productForm);
-  
   }
 
 }

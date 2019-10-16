@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable } from 'rxjs';
-import { map, switchMap, tap, withLatestFrom, combineLatest } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, switchMap, tap, withLatestFrom, combineLatest, mergeMap } from 'rxjs/operators';
 import { ProductMinified } from '../../app/core/models/product/product-minified';
 import { Product } from '../../app/core/models/product/product.model';
 import { HangarService } from '../../app/core/services/hangar.service';
@@ -65,31 +65,15 @@ export class ProductEffects {
       }
 
     })
-  )
-
-   @Effect({ dispatch: false }) saveProduct$: Observable<ProductActions> = this.actions$.pipe(
-    ofType<ProductActions>(ProductActionTypes.SAVE_PRODUCT),
-
-    switchMap((action: SaveProductAction) => this.saveProductInHangar(action))
   );
 
-  private saveProductInHangar(action: SaveProductAction): Observable<ProductActions> {
+   @Effect({ dispatch: false }) saveProduct$ = this.actions$.pipe(
+    ofType<ProductActions>(ProductActionTypes.SAVE_PRODUCT),
 
-    const { hangarId, ...product } = action.payload;
-
-    return this.productService.insertProduct(action.payload).pipe(
-
-      switchMap((product: Product) => this.hangarService.saveProductInHangar(hangarId, product.id)),
-      switchMap((productsHangar: ProductsHangar) => {
-
-        return this.productService.setProductQuantity(
-          productsHangar.hangar_id,
-          productsHangar.product_id,
-          productsHangar.quantity);
-      }),
-      tap(() => this.router.navigate(['products']))
-    );
-
-  }
+    switchMap((action: SaveProductAction) => {
+      return this.productService.fullSave(action.payload);
+    }),
+    tap(() => this.router.navigate(['products']))
+  );
 
 }

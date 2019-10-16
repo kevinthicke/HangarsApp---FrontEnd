@@ -11,6 +11,7 @@ type classType = (
 })
 export class ButtonTypeDirective implements OnInit {
   @Input('bclass') class?: classType;
+  @Input('type') type: string = 'button';
 
   constructor(
     public elementRef: ElementRef,
@@ -23,6 +24,11 @@ export class ButtonTypeDirective implements OnInit {
       this.elementRef.nativeElement.querySelector('div'),
       this.class
     );
+
+    this.renderer.setAttribute(
+      this.elementRef.nativeElement.querySelector('button'),
+      'type', this.type
+    )
 
   }
 

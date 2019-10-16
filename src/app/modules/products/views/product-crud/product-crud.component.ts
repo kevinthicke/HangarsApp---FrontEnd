@@ -1,9 +1,8 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { Product } from '../../../../core/models/product/product.model';
-import { FormBuilder, Validators, FormGroup, NgModel } from '@angular/forms';
-import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { CustomValidator } from 'src/app/shared/validators/custom.validator';
-import { ProductBuilder } from '../../../../core/models/builders/product.builder';
+import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
+import { Product } from '../../../../core/models/product/product.model';
 
 @Component({
   selector: 'app-product-crud',
@@ -68,11 +67,11 @@ export class ProductCrudComponent implements OnInit, OnChanges {
   }
 
   submit(): void {
-
-    this.productFormEmitter.emit({
-      ...this.form.value,
+    
+     this.productFormEmitter.emit({
+      ... this.form.value,
       price: Number(this.form.value['price'])
-    } as Product);
+    } as Product); 
     
   }
 

@@ -1,12 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, switchMap, catchError } from 'rxjs/operators';
+import { map, switchMap, catchError, tap } from 'rxjs/operators';
 import { Page } from '../models/page.model';
 import { Price } from '../models/price.model';
 import { ProductMinified } from '../models/product/product-minified';
 import { Product } from '../models/product/product.model';
 import { ProductsHangarService } from './products-hangar.service';
+import { ProductHangarIds } from 'src/app/core/models/auxiliary/product-hangar-ids.model';
+import { HangarService } from './hangar.service';
+import { ProductsHangar } from '../models/products-hangar.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +19,7 @@ export class ProductService {
 
   constructor(
     private http: HttpClient,
+    private hangarService: HangarService,
     private productsHangarService: ProductsHangarService) { }
 
   private obtainLastPrice(prices: Price[]): number {
@@ -26,16 +30,6 @@ export class ProductService {
     return this.http.get<Page<any>>(`${this.url}?page=${page}&size=${size}`);
   }
 
-  /* // Do not consume this method outside service!
-  private getProductById(id: number): Observable<Product> {
-
-    let endpoint = `${this.url}/${id}`;
-
-    return this.http.get<Product>(endpoint).pipe(
-      map(productData => new Product().deserialize(productData))
-    );
-  } */
-
   //Verified
   public getProduct(hangarId: number, productId: number): Observable<Product> {
 
@@ -45,15 +39,9 @@ export class ProductService {
       .loadProductsHangar(hangarId, productId)
       .pipe(
         switchMap(productsHangar => this.http.get(endpoint).pipe(
-          map(productData => {
-
-            let product = new Product().deserialize(productData);
-            product.quantity = productsHangar.quantity;
-
-            return product;
-        }))
-      )
-    )
+          map(productData => new Product().deserialize({...productData, quantity: productsHangar.quantity }))
+          )
+    ));
   }
 
   public getProductByName(name: string): Observable<any> {
@@ -73,6 +61,22 @@ export class ProductService {
         })
       })
     );
+
+  }
+
+  public fullSave(product: Product): Observable<any> {
+    
+    return this.insertProduct(product)
+        .pipe(
+          switchMap((productResp: Product) => this.hangarService.saveProductInHangar(product.hangarId, productResp.id)),
+          switchMap((productsHangar: ProductsHangar) => {
+
+            return this.setProductQuantity(
+              productsHangar.hangar_id,
+              productsHangar.product_id,
+              productsHangar.quantity);
+          })
+        )
 
   }
 
