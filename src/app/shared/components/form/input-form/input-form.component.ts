@@ -21,7 +21,8 @@ import { NgModel, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormCo
 export class InputFormComponent implements OnInit, ControlValueAccessor {
 
   @Input() label: string;
-  @Input() isTextArea: boolean = false;
+  @Input() isTextArea?: boolean = false;
+  @Input() type?: string = 'text';
 
   value: string;
   onChange: () => void;

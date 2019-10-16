@@ -10,7 +10,6 @@ import { NavbarComponent } from './shell/navbar/navbar.component';
 import { ShellComponent } from './shell/shell.component';
 import { NavbarContainer } from './containers/navbar/navbar.container';
 
-
 @NgModule({
   declarations: [
     NavbarComponent,

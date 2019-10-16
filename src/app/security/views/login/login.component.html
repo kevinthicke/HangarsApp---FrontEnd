@@ -1,7 +1,7 @@
 <div class='header'>
   <h1>Inicio de sesión</h1>
 </div>
-<div class='container'>
+<!-- <div class='container'>
   <form class='card' [formGroup]='this.form' (ngSubmit)='this.submit()'>
     <div class='form-group'>
       <label for='username'>{{ 'login.username' | translate }}</label>
@@ -13,7 +13,41 @@
     </div>
     <a class='text-primary' [routerLink]="['/register']" routerLinkActive="router-link-active" >{{ 'login.create-account' | translate }}</a>
     <div class='d-flex justify-content-end'>
-      <app-button [text]=" 'login.submit' | translate" ></app-button>
+      <app-button
+      ButtonType bclass='button-rectangle-primary'
+      [text]=" 'login.submit' | translate" >
+      </app-button>
     </div>
+  </form>
+</div>
+ -->
+
+<div class='container'>
+  <form [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()' class='card'>
+
+    <app-input-form
+    formControlName='username'
+    [label]="'login.username' | translate">
+    </app-input-form>
+    <app-input-form
+    formControlName='password'
+    [label]="'login.password' | translate"
+    type='password'>
+    </app-input-form>
+
+    <a
+    class='text-primary'
+    [routerLink]="['/register']"
+    routerLinkActive="router-link-active" >
+    {{ 'login.create-account' | translate }}
+    </a>
+
+    <div class='d-flex justify-content-end'>
+      <app-button
+      ButtonType bclass='button-rectangle-primary'
+      [text]=" 'login.submit' | translate" >
+      </app-button>
+    </div>
+
   </form>
 </div>

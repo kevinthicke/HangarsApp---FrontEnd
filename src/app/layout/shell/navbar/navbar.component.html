@@ -43,7 +43,10 @@ class='navigation-bar-brand'>
     [text]=" this.activeLang | titlecase "
     (click)='this.changeLanguage()'>
     </app-button>
-    <app-circle-button-aux [text]=" 'navbar.log-out' | translate " (click)='this.logOut()'></app-circle-button-aux>
-
+    <app-button
+    ButtonType bclass='button-rectangle-primary-darker'
+    [text]=" 'navbar.log-out' | translate "
+    (click)='this.logOut()'>
+    </app-button>
   </div>
 </nav>

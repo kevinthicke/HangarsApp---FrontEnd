@@ -8,6 +8,7 @@
     *ngIf='!this.isTextArea'
     [value]='this.value'
     [disabled]='this.disabled'
+    [type]='this.type'
     (input)='this.onChange($event.target.value)'
     (blur)='this.onTouched()'
     [ngClass]='{ "is-invalid": this.formControl.invalid && this.formControl.touched }'
