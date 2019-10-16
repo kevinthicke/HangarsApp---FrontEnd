@@ -3,7 +3,7 @@
 
 <div class='container'>
 
-  <form [formGroup]='form' (ngSubmit)='submit()'>
+  <form [formGroup]='form'>
 
     <app-input-form
     formControlName='name'
@@ -37,7 +37,8 @@
     <div *ngIf='this.isFormEnabled' class='d-flex justify-content-end'>
       <app-button
       ButtonType bclass='button-rectangle-primary'
-      [text]=' "products.form.submit-button" | translate '>
+      [text]=' "products.form.submit-button" | translate '
+      (click)='this.submit()'>
       </app-button>
     </div>
 

@@ -1,5 +1,6 @@
 <app-product-crud
 [product]='this.product$ | async'
 [hangarsMinified]='this.hangarsMinified$ | async'
-[isFormEnabled]='this.isFormEnabled$ | async'>
+[isFormEnabled]='this.isFormEnabled$ | async'
+(productFormEmitter)='this.handleProductFormEmitter($event)'>
 </app-product-crud>

@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../../../core/models/product/product.model';
 import { FormBuilder, Validators, FormGroup, NgModel } from '@angular/forms';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 import { CustomValidator } from 'src/app/shared/validators/custom.validator';
+import { ProductBuilder } from '../../../../core/models/builders/product.builder';
 
 @Component({
   selector: 'app-product-crud',
@@ -14,6 +15,8 @@ export class ProductCrudComponent implements OnInit, OnChanges {
   @Input() product: Product;
   @Input() hangarsMinified: HangarMinified[];
   @Input() isFormEnabled: boolean;
+
+  @Output() productFormEmitter = new EventEmitter<Product>();
 
   form: FormGroup;
 
@@ -53,11 +56,11 @@ export class ProductCrudComponent implements OnInit, OnChanges {
         Validators.required 
       ],
       quantity: [  
-        '1', 
+        1, 
         [ Validators.required, CustomValidator.shouldBeANumber, CustomValidator.shouldBeGreaterThanZero ]
       ],
       price: [ 
-        '0', 
+        0.99, 
         [ Validators.required, CustomValidator.shouldBeANumber, CustomValidator.shouldBeGreaterThanZero ]
       ]
     });
@@ -65,7 +68,12 @@ export class ProductCrudComponent implements OnInit, OnChanges {
   }
 
   submit(): void {
-    console.log(this.form.value);
+
+    this.productFormEmitter.emit({
+      ...this.form.value,
+      price: Number(this.form.value['price'])
+    } as Product);
+    
   }
 
 }
