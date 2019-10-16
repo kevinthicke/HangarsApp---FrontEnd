@@ -4,8 +4,11 @@
       <form class="row w-100">
         <input class="col-10 form-control" />
         <div class="col-2 d-flex justify-content-center">
-          <app-secondary-button [text]=" 'search-bar.search' | translate " (click)="onSubmit()">
-          </app-secondary-button>
+          <app-button
+          ButtonType bclass='button-rectangle-secondary'
+          [text]=" 'search-bar.search' | translate "
+          (click)="onSubmit()">
+          </app-button>
         </div>
       </form>
     </div>

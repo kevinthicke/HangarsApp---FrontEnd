@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductMinified } from '../../../../core/models/product/product-minified';
 
-
 @Component({
   selector: 'app-card-deck',
   templateUrl: './card-deck.component.html',
