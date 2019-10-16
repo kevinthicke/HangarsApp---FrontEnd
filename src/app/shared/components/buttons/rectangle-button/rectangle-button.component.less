@@ -9,25 +9,38 @@
 @secondary-color:     #137645;
 @secondary-color-aux: #10492d;
 
+@circle-width: 40px;
+@circle-height: 40px;
+
 @white: #f9f9f9;
 
-.button-container(@width, @height, @color, @color-aux) {
-  width: @rectangle-width + 10px;
-  height: @rectangle-height;
+.button-container(@width, @height, @color, @color-aux, @isCircle) {
+
+  width: 100%;
+  & when(@isCircle = false) {
+    width: @width + 10px;
+  }
+  height: @height;
   border: none;
 
+  .d-flex-center();
+
   button {
-    .custom-button(@rectangle-width, @rectangle-height, @color, @color-aux);
+    .custom-button(@width, @height, @color, @color-aux, @isCircle);
   }
 }
 
-.custom-button(@width, @height, @color, @color-aux) {
+.custom-button(@width, @height, @color, @color-aux, @isCircle) {
 
   width: @width;
   height: @height;
 
   margin: auto;
+
   border-radius: 3px;
+  & when(@isCircle = true) {
+    border-radius: 50%;
+  }
 
   background: @color;
   color: @white;
@@ -39,9 +52,13 @@
   .transition();
   .remove-default-button-border();
 
+
   &:hover {
     background: @color-aux;
-    width: @width+10px;
+
+    & when(@isCircle = false) {
+      width: @width + 10px;
+    }
   }
 
   &:active {
@@ -51,10 +68,14 @@
 
 }
 
-.button-container-primary {
-  .button-container(@rectangle-width, @rectangle-height, @primary-color, @primary-color-aux);
+.button-rectangle-primary {
+  .button-container(@rectangle-width, @rectangle-height, @primary-color, @primary-color-aux, false);
 }
 
-.button-container-secondary {
-  .button-container(@rectangle-width, @rectangle-width, @secondary-color, @secondary-color-aux);
+.button-rectangle-secondary {
+  .button-container(@rectangle-width, @rectangle-height, @secondary-color, @secondary-color-aux, false);
+}
+
+.button-circle-primary {
+  .button-container(@circle-width, @circle-height, @primary-color, @primary-color-aux, true);
 }

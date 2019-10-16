@@ -1,12 +1,16 @@
 import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
-import { query } from '@angular/animations';
+
+type classType = (
+  'button-rectangle-primary' |
+  'button-rectangle-secondary' |
+  'button-circle-primary'
+);
 
 @Directive({
   selector: '[ButtonType]'
 })
 export class ButtonTypeDirective implements OnInit {
-
-  @Input('primaryType') primaryType?: boolean = true;
+  @Input('bclass') class?: classType;
 
   constructor(
     public elementRef: ElementRef,
@@ -15,10 +19,10 @@ export class ButtonTypeDirective implements OnInit {
 
   ngOnInit(): void {
 
-    const button = this.elementRef.nativeElement.querySelector('div');
-    const style = this.primaryType ? 'button-container-primary' : 'button-container-secondary';
-
-    this.renderer.addClass(button, style);
+    this.renderer.addClass(
+      this.elementRef.nativeElement.querySelector('div'),
+      this.class
+    );
 
   }
 
