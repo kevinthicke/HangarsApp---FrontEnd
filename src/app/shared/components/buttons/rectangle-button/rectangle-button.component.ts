@@ -8,9 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RectangleButtonComponent implements OnInit {
 
   @Input() text: string;
-  @Input() style: string = 'primary';
+//  @Input() style: string;
 
   ngOnInit(): void { }
-
 
 }

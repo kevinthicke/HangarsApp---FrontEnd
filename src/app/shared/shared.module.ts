@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { InputFormComponent } from '../shared/components/form/input-form/input-form.component';
 import { AuxNavbarComponent } from './components/aux-navbar/aux-navbar.component';
 import { CircleButtonAuxComponent } from './components/buttons/circle-button-aux/circle-button-aux.component';
 import { CircleButtonComponent } from './components/buttons/circle-button/circle-button.component';
@@ -12,8 +13,8 @@ import { NavigationListCartComponent } from './components/navigation-list-cart/n
 import { PrimaryCardComponent } from './components/primary-card/primary-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ToastComponent } from './components/toast/toast.component';
+import { ButtonTypeDirective } from './directives/button-type.directive';
 import { HomeComponent } from './views/home/home.component';
-import { InputFormComponent } from '../shared/components/form/input-form/input-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { InputFormComponent } from '../shared/components/form/input-form/input-f
     AuxNavbarComponent,
     ToastComponent,
     NavigationListCartComponent,
-    InputFormComponent
+    InputFormComponent,
+    ButtonTypeDirective
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { InputFormComponent } from '../shared/components/form/input-form/input-f
     SecondaryButtonComponent,
     AuxNavbarComponent,
     ToastComponent,
-    InputFormComponent
+    InputFormComponent,
+    ButtonTypeDirective
   ]
 })
 export class SharedModule {}
