@@ -1,21 +1,13 @@
-import { Deserializable } from '../auxiliary/deserializable.model';
+import { Injectable } from '@angular/core';
+import { Adapter } from '../auxiliary/adapter';
+import { Deserializer } from '../auxiliary/deserializer';
 
+export class ProductMinified  {
 
-export class ProductMinified implements Deserializable {
+  constructor(
+    public id: number,
+    public name: string,
+    public price: number
+  ) { }
 
-  public id: number;
-  public name: string;
-  public price: number;
-
-  constructor() { }
-
-  deserialize(obj: any): this {
-    const { id, name, price } = obj;
-
-    this.id = id;
-    this.name = name;
-    this.price = +price.toFixed(2);
-
-    return this;
-  }
 }

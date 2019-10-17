@@ -61,7 +61,7 @@ export class HangarDetailsComponent implements OnInit {
   */
 
  handleProductForm({ quantity, ... product }: any): void {
-
+/*
   this.productService
     .insertProduct(product)
     .pipe(
@@ -91,7 +91,7 @@ export class HangarDetailsComponent implements OnInit {
         });
       }
     });
-
+ */
   }
 
 }

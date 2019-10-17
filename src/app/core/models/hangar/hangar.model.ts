@@ -1,5 +1,5 @@
 import { HangarMinified } from './hangar-minified.model';
-import { Deserializable } from '../auxiliary/deserializable.model';
+import { Deserializable } from '../auxiliary/deserializer';
 
 export class Hangar extends HangarMinified implements Deserializable {
 
@@ -14,7 +14,7 @@ export class Hangar extends HangarMinified implements Deserializable {
 
     super.id = id;
     super.name = name;
-    
+
     this.location = location;
     this.email = email;
     this.owner = owner;

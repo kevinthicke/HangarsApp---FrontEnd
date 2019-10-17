@@ -1,6 +1,5 @@
-import { Deserializable } from './auxiliary/deserializable.model';
 
-export class ProductsHangar implements Deserializable {
+export class ProductsHangar  {
 
   hangar_id: number;
   product_id: number;

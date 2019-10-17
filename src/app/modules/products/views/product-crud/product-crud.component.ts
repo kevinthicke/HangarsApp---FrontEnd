@@ -43,23 +43,23 @@ export class ProductCrudComponent implements OnInit, OnChanges {
 
     this.form = this.formBuilder.group({
       name: [
-        '', 
+        '',
         [ Validators.required, Validators.minLength(2) ]
       ],
       description: [
-        '', 
-        Validators.required 
+        '',
+        Validators.required
       ],
-      hangarId: [ 
-        -1, 
-        Validators.required 
+      hangarId: [
+        -1,
+        Validators.required
       ],
-      quantity: [  
-        1, 
+      quantity: [
+        1,
         [ Validators.required, CustomValidator.shouldBeANumber, CustomValidator.shouldBeGreaterThanZero ]
       ],
-      price: [ 
-        0.99, 
+      price: [
+        0.99,
         [ Validators.required, CustomValidator.shouldBeANumber, CustomValidator.shouldBeGreaterThanZero ]
       ]
     });
@@ -67,12 +67,13 @@ export class ProductCrudComponent implements OnInit, OnChanges {
   }
 
   submit(): void {
-    
+    console.log(this.form.value);
+
      this.productFormEmitter.emit({
       ... this.form.value,
       price: Number(this.form.value['price'])
-    } as Product); 
-    
+    } as Product);
+
   }
 
 }

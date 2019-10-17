@@ -1,6 +1,5 @@
-import { Deserializable } from '../auxiliary/deserializable.model';
 
-export class User implements Deserializable {
+export class User {
 
   public username: string;
   public password: string;
@@ -10,18 +9,6 @@ export class User implements Deserializable {
     this.username = username;
     this.password = password;
     this.token = token;
-  }
-
-  deserialize(obj: any): this {
-
-    const { username, password, token } = obj;
-
-    this.username = username;
-    this.password = password;
-    this.token = token;
-
-    return this;
-    
   }
 
 }

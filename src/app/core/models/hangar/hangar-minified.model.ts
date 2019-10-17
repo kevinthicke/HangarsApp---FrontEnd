@@ -1,7 +1,7 @@
-import { Deserializable } from '../auxiliary/deserializable.model';
+import { Deserializable } from '../auxiliary/deserializer';
 
 export class HangarMinified implements Deserializable {
-  
+
   public id: number;
   public name: string;
 
