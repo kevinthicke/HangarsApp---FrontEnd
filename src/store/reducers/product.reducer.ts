@@ -1,11 +1,10 @@
 import { ProductActions, ProductActionTypes } from '../actions/product.action';
 import { ProductState } from '../state/product.state';
-import { Product } from '../../app/core/models/product/product.model';
 
 
 const initialState: ProductState = {
   products: [],
-  product: new Product(),
+  product: null,
   hangarSelected: null,
   pending: false
 };
@@ -38,7 +37,7 @@ export function productReducer(state: ProductState = initialState, action: Produ
       };
 
     case ProductActionTypes.PRODUCT_DETAILS_LOADED:
-      
+
       return {
         ...state,
         product: {

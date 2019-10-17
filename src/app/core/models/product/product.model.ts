@@ -1,18 +1,30 @@
 
-import { ProductMinified } from './product-minified';
 
-export class Product extends ProductMinified  {
+export class Product   {
+
+  public id?: number;
+  public name: string;
+  public price: number;
+  public description: string;
+  public quantity: number;
+  public hangarId: number;
 
   constructor(
-    id: number,
     name: string,
     price: number,
-    public description: string,
-    public quantity: number,
-    public hangarId: number
+    description: string,
+    quantity: number,
+    hangarId: number,
+    id?: number
   ) {
 
-    super(id, name, price);
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.description = description;
+    this.quantity = quantity;
+    this.hangarId = hangarId;
+
   }
 
 }

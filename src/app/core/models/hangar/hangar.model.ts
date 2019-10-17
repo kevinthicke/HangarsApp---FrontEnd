@@ -1,7 +1,6 @@
 import { HangarMinified } from './hangar-minified.model';
-import { Deserializable } from '../auxiliary/deserializer';
 
-export class Hangar extends HangarMinified implements Deserializable {
+export class Hangar extends HangarMinified  {
 
   public location: string;
   public email: string;

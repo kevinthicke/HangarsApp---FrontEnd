@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Adapter } from '../auxiliary/adapter';
-import { Deserializer } from '../auxiliary/deserializer';
 
-export class ProductMinified  {
+export class ProductMinified {
 
-  constructor(
-    public id: number,
-    public name: string,
-    public price: number
-  ) { }
+  public id: number;
+  public name: string;
+  public price: number;
+
+  constructor(id: number, name: string, price: number) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+  }
 
 }

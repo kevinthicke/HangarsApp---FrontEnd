@@ -1,5 +1,4 @@
-import { Price } from './price-dto.model';
-
+import { Price } from '../../price.model';
 
 export class ProductDto {
   public id: number;

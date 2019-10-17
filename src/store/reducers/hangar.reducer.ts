@@ -6,7 +6,6 @@ export const initialState: HangarState = {
   hangars: new PaginableHangar(),
   hangarsName: [],
   pending: false,
-  error: null
 };
 
 
@@ -18,7 +17,6 @@ export function hangarReducer(state: HangarState, action: HangarActions): Hangar
       return {
         ...state,
         pending: true,
-        error: null
       };
 
     case HangarActionTypes.HANGARS_LOADED:
@@ -32,7 +30,6 @@ export function hangarReducer(state: HangarState, action: HangarActions): Hangar
       return {
         ...state,
         pending: true,
-        error: null
       };
 
     case HangarActionTypes.HANGARS_NAME_LOADED:

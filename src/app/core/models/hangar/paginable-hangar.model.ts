@@ -1,7 +1,6 @@
-import { Deserializable } from '../auxiliary/deserializer';
 import { Hangar } from './hangar.model';
 
-export class PaginableHangar implements Deserializable {
+export class PaginableHangar {
 
   public content: Array<Hangar>;
   public numberOfElements: number;
