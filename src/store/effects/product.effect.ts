@@ -55,7 +55,7 @@ export class ProductEffects {
 
     withLatestFrom(this.store$.select('router', 'state', 'url')),
     map(([action, url]: [ManageInsertProductAction, string]) => {
-      
+
       if (url.includes('modify')) {
         return new UpdateproductAction(action.payload);
       }
@@ -72,6 +72,15 @@ export class ProductEffects {
 
     switchMap((action: SaveProductAction) => {
       return this.productService.fullSave(action.payload);
+    }),
+    tap(() => this.router.navigate(['products']))
+  );
+
+  @Effect({ dispatch: false }) updateProduct$ = this.actions$.pipe(
+    ofType<ProductActions>(ProductActionTypes.UPDATE_PRODUCT),
+
+    switchMap((action: UpdateproductAction) => {
+      return this.productService.fullUpdate(action.payload);
     }),
     tap(() => this.router.navigate(['products']))
   );

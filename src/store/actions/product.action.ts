@@ -83,7 +83,8 @@ export type ProductActions = (
   LoadProductDetailsAction |
   ProductDetailsLoadedAction |
   SaveProductAction |
-  ManageInsertProductAction
+  ManageInsertProductAction |
+  UpdateproductAction
 );
 
 

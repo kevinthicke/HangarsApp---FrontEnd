@@ -50,7 +50,8 @@ export function productReducer(state: ProductState = initialState, action: Produ
           quantity: action.payload.quantity
 
         },
-        pending: false };
+        pending: false
+      };
 
     default:
       return state;

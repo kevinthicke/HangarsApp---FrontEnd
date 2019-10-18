@@ -24,7 +24,7 @@ export class ProductAdapter implements Adapter<Product, ProductDto>, Deserialize
         ? prices[prices.length -1].price
         : null;
 
-      return new Product(id, name, price, description, quantity, hangarId);
+      return new Product(name, price, description, quantity, hangarId, id);
 
   }
 

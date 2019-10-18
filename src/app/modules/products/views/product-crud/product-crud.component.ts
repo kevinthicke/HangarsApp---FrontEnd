@@ -35,6 +35,7 @@ export class ProductCrudComponent implements OnInit, OnChanges {
 
     if (changes['product'] && changes['product'].currentValue) {
       this.form.patchValue(this.product);
+      console.log(this.product);
     }
 
   }
@@ -42,6 +43,7 @@ export class ProductCrudComponent implements OnInit, OnChanges {
   buildForm(): void {
 
     this.form = this.formBuilder.group({
+      id: [-1], 
       name: [
         '',
         [ Validators.required, Validators.minLength(2) ]
@@ -67,7 +69,6 @@ export class ProductCrudComponent implements OnInit, OnChanges {
   }
 
   submit(): void {
-    console.log(this.form.value);
 
      this.productFormEmitter.emit({
       ... this.form.value,
