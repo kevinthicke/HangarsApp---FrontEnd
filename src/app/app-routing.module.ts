@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginContainer } from './security/containers/login/login.container';
 import { RegisterContainer } from './security/containers/register/register.container';
 import { AuthGaurdService } from './security/services/auth-gaurd.service';
 import { LogoutComponent } from './security/views/logout/logout.component';
 import { HomeComponent } from './shared/views/home/home.component';
-import { RegisterComponent } from './security/views/register/register.component';
-import { LoginContainer } from './security/containers/login/login.container';
 
 const routes: Routes = [
   {
@@ -23,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterContainer
   },
   {
     path: 'hangars',

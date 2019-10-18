@@ -117,7 +117,7 @@
     "field-min-length": "Este campo debe tener como mínimo {{ minLength }} caractéres",
     "field-number": "El valor de este campo debe ser un número",
     "number-greater-than-zero": "Este campo debe ser mayor que cero",
-    "username-unique": "El nombre de usuario debe ser único",
+    "username-unique": "El nombre de usuario ya existe",
     "password-special-characters": "La constraseña debe contener al menos un carácter especial",
     "passwords-must-match": "Las contraseñas deben coincidir"
   }

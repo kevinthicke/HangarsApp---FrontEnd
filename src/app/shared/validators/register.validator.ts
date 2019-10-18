@@ -39,12 +39,14 @@ export class RegisterValidator {
 }
 
 export class RegisterAsyncValidator {
+
   static shouldBeUnique(userService: UserService) {
     return (control: AbstractControl): Promise<ValidationErrors | null> =>
       new Promise((resolve, reject) => {
         userService
           .existUserByUsername(control.value as string)
           .subscribe(response => {
+
             if (response) {
               resolve({ shouldBeUnique: true });
             } else {
@@ -53,4 +55,5 @@ export class RegisterAsyncValidator {
           });
       });
   }
+
 }
