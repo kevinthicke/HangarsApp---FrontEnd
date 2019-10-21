@@ -1,45 +1,30 @@
 <form>
 
-  <div class='form-group'>
-
-    <label for='input'>{{ this.label }}</label>
-
+  <div class='form'>
     <input
-    *ngIf='!this.isTextArea'
     [value]='this.value'
-    [disabled]='this.disabled'
     [type]='this.type'
     (input)='this.onChange($event.target.value)'
     (blur)='this.onTouched()'
-    [ngClass]='{ "is-invalid": this.formControl.invalid && this.formControl.touched }'
-    class='form-control' id='input' autocomplete='off'>
-    <textarea
-    *ngIf='this.isTextArea'
-    [value]='this.value'
-    [disabled]='this.disabled'
-    (input)='this.onChange($event.target.value)'
-    (blur)='this.onTouched()'
-    [ngClass]='{ "is-invalid": this.formControl.invalid && this.formControl.touched }'
-    class='form-control' id='input' autocomplete='off'
-    rows='5'>
-    </textarea>
-
-    <div *ngIf='this.formControl.invalid && this.formControl.touched'>
-
-      <div *ngIf='this.formControl.hasError("required")' class='invalid-feedback d-block'>
-        {{ 'validations.field-required' | translate }}
-      </div>
-      <div *ngIf='this.formControl.hasError("minlength")' class='invalid-feedback d-block'>
-        {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
-      </div>
-      <div *ngIf='this.formControl.hasError("shouldBeGreaterThanZero")' class='invalid-feedback d-block'>
-        {{ 'validations.number-greater-than-zero' | translate }}
-      </div>
-      <div *ngIf='this.formControl.hasError("shouldBeANumber")' class='invalid-feedback d-block'>
-          {{ 'validations.field-number' | translate }}
-      </div>
-
-    </div>
+    id='input' autocomplete='off'>
+    <label for='input'>{{ this.label }}</label>
   </div>
 
+  <div class="error">
+    <div *ngIf='this.formControl.invalid && this.formControl.touched'>
+
+      <div *ngIf='this.formControl.hasError("required")' @fade>
+        {{ 'validations.field-required' | translate }}
+      </div>
+      <div *ngIf='this.formControl.hasError("minlength")' @fade>
+        {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
+      </div>
+      <div *ngIf='this.formControl.hasError("shouldBeGreaterThanZero")' @fade>
+        {{ 'validations.number-greater-than-zero' | translate }}
+      </div>
+      <div *ngIf='this.formControl.hasError("shouldBeANumber")' @fade>
+          {{ 'validations.field-number' | translate }}
+      </div>
+    </div>
+  </div>
 </form>

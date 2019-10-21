@@ -18,7 +18,7 @@
   },
   "login": {
     "title": "Inicio de sesión",
-    "username": "Nombre de usuario",
+    "username": "Username",
     "password": "Contraseña",
     "create-account": "Crear una nueva cuenta",
     "submit": "Iniciar",

@@ -1,22 +1,9 @@
-<nav
-class='navigation-bar sticky-top'>
+<nav class='navigation-bar sticky-top'>
 
-<!-- Brand -->
-<div
-class='navigation-bar-brand'>
-<!--
-  <div
-  *ngIf='this.isLoading | async'
-  class="spinner-border text-primary"
-  role="status"
-  @fade>
-    <span class="sr-only">Loading...</span>
+  <div class='navigation-bar-brand'>
+    <span>Hangars App</span>
   </div>
-  -->
-  <span>Hangars App</span>
-</div>
 
-<!-- Navigation buttons -->
   <ul class='bar-list'>
     <li
     *ngFor='let button of this.buttons; let i = index'
@@ -32,7 +19,6 @@ class='navigation-bar-brand'>
     </li>
   </ul>
 
-<!-- Login buttons -->
   <div class='button-container'>
 
     <div class='username-container'>
@@ -49,4 +35,5 @@ class='navigation-bar-brand'>
     (click)='this.logOut()'>
     </app-button>
   </div>
+
 </nav>

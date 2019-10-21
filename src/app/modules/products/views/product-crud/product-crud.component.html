@@ -6,14 +6,14 @@
   <form [formGroup]='form' (ngSubmit)='this.submit()'>
 
     <app-input-form
+    FormType isDisabled='true'
     formControlName='name'
     [label]= ' "products.form.name" | translate'>
     </app-input-form>
 
     <app-input-form
     formControlName='description'
-    [label]=' "products.form.description" | translate'
-    [isTextArea]='true'>
+    [label]=' "products.form.description" | translate'>
     </app-input-form>
 
     <app-hangar-list-form
@@ -22,16 +22,19 @@
     [hangarsMinified]='this.hangarsMinified'>
     </app-hangar-list-form>
 
-    <div class='d-flex justify-content-between'>
-      <app-quantity-counter-form
-      formControlName='quantity'
-      [label]=' "products.form.quantity" | translate'>
-      </app-quantity-counter-form>
+    <div class='aux-form-controls'>
 
       <app-input-form
       formControlName='price'
       [label]= ' "products.form.price" | translate'>
       </app-input-form>
+
+      <app-quantity-counter-form
+      formControlName='quantity'
+      [label]=' "products.form.quantity" | translate'
+      class='quantity-counter-form'>
+      </app-quantity-counter-form>
+
     </div>
 
     <div *ngIf='this.isFormEnabled' class='d-flex justify-content-end'>

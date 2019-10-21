@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input, forwardRef } from '@angular/core';
 import { NgModel, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl } from '@angular/forms';
+import { fade } from '../../../animations/fade.animation';
 
 @Component({
   selector: 'app-input-form',
@@ -16,7 +17,8 @@ import { NgModel, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormCo
       useExisting: InputFormComponent,
       multi: true
     }
-  ]
+  ],
+  animations: [ fade ]
 })
 export class InputFormComponent implements OnInit, ControlValueAccessor {
 
