@@ -19,17 +19,7 @@ export class HangarsComponent implements OnInit {
 
   showLateralNavbar: boolean = false;
 
-  @HostListener('document:click', ['$event'])
-    clickout(event) {
-    if (!this.elementRef.nativeElement.contains(event.target) && this.showLateralNavbar) {
-      this.showLateralNavbar = false;
-    }
-  }
-
-  constructor(
-    private elementRef: ElementRef,
-    private router: Router
-  ) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void  { }
 

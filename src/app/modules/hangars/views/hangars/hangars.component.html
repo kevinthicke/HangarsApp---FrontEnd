@@ -26,6 +26,7 @@
     "lateral-navbar-active": this.showLateralNavbar,
     "lateral-navbar": !this.showLateralNavbar }'>
   <app-lateral-navbar
+  ClickOutSide (clickOutSide)='this.handleCloseLateralNavbar()'
   (closeEmitter)='this.handleCloseLateralNavbar()'
   (deleteHangarEmitter)='this.handleDeleteHangar()'>
   </app-lateral-navbar>

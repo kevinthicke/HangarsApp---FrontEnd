@@ -14,6 +14,7 @@ import { ToastComponent } from './components/toast/toast.component';
 import { ButtonTypeDirective } from './directives/button-type.directive';
 import { HomeComponent } from './views/home/home.component';
 import { ButtonComponent } from './components/buttons/button/button.component';
+import { ClickOutSideDirective } from './directives/click-outside.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ButtonComponent } from './components/buttons/button/button.component';
     ToastComponent,
     NavigationListCartComponent,
     InputFormComponent,
-    ButtonTypeDirective
+    ButtonTypeDirective,
+    ClickOutSideDirective
   ],
   imports: [
     CommonModule,
