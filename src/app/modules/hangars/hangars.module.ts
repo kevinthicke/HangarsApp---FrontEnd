@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HangarListComponent } from './views/hangar-list/hangar-list.component';
-
-import { HangarsRoutingModule } from './hangars-routing.module';
-import { ListComponent } from './components/list/list.component';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../../shared/shared.module';
-import { LateralNavbarComponent } from './components/lateral-navbar/lateral-navbar.component';
-import { HangarDetailsComponent } from './views/hangar-details/hangar-details.component';
-import { HangarModifyComponent } from './views/hangar-modify/hangar-modify.component';
-import { HangarInsertComponent } from './views/hangar-insert/hangar-insert.component';
 import { FormComponent } from './components/form/form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HangarSearchResultsComponent } from './views/hangar-search-results/hangar-search-results.component';
+import { LateralNavbarComponent } from './components/lateral-navbar/lateral-navbar.component';
+import { ListComponent } from './components/list/list.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { HangarContainer } from './containers/hangar/hangar.container';
+import { HangarsRoutingModule } from './hangars-routing.module';
+import { HangarDetailsComponent } from './views/hangar-details/hangar-details.component';
+import { HangarInsertComponent } from './views/hangar-insert/hangar-insert.component';
+import { HangarListComponent } from './views/hangar-list/hangar-list.component';
+import { HangarModifyComponent } from './views/hangar-modify/hangar-modify.component';
+import { HangarSearchResultsComponent } from './views/hangar-search-results/hangar-search-results.component';
+import { HangarsComponent } from './views/hangars/hangars.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     HangarInsertComponent,
     FormComponent,
     HangarSearchResultsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    HangarContainer,
+    HangarsComponent
   ],
   imports: [
     CommonModule,

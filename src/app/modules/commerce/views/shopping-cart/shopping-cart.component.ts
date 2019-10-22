@@ -33,4 +33,5 @@ export class ShoppingCartComponent implements OnInit {
     this.purchaseOrderEmitter.emit();
   }
 
+  showHistory(): void { }
 }

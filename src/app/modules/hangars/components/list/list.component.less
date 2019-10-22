@@ -1,6 +1,28 @@
 .list {
   height: 70vh;
   margin-top: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2C5364;
+  border-radius: 5px;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    background: #006a8d;
+  }
 }
 
 li {
@@ -33,6 +55,11 @@ li {
 .list-item:hover {
   background: #C6CACE;
   transform: translate(10px);
+}
+
+.list-item:active {
+  background: rgb(217, 222, 228);
+  transform: translate(15px);
 }
 
 .btn-primary {

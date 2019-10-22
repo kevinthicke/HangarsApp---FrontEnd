@@ -15,11 +15,7 @@ export class HangarInsertComponent implements OnInit {
   ngOnInit(): void { }
 
   handleChange(hangar: Hangar): void {
-    this.service
-        .postHangar(hangar)
-        .subscribe((resp: Hangar) => {
-          this.router.navigate(['hangars']);
-        });
+   
   }
 
 

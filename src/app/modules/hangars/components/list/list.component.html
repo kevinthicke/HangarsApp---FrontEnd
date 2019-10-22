@@ -1,12 +1,19 @@
-<div class="btn-group w-100 bg-grimary" role="group">
-  <button class="btn btn-primary" (click)="previousPage()">
+<div class='btn-group w-100 bg-grimary' role='group'>
+  <button class='btn btn-primary' (click)='this.toPreviousPage()'>
     {{ 'hangars.list.previous-page' | translate }}
   </button>
-  <button class="btn btn-primary" (click)="nextPage()">{{ 'hangars.list.next-page' | translate }}</button></div>
-<ul class="list">
-  <li *ngFor="let hangar of this.hangars; let i = index;"
-  (click)="select(hangar, i)"
-  (dblclick)="goDetails(hangar)">
-    <a class="list-item text-primary selected" *ngIf="i==this.item">{{ hangar.name }}</a>
-    <a class="list-item text-primary" *ngIf="i!=this.item">{{ hangar.name }}</a></li>
+  <button class='btn btn-primary' (click)='this.toNextPage()'>
+    {{ 'hangars.list.next-page' | translate }}
+  </button>
+</div>
+<ul class='list'>
+  <li *ngFor='let hangar of this.hangarsMinified; let i = index;'
+  (click)='handleSelectHangar(hangar)'
+  (dblclick)='goDetails(hangar)'>
+    <a
+    [ngClass]='{"selected": this.hangarSelected && (this.hangarSelected.id==hangar.id)}'
+    class='list-item text-primary'>
+      {{ hangar.name }}
+    </a>
+  </li>
 </ul>

@@ -27,9 +27,9 @@ export class ProductContainer implements OnInit {
 
   ngOnInit(): void {
 
-    this.hangarFacade.loadHangarsName();
-    this.hangarsMinified$ = this.hangarFacade.hangarsMinified$;
+    this.hangarFacade.loadHangars(0);
 
+    this.hangarsMinified$ = this.hangarFacade.hangarsMinified$;
     this.productsMinified$ = this.productFacade.productsMinified$;
 
   }

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HangarListComponent } from './views/hangar-list/hangar-list.component';
+import { HangarContainer } from './containers/hangar/hangar.container';
 import { HangarDetailsComponent } from './views/hangar-details/hangar-details.component';
-import { HangarModifyComponent } from './views/hangar-modify/hangar-modify.component';
 import { HangarInsertComponent } from './views/hangar-insert/hangar-insert.component';
+import { HangarModifyComponent } from './views/hangar-modify/hangar-modify.component';
 
 const routes: Routes = [
   {
       path: '',
-      component: HangarListComponent
+      component: HangarContainer
   },
   {
     path: 'details',

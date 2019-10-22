@@ -31,7 +31,15 @@
     [text]='"commerce.purchase" | translate '
     (click)='this.purchaseOrder()'>
     </app-button>
+  </div>
 </div>
+
+<div *ngIf='!this.blurState' class='float-button'>
+    <app-button
+    ButtonType bclass='button-rectangle-primary'
+    (click)='this.showHistory()'
+    [text]='"Ver historial "'>
+    </app-button>
 </div>
 
   <div class='jumbotron' *ngIf='this.shoppingCart.cart.length == 0'>

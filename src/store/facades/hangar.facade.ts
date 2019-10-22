@@ -1,38 +1,35 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Hangar } from '../../app/core/models/hangar.model';
 import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
-import { LoadHangarsAction, LoadHangarsNameAction } from '../actions/hangar.action';
-import { HangarState } from '../state/hangar.state';
+import { LoadHangarsAction, SetHangarSelectedAction } from '../actions/hangar.action';
 import { AppState } from '../state/index';
-import { PaginableHangar } from '../../app/core/models/hangar/paginable-hangar.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HangarFacade {
 
-  hangars$: Observable<PaginableHangar>;
   hangarsMinified$: Observable<HangarMinified[]>;
+  hangarSelected$ : Observable<HangarMinified>;
 
   constructor(private store: Store<AppState>) {
-
-    this.hangars$ = this.store.pipe(select('hangar', 'hangars'));
-
-    this.hangarsMinified$ = this.store.pipe(
-      select('hangar'),
-      map((hangarState: HangarState) => hangarState.hangarsName ));
-
+    this.hangarsMinified$ = this.store.pipe(select('hangar', 'hangarMinifiedPage', 'content'));
+    this.hangarSelected$  = this.store.pipe(select('hangar', 'hangarSelected'));
   }
 
-  loadHangars() {
-    this.store.dispatch(new LoadHangarsAction());
+  loadHangars(page: number) {
+    this.store.dispatch(new LoadHangarsAction(page));
   }
 
-  loadHangarsName() {
-    this.store.dispatch(new LoadHangarsNameAction());
+  setHangarSelected(hangarMinified: HangarMinified): void {
+    this.store.dispatch(new SetHangarSelectedAction(hangarMinified));
+  }
+
+  deleteHangar(): void {
+    this.hangarSelected$.subscribe(hangar => {
+      console.log('Borrando ' + hangar.name);
+    });
   }
 
 }

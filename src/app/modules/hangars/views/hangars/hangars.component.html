@@ -1,0 +1,32 @@
+<app-aux-navbar
+[title]=' "hangars.list.title" | translate '>
+</app-aux-navbar>
+
+<div class='container'>
+  <app-list
+  [hangarsMinified]='this.hangarsMinified'
+  [hangarSelected]='this.hangarSelected'
+  (toPreviousPageEmitter)='this.handleToPreviousPage()'
+  (toNextPageEmitter)='this.handleToNextPage()'
+  (hangarSelectedEmitter)='this.handleSelectHangar($event)'>
+  </app-list>
+</div>
+
+<div class='float-button'>
+    <app-button
+    ButtonType bclass='button-rectangle-primary'
+    class='button float'
+    [text]=' this.hangarSelected ? "More": "Insertar" '
+    (click)='this.handleFloatButtonClick()'>
+    </app-button>
+</div>
+
+<div
+  [ngClass]='{
+    "lateral-navbar-active": this.showLateralNavbar,
+    "lateral-navbar": !this.showLateralNavbar }'>
+  <app-lateral-navbar
+  (closeEmitter)='this.handleCloseLateralNavbar()'
+  (deleteHangarEmitter)='this.handleDeleteHangar()'>
+  </app-lateral-navbar>
+</div>

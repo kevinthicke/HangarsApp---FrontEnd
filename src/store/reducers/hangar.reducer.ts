@@ -1,13 +1,12 @@
-import { HangarState } from '../state/hangar.state';
 import { HangarActions, HangarActionTypes } from '../actions/hangar.action';
-import { PaginableHangar } from 'src/app/core/models/hangar/paginable-hangar.model';
+import { HangarState } from '../state/hangar.state';
+import { HangarMinifiedPage } from 'src/app/core/models/hangar/paginable-minified-hangar.model';
 
 export const initialState: HangarState = {
-  hangars: new PaginableHangar(),
-  hangarsName: [],
+  hangarMinifiedPage: new HangarMinifiedPage(),
+  hangarSelected: null,
   pending: false,
 };
-
 
 export function hangarReducer(state: HangarState, action: HangarActions): HangarState {
 
@@ -22,22 +21,21 @@ export function hangarReducer(state: HangarState, action: HangarActions): Hangar
     case HangarActionTypes.HANGARS_LOADED:
       return {
         ...state,
-        hangars: action.payload,
+        hangarMinifiedPage: action.payload,
         pending: false
       };
 
-    case HangarActionTypes.LOAD_HANGARS_NAME:
-      return {
-        ...state,
-        pending: true,
-      };
+    case HangarActionTypes.SET_HANGAR:
 
-    case HangarActionTypes.HANGARS_NAME_LOADED:
-      return {
+      return (state.hangarSelected && (state.hangarSelected.id===action.payload.id))
+      ? {
         ...state,
-        pending: false,
-        hangarsName: action.payload
-      };
+        hangarSelected: null
+      }
+      : {
+        ...state,
+        hangarSelected: action.payload
+      }
 
     default:
       return state;

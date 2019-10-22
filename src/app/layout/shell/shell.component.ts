@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorFacade } from '../../../store/facades/error.facade';
 import { Observable } from 'rxjs';
 import { Error } from 'src/app/core/models/auxiliary/error.model';
+import { ErrorFacade } from '../../../store/facades/error.facade';
 
 @Component({
   selector: 'app-shell',
@@ -10,6 +10,7 @@ import { Error } from 'src/app/core/models/auxiliary/error.model';
   styleUrls: ['./shell.component.less']
 })
 export class ShellComponent implements OnInit {
+
   activeLang = 'es';
   renderShoppingCart = false;
 
@@ -19,13 +20,13 @@ export class ShellComponent implements OnInit {
     private translate: TranslateService,
     private errorFacade: ErrorFacade
   ) {
-  
+
     this.translate.setDefaultLang(this.activeLang);
     this.translate.use(this.activeLang);
-  
+
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.error$ = this.errorFacade.error$;
   }
 

@@ -1,10 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Hangar } from '../models/hangar.model';
 import { HangarMinified } from '../models/hangar/hangar-minified.model';
-import { PaginableHangar } from '../models/hangar/paginable-hangar.model';
+import { HangarMinifiedPage } from '../models/hangar/paginable-minified-hangar.model';
 import { ProductsHangar } from '../models/products-hangar.model';
 
 @Injectable({
@@ -15,8 +15,9 @@ export class HangarService {
 
   constructor(private http: HttpClient) {}
 
-  public getHangars(page: number = 0, size: number = 10): Observable<PaginableHangar> {
+  public getHangars(page: number = 0): Observable< HangarMinifiedPage > {
 
+    const size: number = 30;
     const url = `${ this.url }hangars`;
 
     const params = new HttpParams()
@@ -24,19 +25,18 @@ export class HangarService {
       .set('size', size.toString());
 
     return this.http.get(url, { params }).pipe(
-      map(hangarsData => new PaginableHangar().deserialize(hangarsData))
+      map(hangarsData => new HangarMinifiedPage().deserialize(hangarsData))
     );
   }
 
-  //verified
-  public getHangarsNames(): Observable<HangarMinified[]> {
+/*   public getHangarsNames(): Observable<HangarMinified[]> {
     const endpoint = `${ this.url }hangars/names`;
 
     return this.http.get(endpoint).pipe(
       map(hangarsData => {
         if (Array.isArray(hangarsData)) {
           return hangarsData.map(hangarData => new HangarMinified().deserialize(hangarData));
-        } 
+        }
       })
     );
   }
@@ -54,7 +54,6 @@ export class HangarService {
   public getHangarExactlyByName(name: string): Observable<Hangar> {
     return this.http.get<Hangar>(`${ this.url }hangars/exactly?name=${ name }`);
   }
-  */
 
   public postHangar(hangar: Hangar): Observable<Hangar> {
     return this.http.post<Hangar>(`${this.url}hangars`, hangar);
@@ -68,12 +67,15 @@ export class HangarService {
     return this.http.put<Hangar>(`${ this.url }hangars/safe-delete/${ id }`, null);
   }
 
+
   public saveProductInHangarByhangarId(hangarId: number, product: any): Observable<any> {
     return this.http.post<any>(
       `http://localhost:3011/api/hangars/${ hangarId }/products`,
       product
     );
   }
+
+  */
 
   public saveProductInHangar(hangarId: number, productId: number): Observable<ProductsHangar> {
     return this.http.post<ProductsHangar>(
@@ -82,5 +84,4 @@ export class HangarService {
     );
 
   }
-
 }

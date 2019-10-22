@@ -1,8 +1,8 @@
 import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
-import { PaginableHangar } from '../../app/core/models/hangar/paginable-hangar.model';
+import { HangarMinifiedPage } from '../../app/core/models/hangar/paginable-minified-hangar.model';
 
 export interface HangarState {
-  hangars: PaginableHangar;
-  hangarsName: HangarMinified[];
+  hangarMinifiedPage: HangarMinifiedPage;
+  hangarSelected: HangarMinified;
   pending: boolean;
 }

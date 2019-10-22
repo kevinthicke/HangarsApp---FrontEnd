@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, transition, style, animate, query } from '@angular/animations';
 import { Hangar } from '../../../../core/models/hangar.model';
 import { Router } from '@angular/router';
+import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 
 @Component({
   selector: 'app-list',
@@ -20,47 +21,26 @@ import { Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  @Input() hangars: Hangar[];
+  @Input() hangarsMinified : HangarMinified[];
+  @Input() hangarSelected  : HangarMinified;
 
-  hangar: Hangar;
-  click = false;
-  item = -1;
+  @Output() toPreviousPageEmitter = new EventEmitter<void>();
+  @Output() toNextPageEmitter     = new EventEmitter<void>();
+  @Output() hangarSelectedEmitter = new EventEmitter<HangarMinified>();
 
-  @Output() event = new EventEmitter<any>();
+  constructor() { }
 
-  @Output() nextPageEvent = new EventEmitter();
+  ngOnInit(): void { }
 
-  @Output() previousPageEvent = new EventEmitter();
-
-  constructor(private router: Router) { }
-
-  ngOnInit() { }
-
-  private select(hangar: Hangar, i: number) {
-
-    if (this.item !== i) {
-      this.click = !this.click;
-      this.item = i;
-    } else {
-      this.item = -1;
-    }
-
-    this.hangar = hangar;
-
-    const item = this.item;
-    this.event.emit({ hangar, item });
+  toPreviousPage(): void {
+    this.toPreviousPageEmitter.emit();
   }
 
-  nextPage() {
-    this.nextPageEvent.emit();
+  toNextPage(): void {
+    this.toNextPageEmitter.emit();
   }
 
-  previousPage() {
-    this.previousPageEvent.emit();
+  handleSelectHangar(hangarMinified: HangarMinified): void {
+    this.hangarSelectedEmitter.emit(hangarMinified);
   }
-
-  private goDetails(hangar){
-    this.router.navigate(['hangars/details'], { state: hangar });
-  }
-
 }

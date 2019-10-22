@@ -29,11 +29,11 @@ export class HangarModifyComponent implements OnInit {
 
   handleChange(hangar: Hangar) {
 
-    this.service
+  /*   this.service
         .updateHangar(hangar, this.state$.id)
         .subscribe(resp => {
           this.router.navigate(['/hangars']);
-        });
+        }); */
   }
 
 }
