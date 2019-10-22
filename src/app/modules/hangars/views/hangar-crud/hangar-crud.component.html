@@ -1,0 +1,42 @@
+<app-aux-navbar *ngIf='this.hangar' [title]='this.hangar.name'></app-aux-navbar>
+<app-aux-navbar *ngIf='!this.hangar' [title]=' "hangars.insert.title" | translate '></app-aux-navbar>
+
+{{ this.hangar | json }}
+
+<div class='container '>
+  <form [formGroup]='this.form' (ngSubmit)='this.submit()'>
+
+    <app-input
+    formControlName='name'
+    [label]= ' "hangars.form.name" | translate'>
+    </app-input>
+
+     <app-input
+    formControlName='location'
+    [label]= ' "hangars.form.location" | translate'>
+    </app-input>
+
+    <app-input
+    formControlName='owner'
+    [label]= ' "hangars.form.owner" | translate'>
+    </app-input>
+
+    <app-input
+    formControlName='email'
+    [label]= ' "hangars.form.email" | translate'>
+    </app-input>
+
+    <app-input
+    formControlName='phone'
+    [label]= ' "hangars.form.phone" | translate'>
+    </app-input>
+
+    <div *ngIf='this.isFormEnabled' class='d-flex justify-content-end'>
+      <app-button
+      ButtonType bclass='button-rectangle-primary' type='submit'
+      [text]=' "hangars.form.submit" | translate '>
+      </app-button>
+    </div> 
+  </form>
+</div>
+

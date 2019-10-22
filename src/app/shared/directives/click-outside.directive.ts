@@ -12,7 +12,7 @@ export class ClickOutSideDirective {
   @HostListener('document:click', ['$event'])
   public onClick(event): void {
 
-    const isClickInside = this.elementRef.nativeElement.contains(event.target);
+    const isClickInside = this.elementRef['nativeElement'].contains(event.target);
 
     if (isClickInside) {
       this.clickOutSide.emit();

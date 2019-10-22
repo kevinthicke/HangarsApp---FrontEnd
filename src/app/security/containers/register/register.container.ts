@@ -26,10 +26,10 @@ export class RegisterContainer implements OnInit {
   checkUsernameAsyncValidations(username: AbstractControl): void {
 
     RegisterAsyncValidator
-    .shouldBeUnique(this.userService)(username)
-    .then(errors => {
-      this.asyncValidationErrors = errors;
-    });
+      .shouldBeUnique(this.userService)(username)
+      .then(errors => {
+        this.asyncValidationErrors = errors;
+      });
 
   }
 

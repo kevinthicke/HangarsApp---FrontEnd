@@ -37,6 +37,22 @@ export function hangarReducer(state: HangarState, action: HangarActions): Hangar
         hangarSelected: action.payload
       }
 
+    case HangarActionTypes.LOAD_HANGAR_DETAILS:
+
+      return {
+        ...state,
+        pending: true
+      }
+
+    case HangarActionTypes.HANGAR_DETAILS_LOADED:
+
+      return {
+        ...state,
+        hangarSelected: action.payload,
+        pending: false
+      }
+
+
     default:
       return state;
   }

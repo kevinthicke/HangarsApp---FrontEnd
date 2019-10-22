@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { trigger, transition, style, animate, query } from '@angular/animations';
-import { Hangar } from '../../../../core/models/hangar.model';
-import { Router } from '@angular/router';
+import { animate, query, style, transition, trigger } from '@angular/animations';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 
 @Component({

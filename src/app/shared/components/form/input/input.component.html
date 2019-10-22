@@ -1,0 +1,30 @@
+<form class='custom-form'>
+
+  <div class="custom-form-group">
+    <input
+    *ngIf='!this.isTextArea'
+    [value]='this.value'
+    [disabled]='this.disabled'
+    [type]='this.type'
+    (input)='this.onChange($event.target.value)'
+    (blur)='this.onTouched()'
+    id='input' autocomplete='off'>
+    <label for='input'>{{ this.label }}</label>
+  </div>
+
+  <div class='error' *ngIf='this.formControl.invalid && this.formControl.touched'>
+    <span *ngIf='this.formControl.hasError("required")' @fade>
+      {{ 'validations.field-required' | translate }}
+    </span>
+    <span *ngIf='this.formControl.hasError("minlength")' @fade>
+      {{ 'validations.field-min-length' | translate: { minLength: this.formControl.errors.minlength.requiredLength } }}
+    </span>
+    <span *ngIf='this.formControl.hasError("shouldBeGreaterThanZero")' @fade>
+      {{ 'validations.number-greater-than-zero' | translate }}
+    </span>
+    <span *ngIf='this.formControl.hasError("shouldBeANumber")' @fade>
+      {{ 'validations.field-number' | translate }}
+    </span>
+  </div>
+
+</form>

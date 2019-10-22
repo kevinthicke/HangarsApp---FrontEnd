@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, Input } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -15,6 +15,7 @@ import { ButtonTypeDirective } from './directives/button-type.directive';
 import { HomeComponent } from './views/home/home.component';
 import { ButtonComponent } from './components/buttons/button/button.component';
 import { ClickOutSideDirective } from './directives/click-outside.directive';
+import { InputComponent } from './components/form/input/input.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ClickOutSideDirective } from './directives/click-outside.directive';
     NavigationListCartComponent,
     InputFormComponent,
     ButtonTypeDirective,
-    ClickOutSideDirective
+    ClickOutSideDirective,
+    InputComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { ClickOutSideDirective } from './directives/click-outside.directive';
     AuxNavbarComponent,
     ToastComponent,
     InputFormComponent,
+    InputComponent,
     ButtonTypeDirective
   ]
 })

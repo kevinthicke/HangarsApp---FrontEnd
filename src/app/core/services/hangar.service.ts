@@ -1,11 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { Hangar } from '../models/hangar.model';
-import { HangarMinified } from '../models/hangar/hangar-minified.model';
+import { map } from 'rxjs/operators';
+import { HangarAdapter } from '../models/auxiliary/adapters/hangar.adapter';
 import { HangarMinifiedPage } from '../models/hangar/paginable-minified-hangar.model';
 import { ProductsHangar } from '../models/products-hangar.model';
+import { Hangar } from '../models/hangar/hangar.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,10 @@ import { ProductsHangar } from '../models/products-hangar.model';
 export class HangarService {
   private url: string = "http://localhost:3011/api/";
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private hangarAdapter: HangarAdapter,
+    private http: HttpClient
+  ) {}
 
   public getHangars(page: number = 0): Observable< HangarMinifiedPage > {
 
@@ -26,6 +29,12 @@ export class HangarService {
 
     return this.http.get(url, { params }).pipe(
       map(hangarsData => new HangarMinifiedPage().deserialize(hangarsData))
+    );
+  }
+
+  public getHangarById(id: number): Observable<Hangar> {
+    return this.http.get<Hangar>(`${this.url}hangars/${id}`).pipe(
+      map(hangarData => this.hangarAdapter.deserialize(hangarData))
     );
   }
 

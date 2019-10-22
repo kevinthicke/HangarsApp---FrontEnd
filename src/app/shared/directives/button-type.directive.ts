@@ -10,6 +10,7 @@ type classType = (
   selector: '[ButtonType]'
 })
 export class ButtonTypeDirective implements OnInit {
+  
   @Input('bclass') class?: classType;
   @Input('type') type: string = 'button';
 

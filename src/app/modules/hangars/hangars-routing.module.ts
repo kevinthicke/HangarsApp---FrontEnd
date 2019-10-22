@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HangarCrudContainer } from './container/hangar-crud/hangar-crud.container';
 import { HangarContainer } from './containers/hangar/hangar.container';
-import { HangarDetailsComponent } from './views/hangar-details/hangar-details.component';
-import { HangarInsertComponent } from './views/hangar-insert/hangar-insert.component';
-import { HangarModifyComponent } from './views/hangar-modify/hangar-modify.component';
 
 const routes: Routes = [
   {
@@ -12,15 +10,15 @@ const routes: Routes = [
   },
   {
     path: 'details',
-    component: HangarDetailsComponent
+    component: HangarCrudContainer
   },
   {
     path: 'modify',
-    component: HangarModifyComponent
+    component: HangarCrudContainer
   },
   {
     path: 'insert',
-    component: HangarInsertComponent
+    component: HangarCrudContainer
   }
 ];
 
