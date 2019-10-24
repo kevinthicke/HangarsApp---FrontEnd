@@ -1,4 +1,5 @@
 <app-hangar-crud
 [hangar]='this.hangar$ | async'
-[isFormEnabled]='this.isFormEnabled$ | async'>
+[isFormEnabled]='this.isFormEnabled$ | async'
+(hangarFormEmitter)='this.handleHangarFormEmitter($event)'>
 </app-hangar-crud>

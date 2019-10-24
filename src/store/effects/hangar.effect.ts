@@ -5,8 +5,9 @@ import { Observable } from 'rxjs';
 import { map, switchMap, withLatestFrom, tap } from 'rxjs/operators';
 import { Hangar } from '../../app/core/models/hangar/hangar.model';
 import { HangarService } from '../../app/core/services/hangar.service';
-import { HangarActions, HangarActionTypes, HangarDetailsLoadedAction, HangarsLoadedAction, LoadHangarsAction } from '../actions/hangar.action';
+import { HangarActions, HangarActionTypes, HangarDetailsLoadedAction, HangarsLoadedAction, LoadHangarsAction, ChangeHangarSelectedAction, SetHangarSelectedAction, UpdateHangarAction, SaveHangarAction, ManageInsertHangarAction } from '../actions/hangar.action';
 import { AppState } from '../state';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ import { AppState } from '../state';
 export class HangarEffects {
 
   constructor(
+    private router: Router,
     private actions$: Actions,
     private store$: Store<AppState>,
     private hangarService: HangarService
@@ -36,6 +38,46 @@ export class HangarEffects {
     switchMap(([, hangar]: [void, Hangar]) => this.hangarService.getHangarById(hangar.id)),
     tap(v => console.log(v)),
     map(hangar => new HangarDetailsLoadedAction(hangar))
+  );
+
+   @Effect() changeHangarSelected$: Observable<HangarActions> = this.actions$.pipe(
+    ofType(HangarActionTypes.CHANGE_HANGAR_SELECTED),
+
+    withLatestFrom(this.store$.select('hangar', 'hangarSelected')),
+    map(([action, hangar]: [ChangeHangarSelectedAction, Hangar]) => {
+
+      let hangarSelectedIdsMatch: boolean = true;
+      hangarSelectedIdsMatch = hangar && (action.payload.id===hangar.id);
+
+      return (!hangarSelectedIdsMatch)
+        ? new SetHangarSelectedAction(action.payload)
+        : new SetHangarSelectedAction(null);
+    })
+  );
+
+
+  @Effect() manageInsertProduct$: Observable<UpdateHangarAction | SaveHangarAction> = this.actions$.pipe(
+    ofType(HangarActionTypes.MANAGE_INSERT_HANGAR),
+
+    withLatestFrom(this.store$.select('router', 'state', 'url')),
+    map(([action, url]: [ManageInsertHangarAction, string]) => {
+
+      if (url.includes('modify')) {
+        return new UpdateHangarAction(action.payload);
+      }
+
+      if (url.includes('insert')) {
+        return new SaveHangarAction(action.payload);
+      }
+
+    })
+  )
+
+  @Effect({ dispatch: false }) saveHangar$ = this.actions$.pipe(
+    ofType(HangarActionTypes.SAVE_HANGAR),
+
+    switchMap((action: SaveHangarAction) => this.hangarService.postHangar(action.payload)),
+    tap(() => this.router.navigate(['hangars']))
   );
 
 }

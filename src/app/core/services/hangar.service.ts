@@ -6,6 +6,7 @@ import { HangarAdapter } from '../models/auxiliary/adapters/hangar.adapter';
 import { HangarMinifiedPage } from '../models/hangar/paginable-minified-hangar.model';
 import { ProductsHangar } from '../models/products-hangar.model';
 import { Hangar } from '../models/hangar/hangar.model';
+import { HangarDto } from '../models/auxiliary/dto/hangar-dto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,11 @@ export class HangarService {
     return this.http.get<Hangar>(`${this.url}hangars/${id}`).pipe(
       map(hangarData => this.hangarAdapter.deserialize(hangarData))
     );
+  }
+
+  public postHangar(hangar: Hangar): Observable<Hangar> {
+    let hangarDto: HangarDto = this.hangarAdapter.adapt(hangar);
+    return this.http.post<Hangar>(`${this.url}hangars`, hangarDto);
   }
 
 /*   public getHangarsNames(): Observable<HangarMinified[]> {

@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, SimpleChanges, Input, EventEmitter, Output } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Hangar } from '../../../../core/models/hangar/hangar.model';
 
@@ -11,6 +11,8 @@ export class HangarCrudComponent implements OnInit {
 
   @Input() hangar: Hangar;
   @Input() isFormEnabled: boolean;
+
+  @Output() hangarFormEmitter = new EventEmitter<Hangar>();
 
   form: FormGroup;
 
@@ -63,7 +65,7 @@ export class HangarCrudComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.value);
+    this.hangarFormEmitter.emit(this.form.value as Hangar);
   }
 
 }

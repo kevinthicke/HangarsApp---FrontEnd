@@ -25,14 +25,11 @@ export function hangarReducer(state: HangarState, action: HangarActions): Hangar
         pending: false
       };
 
+    
+
     case HangarActionTypes.SET_HANGAR:
 
-      return (state.hangarSelected && (state.hangarSelected.id===action.payload.id))
-      ? {
-        ...state,
-        hangarSelected: null
-      }
-      : {
+      return  {
         ...state,
         hangarSelected: action.payload
       }

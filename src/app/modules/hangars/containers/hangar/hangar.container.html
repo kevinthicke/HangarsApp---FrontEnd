@@ -3,6 +3,6 @@
 [hangarSelected]='this.hangarSelected$ | async'
 (toPreviousPageEmitter)='this.handleToPreviousPage()'
 (toNextPageEmitter)='this.handleToNextPage()'
-(hangarSelectedEmitter)='this.handleSelectHangar($event)'
+(hangarSelectedEmitter)='this.changeHangarSelected($event)'
 (deleteHangarEmitter)='this.handleDeleteHangar()'>
 </app-hangars>

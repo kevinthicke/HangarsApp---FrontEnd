@@ -1,5 +1,6 @@
 import { Hangar } from './hangar.model';
 import { HangarMinified } from './hangar-minified.model';
+import { HangarMinifiedDeserializable } from '../auxiliary/deseriazers/hangar-minified-deserializable.model';
 
 export class HangarMinifiedPage {
 
@@ -12,7 +13,7 @@ export class HangarMinifiedPage {
     const { content, numberOfElements, totalPages } = obj;
 
     if (Array.isArray(content)) {
-      this.content = content.map(o => new HangarMinified().deserialize(o));
+      this.content = content.map(o => new HangarMinifiedDeserializable().deserialize(o));
     }
 
     this.numberOfElements = numberOfElements;

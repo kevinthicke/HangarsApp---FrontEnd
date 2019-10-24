@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable, of } from 'rxjs';
-import { map, switchMap, tap, withLatestFrom, combineLatest, mergeMap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { ProductMinified } from '../../app/core/models/product/product-minified';
 import { Product } from '../../app/core/models/product/product.model';
-import { HangarService } from '../../app/core/services/hangar.service';
 import { ProductService } from '../../app/core/services/product.service';
-import { LoadProductDetailsAction, LoadProductsInHangarAction, ProductActions, ProductActionTypes, ProductDetailsLoadedAction, ProductsInHangarLoadedAction, SetHangarSelectedAction, ManageInsertProductAction, UpdateproductAction, SaveProductAction } from '../actions/product.action';
+import { LoadProductDetailsAction, LoadProductsInHangarAction, ManageInsertProductAction, ProductActions, ProductActionTypes, ProductDetailsLoadedAction, ProductsInHangarLoadedAction, SaveProductAction, SetHangarSelectedAction, UpdateproductAction } from '../actions/product.action';
 import { AppState } from '../state';
-import { Store } from '@ngrx/store';
-import { utils } from 'protractor';
-import { ProductsHangar } from '../../app/core/models/products-hangar.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +19,7 @@ export class ProductEffects {
     private router: Router,
     private actions$: Actions,
     private store$: Store<AppState>,
-    private productService: ProductService,
-    private hangarService: HangarService
+    private productService: ProductService
   ) { }
 
   @Effect() setHangarSelectedName$: Observable<ProductActions> = this.actions$.pipe(

@@ -5,15 +5,15 @@
 <div class='container'>
   <form [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()' class='card'>
 
-    <app-input-form
+    <app-input
     formControlName='username'
     [label]="'login.username' | translate">
-    </app-input-form>
-    <app-input-form
+    </app-input>
+    <app-input
     formControlName='password'
     [label]="'login.password' | translate"
     type='password'>
-    </app-input-form>
+    </app-input>
 
     <a
     class='text-primary'

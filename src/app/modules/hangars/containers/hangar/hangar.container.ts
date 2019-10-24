@@ -32,8 +32,8 @@ export class HangarContainer implements OnInit {
     this.hangarFacade.loadHangars(++ this.page);
   }
 
-  handleSelectHangar(hangarMinified: HangarMinified): void {
-    this.hangarFacade.setHangarSelected(hangarMinified);
+  changeHangarSelected(hangarMinified: HangarMinified): void {
+    this.hangarFacade.changeHangarSelected(hangarMinified);
   }
 
   handleDeleteHangar(): void {

@@ -32,4 +32,8 @@ export class HangarCrudContainer implements OnInit {
           map(url => !url.includes(LocalPathTypes.DETAILS))
         );
   }
+
+  handleHangarFormEmitter(hangar: Hangar): void {
+    this.hangarFacade.manageInsertHangar(hangar);
+  }
 }

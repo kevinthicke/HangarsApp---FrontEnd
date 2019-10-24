@@ -1,16 +1,16 @@
 import { ProductMinified } from '../../product/product-minified';
-import { Deserializable } from './deserializable.model';
+import { Deserializer } from '../deserializer';
 
-export class ProductMinifiedDeserializable implements Deserializable<ProductMinified> {
-  
+export class ProductMinifiedDeserializable implements Deserializer<ProductMinified> {
+
   private productMinified: ProductMinified;
-  
+
   deserialize(obj: any): ProductMinified {
-    
-    const { 
-      id, 
-      name,  
-      prices, 
+
+    const {
+      id,
+      name,
+      prices,
     } = obj;
 
     this.productMinified.id = id;
