@@ -41,6 +41,8 @@ export class NavbarComponent implements OnInit {
   @Output() changeLanguageEmitter = new EventEmitter<void>();
   @Output() logOutEmitter = new EventEmitter<void>();
 
+  isShoppingInfoRendered: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void { }
@@ -51,6 +53,14 @@ export class NavbarComponent implements OnInit {
 
   logOut(): void {
     this.logOutEmitter.emit();
+  }
+
+  handleMouseOver(): void {
+    this.isShoppingInfoRendered = true;
+  }
+
+  handleMouseLeave(): void {
+    this.isShoppingInfoRendered = false;
   }
 
 }

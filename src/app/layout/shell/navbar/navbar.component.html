@@ -2,8 +2,7 @@
 class='navigation-bar sticky-top'>
 
 <!-- Brand -->
-<div
-class='navigation-bar-brand'>
+<div class='navigation-bar-brand'>
 <!--
   <div
   *ngIf='this.isLoading | async'
@@ -13,7 +12,7 @@ class='navigation-bar-brand'>
     <span class="sr-only">Loading...</span>
   </div>
   -->
-  <span>Hangars App</span>
+  <span >Hangars App</span>
 </div>
 
 <!-- Navigation buttons -->
@@ -38,6 +37,17 @@ class='navigation-bar-brand'>
     <div class='username-container'>
       <span class='username'>{{ this.userName }}</span>
     </div>
+    <app-button
+    ButtonType bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
+    MouseHover
+    (mouseEnterEmitter)='this.handleMouseOver()'
+    (mouseLeaveEmitter)='this.handleMouseLeave()'>
+    </app-button>
+    <app-small-toast
+    *ngIf='this.isShoppingInfoRendered'
+    class='small-toast'
+    @fade>
+    </app-small-toast>
     <app-button
     ButtonType bclass='button-circle-primary-darker'
     [text]=" this.activeLang | titlecase "
