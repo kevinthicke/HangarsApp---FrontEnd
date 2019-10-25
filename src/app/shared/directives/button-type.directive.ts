@@ -24,7 +24,11 @@ export class ButtonTypeDirective implements OnInit {
 
     this.setClass();
     this.setType();
-    this.setIcon();
+
+    if (this.icon.length) {
+      this.setIcon();
+    }
+    
   }
 
   private setClass(): void {

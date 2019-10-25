@@ -1,14 +1,17 @@
 <div class='custom-card'>
+
   <div class='header'>
     <span class='title'>Cocaine</span>
     <span class='badge badge-pill'>10</span>
   </div>
+  
   <div class='button-container'>
     <app-button ButtonType bclass='button-rectangle-primary'>
-      {{ 'products.list.buttons.insert' | translate }}
+      <ng-content select='.left-button'></ng-content>
     </app-button>
     <app-button ButtonType bclass='button-rectangle-primary'>
-      {{ 'products.list.buttons.see-more' | translate }}
+      <ng-content select='.right-button'></ng-content>
     </app-button>
   </div>
+  
 </div>

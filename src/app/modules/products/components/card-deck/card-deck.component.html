@@ -1,4 +1,10 @@
 <div class='custom-card-deck' *ngIf='this.products'>
   <app-card *ngFor='let product of this.products'>
+    <ng-container class='left-button'>
+      {{ 'products.list.buttons.insert' | translate }}
+    </ng-container>
+    <ng-container class='right-button'>
+      {{ 'products.list.buttons.see-more' | translate }}
+    </ng-container>
   </app-card>
 </div>
