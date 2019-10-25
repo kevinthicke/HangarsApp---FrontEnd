@@ -159,6 +159,17 @@ li {
 
 .small-toast {
   position: fixed;
-  top: 100px;
+  top: 120px;
   right: 5vw;
+  animation: MoveUpDown 700ms linear infinite;
+  box-shadow: 0 0px 4px 1px rgba(45, 54, 65, 0.75);
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    top: 120px;
+  }
+  50% {
+    top: 125px;
+  }
 }

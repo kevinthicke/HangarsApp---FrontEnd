@@ -1,7 +1,8 @@
 <app-navbar
 [activeLang]='this.activeLang'
 [userName]='this.userName | async'
+[shoppingCart]='this.shoppingCart$ | async'
+(loadShoppingCartEmitter)='this.loadShoppingCart()'
 (changeLanguageEmitter)='this.handleChangeLanguage()'
 (logOutEmitter)='this.handleLogOut()'>
 </app-navbar>
-<span>Username : {{ this.userName$ | async }}</span>

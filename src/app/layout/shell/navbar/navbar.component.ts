@@ -7,6 +7,7 @@ import { Subject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { AppState } from '../../../../store/state/index';
+import { ShoppingCart } from '../../../core/models/commerce/shopping-cart.model';
 
 @Component({
   selector: 'app-navbar',
@@ -35,11 +36,13 @@ export class NavbarComponent implements OnInit {
     },
   ];
 
+  @Input() shoppingCart: ShoppingCart;
   @Input() activeLang: string;
   @Input() userName: string;
 
-  @Output() changeLanguageEmitter = new EventEmitter<void>();
-  @Output() logOutEmitter = new EventEmitter<void>();
+  @Output() loadShoppingCartEmitter = new EventEmitter<void>();
+  @Output() changeLanguageEmitter   = new EventEmitter<void>();
+  @Output() logOutEmitter           = new EventEmitter<void>();
 
   isShoppingInfoRendered: boolean = false;
 
@@ -56,6 +59,7 @@ export class NavbarComponent implements OnInit {
   }
 
   handleMouseOver(): void {
+    this.loadShoppingCartEmitter.emit();
     this.isShoppingInfoRendered = true;
   }
 

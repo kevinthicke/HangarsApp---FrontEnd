@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SecurityFacade } from '../../../../store/facades/security.facade';
+import { CommerceFacade } from '../../../../store/facades/commerce.facade';
+import { ShoppingCart } from 'src/app/core/models/commerce/shopping-cart.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar-container',
@@ -13,8 +16,11 @@ export class NavbarContainer implements OnInit {
   @Output() changeLanguageEmitter = new EventEmitter<void>();
   @Output() shoppingCartRenderEmitter = new EventEmitter<void>();
 
+  shoppingCart$: Observable<ShoppingCart>;
+
   constructor(
-    private securityFacade: SecurityFacade
+    private securityFacade: SecurityFacade,
+    private commerceFacade: CommerceFacade
   ) { }
 
   ngOnInit(): void { }
@@ -25,6 +31,10 @@ export class NavbarContainer implements OnInit {
 
   handleLogOut(): void {
     this.securityFacade.logOut();
+  }
+
+  loadShoppingCart(): void {
+    this.shoppingCart$ = this.commerceFacade.shoppingCart$
   }
 
 }

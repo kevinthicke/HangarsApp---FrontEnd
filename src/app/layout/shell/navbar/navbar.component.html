@@ -33,7 +33,6 @@ class='navigation-bar sticky-top'>
 
 <!-- Login buttons -->
   <div class='button-container'>
-
     <div class='username-container'>
       <span class='username'>{{ this.userName }}</span>
     </div>
@@ -45,6 +44,7 @@ class='navigation-bar sticky-top'>
     </app-button>
     <app-small-toast
     *ngIf='this.isShoppingInfoRendered'
+    [shoppingCart]='this.shoppingCart'
     class='small-toast'
     @fade>
     </app-small-toast>

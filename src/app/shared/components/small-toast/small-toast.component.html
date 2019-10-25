@@ -1,12 +1,16 @@
-<div class="card bg-light mb-3" style="max-width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Light card title</h5>
-      <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+<div class='card bg-light mb-3' style='width: 35rem;'>
+    <div class='card-body'>
+      <h5 class='card-title'>Carrito de compra</h5>
+      <ul class='list-group'>
+          <li
+          *ngFor='let product of this.shoppingCart.cart' 
+          class='list-group-item d-flex justify-content-between'>
+            <span class="badge badge-primary badge-pill">
+              {{ product.quantity }}
+            </span>
+            <span>{{ product.productMinified.name }}</span>
+          </li> 
         </ul>
+      <h5 class='text-right m-2'>{{ this.shoppingCart.totalPrice }}$</h5>
     </div>
   </div>
