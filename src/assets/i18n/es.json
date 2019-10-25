@@ -79,8 +79,8 @@
     "list": {
       "title": "Productos",
       "buttons": {
-        "insert-button": "Insertar",
-        "load-button": "Ver más"
+        "insert": "Insertar",
+        "see-more": "Ver más"
       },
       "message": "Selecciona un hangar para ver los productos que contiene o inserta uno nuevo"
     },

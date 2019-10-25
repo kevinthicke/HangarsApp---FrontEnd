@@ -18,6 +18,7 @@ import { ClickOutSideDirective } from './directives/click-outside.directive';
 import { HomeComponent } from './views/home/home.component';
 import { HoverDirective } from './directives/hover.directive';
 import { SmallToastComponent } from './components/small-toast/small-toast.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SmallToastComponent } from './components/small-toast/small-toast.compon
     ClickOutSideDirective,
     InputComponent,
     HoverDirective,
-    SmallToastComponent
+    SmallToastComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { SmallToastComponent } from './components/small-toast/small-toast.compon
     InputFormComponent,
     InputComponent,
     SmallToastComponent,
+    CardComponent,
     ButtonTypeDirective,
     HoverDirective
   ]

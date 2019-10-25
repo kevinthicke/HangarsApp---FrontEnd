@@ -28,8 +28,8 @@
     disabled>
     <app-button
     ButtonType bclass='button-rectangle-secondary'
-    [text]='"commerce.purchase" | translate '
     (click)='this.purchaseOrder()'>
+    {{ "commerce.purchase" | translate }}
     </app-button>
   </div>
 </div>
@@ -37,8 +37,8 @@
 <div *ngIf='!this.blurState' class='float-button'>
     <app-button
     ButtonType bclass='button-rectangle-primary'
-    (click)='this.showHistory()'
-    [text]='"Ver historial "'>
+    (click)='this.showHistory()'>
+      Ver Historial
     </app-button>
 </div>
 

@@ -32,9 +32,8 @@
     </app-input>
 
     <div *ngIf='this.isFormEnabled' class='d-flex justify-content-end'>
-      <app-button
-      ButtonType bclass='button-rectangle-primary' type='submit'
-      [text]=' "hangars.form.submit" | translate '>
+      <app-button ButtonType bclass='button-rectangle-primary' type='submit'>
+        {{ "hangars.form.submit" | translate }}
       </app-button>
     </div>
   </form>

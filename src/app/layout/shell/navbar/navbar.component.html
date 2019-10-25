@@ -1,62 +1,60 @@
 <nav
 class='navigation-bar sticky-top'>
 
-<!-- Brand -->
 <div class='navigation-bar-brand'>
-<!--
-  <div
-  *ngIf='this.isLoading | async'
-  class="spinner-border text-primary"
-  role="status"
-  @fade>
-    <span class="sr-only">Loading...</span>
-  </div>
-  -->
   <span >Hangars App</span>
 </div>
 
 <!-- Navigation buttons -->
-  <ul class='bar-list'>
-    <li
-    *ngFor='let button of this.buttons; let i = index'
-    [routerLink]='[button.link]'
-    routerLinkActive='router-link-active'
-    (click)='itemSelected = i'>
-      <span
-      [ngClass]="{
-        'bar-list-item-selected': itemSelected === i,
-        'bar-list-item': itemSelected !==i }">
-        {{ button.title | translate }}
-      </span>
-    </li>
-  </ul>
+<ul class='bar-list'>
+  <li
+  *ngFor='let button of this.buttons; let i = index'
+  [routerLink]='[button.link]'
+  routerLinkActive='router-link-active'
+  (click)='itemSelected = i'>
+    <span
+    [ngClass]="{
+      'bar-list-item-selected': itemSelected === i,
+      'bar-list-item': itemSelected !==i }">
+      {{ button.title | translate }}
+    </span>
+  </li>
+</ul>
 
 <!-- Login buttons -->
-  <div class='button-container'>
-    <div class='username-container'>
-      <span class='username'>{{ this.userName }}</span>
-    </div>
-    <app-button
-    ButtonType bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
-    MouseHover
-    (mouseEnterEmitter)='this.handleMouseOver()'
-    (mouseLeaveEmitter)='this.handleMouseLeave()'>
-    </app-button>
-    <app-small-toast
-    *ngIf='this.isShoppingInfoRendered'
-    [shoppingCart]='this.shoppingCart'
-    class='small-toast'
-    @fade>
-    </app-small-toast>
-    <app-button
-    ButtonType bclass='button-circle-primary-darker'
-    [text]=" this.activeLang | titlecase "
-    (click)='this.changeLanguage()'>
-    </app-button>
-    <app-button
-    ButtonType bclass='button-rectangle-primary-darker'
-    [text]=" 'navbar.log-out' | translate "
-    (click)='this.logOut()'>
-    </app-button>
+
+<div class='button-container'>
+   
+  <div class='username-container'>
+    <span class='username'>{{ this.userName }}</span>
   </div>
+  
+  <app-button
+  ButtonType bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
+  MouseHover
+  (mouseEnterEmitter)='this.handleMouseOver()'
+  (mouseLeaveEmitter)='this.handleMouseLeave()'>
+  </app-button>
+  
+  <app-small-toast
+  *ngIf='this.isShoppingInfoRendered'
+  [shoppingCart]='this.shoppingCart'
+  class='small-toast'
+  @fade>
+  </app-small-toast>
+  
+  <app-button
+  ButtonType bclass='button-circle-primary-darker'
+  (click)='this.changeLanguage()'>
+    {{ this.activeLang | titlecase }}
+  </app-button>
+  
+  <app-button
+  ButtonType bclass='button-rectangle-primary-darker'
+  (click)='this.logOut()'>
+    {{ 'navbar.log-out' | translate }}
+  </app-button>
+ 
+</div>
+
 </nav>

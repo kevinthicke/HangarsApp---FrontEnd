@@ -16,8 +16,8 @@
     <app-button
     ButtonType bclass='button-rectangle-primary'
     class='button float'
-    [text]=' this.hangarSelected ? "More": "Insertar" '
     (click)='this.handleFloatButtonClick()'>
+     {{ this.hangarSelected ? "More": "Insertar" }}
     </app-button>
 </div>
 

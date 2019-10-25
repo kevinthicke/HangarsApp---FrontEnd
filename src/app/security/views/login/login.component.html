@@ -3,7 +3,9 @@
 </div>
 
 <div class='container'>
-  <form [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()' class='card'>
+  <form 
+  [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()' 
+  class='card'>
 
     <app-input
     formControlName='username'
@@ -23,9 +25,8 @@
     </a>
 
     <div class='d-flex justify-content-end'>
-      <app-button
-      ButtonType bclass='button-rectangle-primary'
-      [text]=" 'login.submit' | translate">
+      <app-button ButtonType bclass='button-rectangle-primary' btype='submit'>
+        {{ 'login.submit' | translate }}
       </app-button>
     </div>
 
