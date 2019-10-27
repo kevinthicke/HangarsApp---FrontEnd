@@ -1,17 +1,26 @@
 <div class='custom-card'>
 
   <div class='header'>
-    <span class='title'>Cocaine</span>
-    <span class='badge badge-pill'>10</span>
+    <span class='title'>{{ product.name }}</span>
+    <span class='badge badge-pill'>
+      <i class='fa fa-plus'></i>
+    </span>
   </div>
   
   <div class='button-container'>
-    <app-button ButtonType bclass='button-rectangle-primary'>
+    
+    <app-button 
+    ButtonType bclass='button-rectangle-primary'
+    (click)='this.handleLeftButtonClick($event)'>
       <ng-content select='.left-button'></ng-content>
     </app-button>
-    <app-button ButtonType bclass='button-rectangle-primary'>
+    
+    <app-button 
+    ButtonType bclass='button-rectangle-primary'
+    (click)='this.handleRightButtonClick($event);'>
       <ng-content select='.right-button'></ng-content>
     </app-button>
+
   </div>
-  
+
 </div>

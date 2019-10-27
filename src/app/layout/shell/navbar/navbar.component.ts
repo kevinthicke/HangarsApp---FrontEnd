@@ -1,12 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input, AfterContentInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../security/services/authentication.service';
-import { LoadingSpinnerService } from '../../../core/services/loading-spinner.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { fade } from 'src/app/shared/animations/fade.animation';
-import { Subject, Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
-import { map } from 'rxjs/operators';
-import { AppState } from '../../../../store/state/index';
 import { ShoppingCart } from '../../../core/models/commerce/shopping-cart.model';
 
 @Component({

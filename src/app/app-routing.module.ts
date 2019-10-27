@@ -39,11 +39,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/commerce/commerce.module').then(module => module.CommerceModule),
     canActivate: [AuthGaurdService]
   },
-  {
+/*   {
     path: '**',
     pathMatch: 'full',
     redirectTo: ''
-  }
+  } */
 ];
 
 @NgModule({

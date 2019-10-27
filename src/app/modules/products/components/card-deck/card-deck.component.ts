@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductMinified } from '../../../../core/models/product/product-minified';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-deck',
@@ -12,7 +13,7 @@ export class CardDeckComponent implements OnInit {
 
   @Output() addToShoppingCartEmitter = new EventEmitter<ProductMinified>();
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void { }
 
@@ -20,4 +21,7 @@ export class CardDeckComponent implements OnInit {
     this.addToShoppingCartEmitter.emit(productMinified);
   }
 
+  navigateToInsert(product: ProductMinified): void {
+    this.router.navigate(['products', 'modify', product.id]);
+  }
 }
