@@ -1,13 +1,15 @@
 <div class='custom-card-deck' *ngIf='this.products'>
-  <app-card 
+  <app-card
   *ngFor='let product of this.products'
   [product]='product'
-  (leftButtonClickEmitter)='this.navigateToInsert($event)'>
+  [buttonClass]='this.buttonClass'
+  (leftButtonClickEmitter)='this.handleCardLeftButtonClick(product)'
+  (rightButtonClickEmitter)='this.handleCardRightButtonClick(product)'>
     <ng-container class='left-button'>
-      {{ 'products.card-deck.modify-button' | translate }}
+      {{ this.leftButtonText }}
     </ng-container>
     <ng-container class='right-button'>
-      {{ 'products.card-deck.details-button' | translate }}
+      {{ this.rightButtonText }}
     </ng-container>
   </app-card>
 </div>

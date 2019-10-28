@@ -9,19 +9,23 @@ import { Router } from '@angular/router';
 })
 export class CardDeckComponent implements OnInit {
 
-  @Input() products: ProductMinified[];
+  @Input() products        : ProductMinified[];
+  @Input() leftButtonText  : string;
+  @Input() rightButtonText : string;
+  @Input() buttonClass     : string;
 
-  @Output() addToShoppingCartEmitter = new EventEmitter<ProductMinified>();
+  @Output() cardLeftButtonClickEmitter  = new EventEmitter<ProductMinified>();
+  @Output() cardRightButtonClickEmitter = new EventEmitter<ProductMinified>();
 
   constructor(public router: Router) { }
 
   ngOnInit(): void { }
 
-  addToShoppingCart(productMinified: ProductMinified): void {
-    this.addToShoppingCartEmitter.emit(productMinified);
+  handleCardLeftButtonClick(product: ProductMinified): void {
+    this.cardLeftButtonClickEmitter.emit(product);
   }
 
-  navigateToInsert(product: ProductMinified): void {
-    this.router.navigate(['products', 'modify', product.id]);
+  handleCardRightButtonClick(product: ProductMinified): void {
+    this.cardRightButtonClickEmitter.emit(product);
   }
 }

@@ -1,27 +1,32 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ProductMinified } from '../../../../core/models/product/product-minified';
+import { Router } from '@angular/router';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
+import { ProductMinified } from '../../../../core/models/product/product-minified';
+import { fade } from 'src/app/shared/animations/fade.animation';
+import { ShoppingCart } from '../../../../core/models/commerce/shopping-cart.model';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.less']
+  styleUrls: ['./products.component.less'],
+  animations: [ fade ]
 })
 export class ProductsComponent implements OnInit {
 
-  @Input() products: ProductMinified[];
-  @Input() hangarsMinified: HangarMinified[];
+  @Input() products         : ProductMinified[];
+  @Input() hangarsMinified  : HangarMinified[];
+  @Input() shoppingCart     : ShoppingCart;
 
-  @Output() hangarSelectedEmitter = new EventEmitter<HangarMinified>();
-  @Output() addToShoppingCartEmitter = new EventEmitter<ProductMinified>();
+  @Output() hangarSelectedEmitter         = new EventEmitter<HangarMinified>();
+  @Output() addToShoppingCartEmitter      = new EventEmitter<ProductMinified>();
+  @Output() removeFromShoppingCartEmitter = new EventEmitter<ProductMinified>();
 
-  existsSelectedHangar: boolean = false;
+  existsSelectedHangar  : boolean = false;
+  isShoppingModeEnabled : boolean = false;
+
+  constructor(public router: Router) { }
 
   ngOnInit(): void { }
-
-  handleAddToShoppingCartEmitter(productMinified: ProductMinified): void {
-    this.addToShoppingCartEmitter.emit(productMinified);
-  }
 
   handleHangarSelected(hangarMinified: HangarMinified): void {
 
@@ -30,6 +35,28 @@ export class ProductsComponent implements OnInit {
     if (this.existsSelectedHangar) {
       this.hangarSelectedEmitter.emit(hangarMinified);
     }
+
+  }
+
+  changeShoppingMode(): void {
+    this.isShoppingModeEnabled = !this.isShoppingModeEnabled;
+  }
+
+  handleCardLeftButtonClick(product: ProductMinified): void {
+
+    if (this.isShoppingModeEnabled) {
+      this.addToShoppingCartEmitter.emit(product)
+    } else {
+      this.router.navigate(['products', 'modify', product.id]);
+    }
+
+  }
+
+  handleCardRightButtonClick(product: ProductMinified): void {
+
+    this.isShoppingModeEnabled
+      ? this.removeFromShoppingCartEmitter.emit(product)
+      : this.router.navigate(['products', 'details', product.id]);
 
   }
 

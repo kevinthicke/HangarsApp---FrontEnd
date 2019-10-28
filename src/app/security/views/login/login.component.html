@@ -3,18 +3,15 @@
 </div>
 
 <div class='container'>
-  <form 
-  [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()' 
+  <form
+  [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()'
   class='card'>
 
-    <app-input
-    formControlName='username'
-    [label]="'login.username' | translate">
+    <app-input formControlName='username'>
+      {{ 'login.username' | translate }}
     </app-input>
-    <app-input
-    formControlName='password'
-    [label]="'login.password' | translate"
-    type='password'>
+    <app-input formControlName='password' type='password'>
+      {{ 'login.password' | translate }}
     </app-input>
 
     <a

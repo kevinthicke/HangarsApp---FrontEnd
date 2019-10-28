@@ -33,9 +33,4 @@ export class NavbarContainer implements OnInit {
     this.securityFacade.logOut();
   }
 
-  loadShoppingCart(): void {
-    this.shoppingCart$ = this.commerceFacade.shoppingCart$
-  }
-
 }
- 

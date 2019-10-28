@@ -1,5 +1,4 @@
-import { Directive, ElementRef, Renderer2, Input, OnInit, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Directive, ElementRef, Input, OnInit, Renderer2, SimpleChange } from '@angular/core';
 
 type classType = (
   'button-rectangle-primary' |
@@ -20,21 +19,33 @@ export class ButtonTypeDirective implements OnInit {
     public elementRef: ElementRef,
     public renderer: Renderer2  ) { }
 
+  ngOnChanges(changes: SimpleChange): void {
+    this.removeClass(changes.previousValue);
+    this.setClass();
+  }
+
+
   ngOnInit(): void {
 
-    this.setClass();
     this.setType();
-
+    this.setClass()
     if (this.icon.length) {
       this.setIcon();
     }
-    
+
   }
 
   private setClass(): void {
     this.renderer.addClass(
       this.elementRef.nativeElement.querySelector('.button-container'),
       this.class
+    );
+  }
+
+  private removeClass(previousClass: string): void {
+    this.renderer.removeClass(
+      this.elementRef.nativeElement.querySelector('.button-container'),
+      previousClass
     );
   }
 

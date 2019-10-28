@@ -6,6 +6,7 @@ import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.m
 import { ProductMinified } from '../../../../core/models/product/product-minified';
 import { CommerceFacade } from '../../../../../store/facades/commerce.facade';
 import { CartProduct } from '../../../../core/models/commerce/cart-product.model';
+import { ShoppingCart } from 'src/app/core/models/commerce/shopping-cart.model';
 
 @Component({
   selector: 'app-product-container',
@@ -14,10 +15,11 @@ import { CartProduct } from '../../../../core/models/commerce/cart-product.model
 })
 export class ProductContainer implements OnInit {
 
-  productsMinified$: Observable<ProductMinified[]>;
-  hangarsMinified$: Observable<HangarMinified[]>;
+  productsMinified$ : Observable<ProductMinified[]>;
+  hangarsMinified$  : Observable<HangarMinified[]>;
+  shoppingCart$     : Observable<ShoppingCart>;
 
-  hangarSelected: HangarMinified
+  hangarSelected: HangarMinified;
 
   constructor(
     private productFacade: ProductFacade,
@@ -31,6 +33,7 @@ export class ProductContainer implements OnInit {
 
     this.hangarsMinified$ = this.hangarFacade.hangarsMinified$;
     this.productsMinified$ = this.productFacade.productsMinified$;
+    this.shoppingCart$ = this.commerceFacade.shoppingCart$
 
   }
 
@@ -45,6 +48,13 @@ export class ProductContainer implements OnInit {
 
     let cartProduct: CartProduct = new CartProduct(productMinified, this.hangarSelected);
     this.commerceFacade.addToShoppingCart(cartProduct);
+
+  }
+
+  handleRemoveFromShoppingCartEmitter(productMinified: ProductMinified): void {
+
+    let cartProduct: CartProduct = new CartProduct(productMinified, this.hangarSelected);
+    this.commerceFacade.removeFromShoppingCart(cartProduct);
 
   }
 

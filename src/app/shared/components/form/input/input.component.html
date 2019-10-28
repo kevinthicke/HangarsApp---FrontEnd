@@ -9,7 +9,9 @@
     (input)='this.onChange($event.target.value)'
     (blur)='this.onTouched()'
     id='input' autocomplete='off'>
-    <label for='input'>{{ this.label }}</label>
+    <label for='input'>
+      <ng-content></ng-content>
+    </label>
   </div>
 
   <div class='error' *ngIf='this.formControl.invalid && this.formControl.touched'>

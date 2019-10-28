@@ -1,5 +1,7 @@
 <app-products
 [products]='this.productsMinified$ | async'
 [hangarsMinified]='this.hangarsMinified$ | async'
+[shoppingCart]='this.shoppingCart$ | async'
 (hangarSelectedEmitter)='this.handleHangarSelected($event)'
-(addToShoppingCartEmitter)='this.handleAddToShoppingCartEmitter($event)'>
+(addToShoppingCartEmitter)='this.handleAddToShoppingCartEmitter($event)'
+(removeFromShoppingCartEmitter)='this.handleRemoveFromShoppingCartEmitter($event)'>

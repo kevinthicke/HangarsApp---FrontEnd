@@ -10,10 +10,6 @@
       {{ button.title | translate }}
       </span>
     </li>
-    <app-button
-    ButtonType bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
-    MouseHover (mouseEnterEmitter)='this.handleMouseOver()' (mouseLeaveEmitter)='this.handleMouseLeave()'
-    class='button-shopping-cart'></app-button>
   </div>
 
   <div>
@@ -30,10 +26,4 @@
     </app-button>
   </div>
 
-  <app-small-toast
-  *ngIf='this.isShoppingInfoRendered'
-  [shoppingCart]='this.shoppingCart'
-  class='small-toast'
-  @fade>
-  </app-small-toast>
 </nav>

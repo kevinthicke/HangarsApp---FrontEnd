@@ -4,10 +4,20 @@
 <div *ngIf='this.existsSelectedHangar' class='container'>
   <app-card-deck
   [products]='this.products'
-  (addToShoppingCartEmitter)='this.handleAddToShoppingCartEmitter($event)'
-  (removeFromShoppingCartEmitter)='this.handleRemoveFromShoppingCartEmitter($event)'>
+  [leftButtonText]='this.isShoppingModeEnabled
+    ? ("products.card-deck.add-to-cart" | translate)
+    :("products.card-deck.modify-button" | translate)'
+  [rightButtonText]='this.isShoppingModeEnabled
+    ? ("products.card-deck.remove-from-cart" | translate)
+    : ("products.card-deck.details-button" | translate)'
+  [buttonClass]='this.isShoppingModeEnabled
+    ? "button-rectangle-primary"
+    : "button-rectangle-secondary"'
+  (cardLeftButtonClickEmitter)='this.handleCardLeftButtonClick($event)'
+  (cardRightButtonClickEmitter)='this.handleCardRightButtonClick($event)'>
   </app-card-deck>
 </div>
+
 
 <div *ngIf='!this.existsSelectedHangar' class="jumbotron">
   <p class="lead">{{ 'products.list.message' | translate }}</p>
@@ -28,3 +38,19 @@ class='lateral-bar-list'
       {{ 'products.list.buttons.insert-button' | translate }}
     </app-button>
 </div>
+
+<div class='float-button'>
+  <app-button
+  ButtonType bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
+  (click)='this.changeShoppingMode()'
+  class='button-shopping-cart'>
+  </app-button>
+</div>
+
+
+<app-small-toast
+*ngIf='this.isShoppingModeEnabled'
+[shoppingCart]='this.shoppingCart'
+class='small-toast'
+@fade>
+</app-small-toast>

@@ -87,7 +87,8 @@
     "card-deck": {
       "modify-button": "Modificar",
       "details-button": "Detalles",
-      "add-to-cart": "Añadir al carrito"
+      "add-to-cart": "Añadir",
+      "remove-from-cart": "Eliminar"
     },
     "hangar-list-bar": {
       "all-products": "Ver todos"
