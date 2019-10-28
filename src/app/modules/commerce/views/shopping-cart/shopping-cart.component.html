@@ -27,7 +27,7 @@
     [value]='this.shoppingCart.totalPrice + " $" '
     disabled>
     <app-button
-    ButtonType bclass='button-rectangle-secondary'
+     bclass='button-rectangle-secondary'
     (click)='this.purchaseOrder()'>
     {{ "commerce.purchase" | translate }}
     </app-button>
@@ -36,7 +36,7 @@
 
 <div *ngIf='!this.blurState' class='float-button'>
     <app-button
-    ButtonType bclass='button-rectangle-primary'
+     bclass='button-rectangle-primary'
     (click)='this.showHistory()'>
       Ver Historial
     </app-button>

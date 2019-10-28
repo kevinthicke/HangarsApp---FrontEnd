@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
 })
 export class CardDeckComponent implements OnInit {
 
-  @Input() products        : ProductMinified[];
-  @Input() leftButtonText  : string;
-  @Input() rightButtonText : string;
-  @Input() buttonClass     : string;
+  @Input() products         : ProductMinified[];
+  @Input() leftButtonText   : string;
+  @Input() rightButtonText  : string;
+  @Input() leftButtonClass  : string;
+  @Input() rightButtonClass : string;
 
   @Output() cardLeftButtonClickEmitter  = new EventEmitter<ProductMinified>();
   @Output() cardRightButtonClickEmitter = new EventEmitter<ProductMinified>();

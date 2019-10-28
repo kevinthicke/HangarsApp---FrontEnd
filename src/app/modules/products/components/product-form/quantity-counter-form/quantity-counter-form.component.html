@@ -4,7 +4,7 @@
   <div class='counter-container' id='quantity-counter'>
 
     <app-button
-    ButtonType bclass='button-circle-primary' icon='fa fa-minus'
+     bclass='button-circle-primary' icon='fa fa-minus'
     *ngIf='!this.disabled'
     (click)='this.decreaseQuantity()'>
     </app-button>
@@ -16,7 +16,7 @@
     [ngClass]='{ "is-custom-invalid": this.isInvalid }'
     class='form-control quantity'>
     <app-button
-    ButtonType bclass='button-circle-primary' icon='fa fa-plus'
+     bclass='button-circle-primary' icon='fa fa-plus'
     *ngIf='!this.disabled'
     (click)='this.increaseQuantity()'>
     </app-button>

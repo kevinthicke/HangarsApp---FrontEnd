@@ -7,9 +7,10 @@ import { ProductMinified } from '../../../core/models/product/product-minified';
 })
 export class CardComponent implements OnInit {
 
-  @Input() product       : ProductMinified;
-  @Input() badgePillText : string;
-  @Input() buttonClass   : string;
+  @Input() product          : ProductMinified;
+  @Input() badgePillText    : string;
+  @Input() leftButtonClass  : string;
+  @Input() rightButtonClass : string;
 
   @Output() leftButtonClickEmitter  = new EventEmitter<ProductMinified>();
   @Output() rightButtonClickEmitter = new EventEmitter<ProductMinified>();

@@ -1,5 +1,6 @@
-<div class='button-container'>
-  <button>
+<div [class]='this.bclass'>
+  <button [type]='this.type'>
     <ng-content></ng-content>
+    <span *ngIf='this.icon' [class]='this.icon'></span>
   </button>
 </div>

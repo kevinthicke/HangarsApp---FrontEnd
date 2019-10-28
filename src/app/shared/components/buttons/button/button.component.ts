@@ -7,9 +7,9 @@ import { Component, OnInit, Input, HostListener } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-/*   @Input() bclass : string;
+  @Input() bclass : string = 'button-rectangle-primary';
   @Input() type   : string = 'button';
-  @Input() icon   : string = '';  */
+  @Input() icon   : string = '';
 
   ngOnInit(): void { }
 

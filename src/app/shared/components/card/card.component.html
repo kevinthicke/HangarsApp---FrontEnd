@@ -9,13 +9,13 @@
 
   <div class='button-container'>
     <app-button
-    ButtonType [bclass]='this.buttonClass'
-    (click)='this.handleLeftButtonClick($event)'>
+     [bclass]='this.leftButtonClass'
+     (click)='this.handleLeftButtonClick($event)'>
       <ng-content select='.left-button'></ng-content>
     </app-button>
 
     <app-button
-    ButtonType bclass='button-rectangle-primary'
+    [bclass]='this.rightButtonClass'
     (click)='this.handleRightButtonClick($event);'>
       <ng-content select='.right-button'></ng-content>
     </app-button>

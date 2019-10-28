@@ -2,7 +2,8 @@
   <app-card
   *ngFor='let product of this.products'
   [product]='product'
-  [buttonClass]='this.buttonClass'
+  [leftButtonClass]='this.leftButtonClass'
+  [rightButtonClass]='this.rightButtonClass'
   (leftButtonClickEmitter)='this.handleCardLeftButtonClick(product)'
   (rightButtonClickEmitter)='this.handleCardRightButtonClick(product)'>
     <ng-container class='left-button'>

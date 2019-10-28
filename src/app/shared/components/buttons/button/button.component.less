@@ -12,6 +12,9 @@
 @secondary-color:     #137645;
 @secondary-color-aux: #10492d;
 
+@danger-color:     rgb(204, 26, 47);
+@danger-color-aux: #93291E;
+
 @circle-width: 40px;
 @circle-height: 40px;
 
@@ -30,6 +33,10 @@
 
   button {
     .custom-button(@width, @height, @color, @color-aux, @isCircle);
+  }
+
+  span {
+    .d-flex-center();
   }
 }
 
@@ -82,6 +89,11 @@
 .button-rectangle-secondary {
   .button-container(@rectangle-width, @rectangle-height, @secondary-color, @secondary-color-aux, false);
 }
+
+.button-rectangle-danger {
+  .button-container(@rectangle-width, @rectangle-height, @danger-color, @danger-color-aux, false);
+}
+
 
 .button-circle-primary {
   .button-container(@circle-width, @circle-height, @primary-color, @primary-color-aux, true);
