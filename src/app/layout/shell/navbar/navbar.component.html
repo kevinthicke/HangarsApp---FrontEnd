@@ -10,6 +10,13 @@
       {{ button.title | translate }}
       </span>
     </li>
+    <div class='search-button'>
+      <app-button
+      bclass='button-circle-primary-darker'
+      (click)='this.handleSearchButtonClick()'
+      icon='fa fa-search'>
+      </app-button>
+    </div>
   </div>
 
   <div>
@@ -24,6 +31,15 @@
     (click)='this.logOut()'>
     {{  'navbar.log-out' | translate }}
     </app-button>
+  </div>
+
+  <div 
+  *ngIf='this.isSearchBarDisplayed' 
+  class='search-bar' 
+  @fullFade>
+    <app-search-bar 
+    (searchValueEmitter)='this.handleSearchValue($event)'>
+    </app-search-bar>
   </div>
 
 </nav>

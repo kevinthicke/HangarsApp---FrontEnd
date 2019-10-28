@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CartProduct } from '../../../core/models/commerce/cart-product.model';
+import { Component, Input, OnInit } from '@angular/core';
 import { ShoppingCart } from '../../../core/models/commerce/shopping-cart.model';
 import { fade } from '../../animations/fade.animation';
 
@@ -8,7 +7,7 @@ import { fade } from '../../animations/fade.animation';
   templateUrl: './small-toast.component.html',
   styleUrls: ['./small-toast.component.less'],
   animations: [ fade ]
-})
+  })
 export class SmallToastComponent implements OnInit {
 
   @Input() shoppingCart: ShoppingCart;

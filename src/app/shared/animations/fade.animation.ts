@@ -7,3 +7,12 @@ export let fade: AnimationTriggerMetadata = trigger('fade', [
     animate(200)
   ])
 ]);
+
+
+export let fullFade: AnimationTriggerMetadata = trigger('fullFade', [
+  state('void', style({ opacity: 0 })),
+  state('*', style({ opacity: 1 })),
+  transition('void <=> *', [
+    animate(200)
+  ])
+]);

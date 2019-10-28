@@ -1,16 +1,6 @@
-<div class="card mt-5 mb-3">
-  <div class="card-body d-flex justify-content-center">
-    <div class="input-group d-flex justify-content-center">
-      <form class="row w-100">
-        <input class="col-10 form-control" />
-        <div class="col-2 d-flex justify-content-center">
-          <app-button
-           bclass='button-rectangle-secondary'
-          (click)="onSubmit()">
-            {{  'search-bar.search' | translate }}
-          </app-button>
-        </div>
-      </form>
-    </div>
+<form [formGroup]='this.form' class="card" (ngSubmit)='this.onSubmit()'>
+  <input class='form-control' formControlName='search'/>
+  <div class='button'>
+    <app-button btype='submit'>{{ 'search-bar.search' | translate }}</app-button>
   </div>
-</div>
+</form>

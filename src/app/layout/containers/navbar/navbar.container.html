@@ -4,5 +4,6 @@
 [shoppingCart]='this.shoppingCart$ | async'
 (loadShoppingCartEmitter)='this.loadShoppingCart()'
 (changeLanguageEmitter)='this.handleChangeLanguage()'
-(logOutEmitter)='this.handleLogOut()'>
+(logOutEmitter)='this.handleLogOut()'
+(searchValueEmitter)='this.search($event)'>
 </app-navbar>

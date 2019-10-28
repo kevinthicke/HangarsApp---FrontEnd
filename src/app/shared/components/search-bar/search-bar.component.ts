@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,14 +8,22 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
-//  constructor(private hangarService: HangarService, private router: Router) { }
+  @Output() searchValueEmitter = new EventEmitter<string>();
 
-  onSubmit(form: NgForm) {
+  form: FormGroup;
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+    this.form = new FormGroup({
+      search: new FormControl('')
+    })
 
   }
 
-  ngOnInit() {
+  onSubmit() {
+    this.searchValueEmitter.emit(this.form.value['search']);
   }
 
 }

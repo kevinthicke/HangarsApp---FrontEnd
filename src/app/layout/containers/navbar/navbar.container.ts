@@ -33,4 +33,8 @@ export class NavbarContainer implements OnInit {
     this.securityFacade.logOut();
   }
 
+  search(searchValue: string): void {
+    console.log(searchValue);
+  }
+
 }

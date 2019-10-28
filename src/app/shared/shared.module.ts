@@ -55,7 +55,9 @@ import { PillComponent } from './components/pill/pill.component';
     SmallToastComponent,
     CardComponent,
     PillComponent,
+    SearchBarComponent,
     HoverDirective,
+    ClickOutSideDirective,
     LimitCharactersPipe
   ]
 })

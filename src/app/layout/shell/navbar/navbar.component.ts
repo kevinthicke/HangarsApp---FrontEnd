@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { fade } from 'src/app/shared/animations/fade.animation';
 import { ShoppingCart } from '../../../core/models/commerce/shopping-cart.model';
+import { fullFade } from '../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.less'],
-  animations: [ fade ]
+  animations: [ fade, fullFade ]
 })
 export class NavbarComponent implements OnInit {
 
@@ -35,6 +36,9 @@ export class NavbarComponent implements OnInit {
 
   @Output() changeLanguageEmitter   = new EventEmitter<void>();
   @Output() logOutEmitter           = new EventEmitter<void>();
+  @Output() searchValueEmitter      = new EventEmitter<string>();
+
+  isSearchBarDisplayed: boolean = false;
 
   constructor() { }
 
@@ -46,6 +50,14 @@ export class NavbarComponent implements OnInit {
 
   logOut(): void {
     this.logOutEmitter.emit();
+  }
+
+  handleSearchButtonClick(): void {
+    this.isSearchBarDisplayed = !this.isSearchBarDisplayed;
+  }
+
+  handleSearchValue(searchValue: string): void {
+    this.searchValueEmitter.emit(searchValue);
   }
 
 }
