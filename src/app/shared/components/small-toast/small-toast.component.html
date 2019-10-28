@@ -4,13 +4,21 @@
       <ul class='list-group'>
           <li
           *ngFor='let product of this.shoppingCart.cart'
-          class='list-group-item d-flex justify-content-between'>
-            <span class="badge badge-primary badge-pill">
+          class='list-group-item d-flex justify-content-between'
+          @fade>
+            <app-pill pclass='pill-secondary'>
               {{ product.quantity }}
-            </span>
+            </app-pill>
             <span>{{ product.productMinified.name }}</span>
           </li>
         </ul>
       <h5 class='text-right m-2'>{{ this.shoppingCart.totalPrice }}$</h5>
+      <div *ngIf='this.shoppingCart.cart.length > 0'>
+        <app-button
+        bclass='button-rectangle-primary'
+        [routerLink]="['/commerce']" routerLinkActive="router-link-active" >
+          {{ 'products.small-toast.go-shop' | translate }}
+        </app-button>
+      </div>
     </div>
   </div>

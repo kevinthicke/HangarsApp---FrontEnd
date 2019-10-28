@@ -104,6 +104,9 @@
     },
     "insert": {
       "title": "Insertar un nuevo producto"
+    },
+    "small-toast": {
+      "go-shop": "Ir a la tienda"
     }
   },
   "commerce": {

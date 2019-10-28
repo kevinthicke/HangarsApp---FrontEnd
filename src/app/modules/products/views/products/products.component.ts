@@ -44,11 +44,9 @@ export class ProductsComponent implements OnInit {
 
   handleCardLeftButtonClick(product: ProductMinified): void {
 
-    if (this.isShoppingModeEnabled) {
-      this.addToShoppingCartEmitter.emit(product)
-    } else {
-      this.router.navigate(['products', 'modify', product.id]);
-    }
+    this.isShoppingModeEnabled
+      ? this.addToShoppingCartEmitter.emit(product)
+      : this.router.navigate(['products', 'modify', product.id]);
 
   }
 

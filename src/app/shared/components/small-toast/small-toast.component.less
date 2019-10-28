@@ -4,6 +4,29 @@
 }
 
 .list-group {
-  max-height: 70vh;
+  max-height: 40vh;
   overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2C5364;
+  border-radius: 5px;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    background: #006a8d;
+  }
+}
+
+div {
+  transition: all 200ms ease-in-out;
 }
