@@ -32,7 +32,8 @@ export function insertInShoppingCart(shoppingCart: ShoppingCart, cartProduct: Ca
     shoppingCart['cart'].push(cartProduct);
   }
 
-  shoppingCart['totalPrice'] += cartProduct['productMinified'].price;
+  shoppingCart['totalPrice'] += cartProduct['productMinified'].price
+  shoppingCart['totalPrice'] = +shoppingCart['totalPrice'].toFixed(2);
 
   return shoppingCart;
 
@@ -50,6 +51,7 @@ export function removeFromShoppingCart(shoppingCart: ShoppingCart, cartProduct: 
   }
 
   shoppingCart['totalPrice'] -= cartProduct['productMinified'].price;
+  shoppingCart['totalPrice'] = +shoppingCart['totalPrice'].toFixed(2);
 
   return shoppingCart;
 
