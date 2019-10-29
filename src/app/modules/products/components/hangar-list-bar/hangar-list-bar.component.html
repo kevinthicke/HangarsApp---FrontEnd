@@ -1,7 +1,7 @@
 <div class='ul-container'>
 
   <ul class='nav'>
-    <div *ngFor='let hangarName of this.hangarsMinified; let i = index' class='list'>
+    <div *ngFor='let hangarName of this.hangarsMinified; let i = index' class='list' @hangarListBarAnimation>
       
       <li 
       [ngClass]='{

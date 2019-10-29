@@ -5,7 +5,8 @@
   [leftButtonClass]='this.leftButtonClass'
   [rightButtonClass]='this.rightButtonClass'
   (leftButtonClickEmitter)='this.handleCardLeftButtonClick(product)'
-  (rightButtonClickEmitter)='this.handleCardRightButtonClick(product)'>
+  (rightButtonClickEmitter)='this.handleCardRightButtonClick(product)'
+  class='app-card'>
     <ng-container class='left-button'>
       {{ this.leftButtonText }}
     </ng-container>
