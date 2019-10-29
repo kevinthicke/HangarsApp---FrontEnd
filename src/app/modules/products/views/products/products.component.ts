@@ -4,12 +4,14 @@ import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.m
 import { ProductMinified } from '../../../../core/models/product/product-minified';
 import { fade } from 'src/app/shared/animations/fade.animation';
 import { ShoppingCart } from '../../../../core/models/commerce/shopping-cart.model';
+import { trigger, transition, animate, keyframes, style } from '@angular/animations';
+import { bounceInRight, bounceOutRight } from '../../../../shared/animations/bounce.animation';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.less'],
-  animations: [ fade ]
+  animations: [ fade, bounceInRight, bounceOutRight ]
 })
 export class ProductsComponent implements OnInit {
 

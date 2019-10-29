@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { fade } from 'src/app/shared/animations/fade.animation';
 import { ShoppingCart } from '../../../core/models/commerce/shopping-cart.model';
 import { fullFade } from '../../../shared/animations/fade.animation';
+import { trigger, transition, keyframes, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-navbar',
