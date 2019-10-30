@@ -1,10 +1,15 @@
-<app-navbar-container
-(changeLanguageEmitter)='this.handleChangeLanguage()'
-(shoppingCartRenderEmitter)='this.handleRenderShoppingCart()'
-[activeLang]='this.activeLang'>
-</app-navbar-container>
-<app-main
+<!--  -->
+<!-- <app-main
 class='main'
 [renderShoppingCart]='this.renderShoppingCart'
 [error]='this.error$ | async'>
-</app-main>
+</app-main> -->
+<div class="shell">
+  <app-navbar-container
+  (changeLanguageEmitter)='this.handleChangeLanguage()'
+  (shoppingCartRenderEmitter)='this.handleRenderShoppingCart()'
+  [activeLang]='this.activeLang'
+  class='navbar-container'>
+  </app-navbar-container>
+  <div class="app-main">app main</div>
+</div>

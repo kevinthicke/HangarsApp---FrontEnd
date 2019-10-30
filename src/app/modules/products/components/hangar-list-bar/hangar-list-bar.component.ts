@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
-import { trigger, transition, style, query, animate } from '@angular/animations';
+import { trigger, transition, style, query, animate, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-hangar-list-bar',
@@ -11,7 +11,7 @@ import { trigger, transition, style, query, animate } from '@angular/animations'
       transition(':enter', [
         query('li', [
           style({ transform: 'translateX(-50px)' }),
-          animate('400ms ease-in')
+          stagger(200, [ animate('400ms ease-in', style({ transform: 'translateX(0px)'})) ])
         ])
       ])
     ])
@@ -31,7 +31,7 @@ export class HangarListBarComponent implements OnInit {
   }
 
   handleHangarSelectedClick(hangarMinified: HangarMinified, index: number) {
-    
+
     this.hangarSelectedIndex = index;
     this.hangarSelectedEmmiter.emit(hangarMinified);
 

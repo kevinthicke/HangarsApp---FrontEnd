@@ -7,7 +7,7 @@ export let bounceInRight: AnimationTriggerMetadata = trigger('bounceInRight', [
         offset: 0,
         'animation-timing-function': 'cubic-bezier(0.215, 0.61, 0.355, 1)',
         opacity: 0,
-        transform: 'translate3d(3000px, 0, 0)'
+        transform: 'translate3d(1000px, 0, 0)'
       }),
       style({
         offset: 0.6,
@@ -45,7 +45,7 @@ export const bounceOutRight: AnimationTriggerMetadata = trigger('bounceOutRight'
       style({
         offset: 1,
         opacity: 0,
-        transform: 'translate3d(2000px, 0, 0)'
+        transform: 'translate3d(1000px, 0, 0)'
       })
     ]))
   ])

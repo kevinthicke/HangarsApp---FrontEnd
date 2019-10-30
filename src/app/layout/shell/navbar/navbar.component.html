@@ -1,5 +1,5 @@
 <nav>
-  <div>My Hangars App</div>
+  <div>Hangar App</div>
 
   <div>
     <li *ngFor='let button of this.buttons; let i = index'>
@@ -10,6 +10,9 @@
       {{ button.title | translate }}
       </span>
     </li>
+  </div>
+
+  <div>
     <div class='search-button'>
       <app-button
       bclass='button-circle-primary-darker'
@@ -17,29 +20,24 @@
       icon='fa fa-search'>
       </app-button>
     </div>
-  </div>
-
-  <div>
-    <span>Jack</span>
     <app-button
-     bclass='button-circle-primary-darker'
+      bclass='button-circle-primary-darker'
     (click)='this.changeLanguage()'>
     {{ this.activeLang }}
     </app-button>
     <app-button
-     bclass='button-rectangle-primary-darker'
+      bclass='button-rectangle-primary-darker'
     (click)='this.logOut()'>
     {{  'navbar.log-out' | translate }}
     </app-button>
   </div>
 
-  <div 
-  *ngIf='this.isSearchBarDisplayed' 
-  class='search-bar' 
+  <div
+  *ngIf='this.isSearchBarDisplayed'
+  class='search-bar'
   @fullFade>
-    <app-search-bar 
+    <app-search-bar
     (searchValueEmitter)='this.handleSearchValue($event)'>
     </app-search-bar>
   </div>
-
 </nav>

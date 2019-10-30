@@ -1,6 +1,7 @@
 import { Component, OnInit, SimpleChanges, Input, EventEmitter, Output } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Hangar } from '../../../../core/models/hangar/hangar.model';
+import { pulse } from 'src/app/shared/animations/pulse.animation';
 
 @Component({
   selector: 'app-hangar-crud',

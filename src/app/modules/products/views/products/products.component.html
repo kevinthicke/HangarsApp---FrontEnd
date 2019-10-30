@@ -1,12 +1,11 @@
 <app-aux-navbar [title]=" 'products.list.title' | translate "></app-aux-navbar>
 
-<!-- Card deck -->
 <div *ngIf='this.existsSelectedHangar' class='container'>
   <app-card-deck
   [products]='this.products'
   [leftButtonText]='this.isShoppingModeEnabled
     ? ("products.card-deck.add-to-cart" | translate)
-    :("products.card-deck.modify-button" | translate)'
+    : ("products.card-deck.modify-button" | translate)'
   [rightButtonText]='this.isShoppingModeEnabled
     ? ("products.card-deck.remove-from-cart" | translate)
     : ("products.card-deck.details-button" | translate)'
@@ -14,46 +13,44 @@
     ? "button-rectangle-secondary"
     : "button-rectangle-primary"'
   [rightButtonClass]='this.isShoppingModeEnabled
-  ? "button-rectangle-danger"
-  : "button-rectangle-primary"'
+    ? "button-rectangle-danger"
+    : "button-rectangle-primary"'
   (cardLeftButtonClickEmitter)='this.handleCardLeftButtonClick($event)'
   (cardRightButtonClickEmitter)='this.handleCardRightButtonClick($event)'>
   </app-card-deck>
 </div>
 
-
 <div *ngIf='!this.existsSelectedHangar' class="jumbotron">
-  <p class="lead">{{ 'products.list.message' | translate }}</p>
+  <p class='lead'>{{ 'products.list.message' | translate }}</p>
 </div>
 
-<!-- Hangar list bar -->
 <app-hangar-list-bar
 [hangarsMinified]='this.hangarsMinified'
 class='lateral-bar-list'
 (hangarSelectedEmmiter)='this.handleHangarSelected($event)'>
 </app-hangar-list-bar>
 
-<!-- Button group -->
 <div class='fixed-top button d-flex justify-content-between'>
-    <app-button
-     bclass='button-rectangle-secondary'
-    [routerLink]=" ['insert'] ">
-      {{ 'products.list.buttons.insert-button' | translate }}
-    </app-button>
+  <app-button
+  bclass='button-rectangle-secondary'
+  [routerLink]=" ['insert'] ">
+    {{ 'products.list.buttons.insert-button' | translate }}
+  </app-button>
 </div>
 
 <div class='float-button'>
   <app-button
-   bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
-  (click)='this.changeShoppingMode()'
+  bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
+  (click)='this.changeSmallToastRenderState()'
   class='button-shopping-cart'>
   </app-button>
 </div>
 
 
 <app-small-toast
-*ngIf='this.isShoppingModeEnabled'
+*ngIf='this.isSmallToastRendered'
 [shoppingCart]='this.shoppingCart'
 class='small-toast'
-@bounceInRight @bounceOutRight>
+@bounceInRight (@bounceInRight.done)='this.enableShoppingMode()'
+@bounceOutRight (@bounceOutRight.done)='this.disableShoppingMode()'>
 </app-small-toast>
