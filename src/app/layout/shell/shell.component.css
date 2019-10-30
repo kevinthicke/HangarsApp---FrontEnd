@@ -2,11 +2,12 @@
   height: 100vh;
   display: grid;
   grid-template-areas: "navbar-container" "app-main";
+  background: #dfdfdf;
 }
 @media screen and (min-width: 1200px) {
   .shell {
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr 30fr;
+    grid-template-rows: 3fr 35fr;
   }
 }
 @media screen and (max-width: 1200px) and (min-width: 1024px) {
@@ -25,7 +26,6 @@
   background: teal;
   grid-area: navbar-container;
 }
-.app-main {
-  background: tomato;
+.main {
   grid-area: app-main;
 }

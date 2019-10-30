@@ -1,3 +1,39 @@
+.main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    padding-top: 5%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .router-outlet {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .router-outlet {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .router-outlet {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .router-outlet {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .router-outlet {
+    width: 95%;
+  }
+}
 .float-toast {
   position: fixed;
   z-index: 2;

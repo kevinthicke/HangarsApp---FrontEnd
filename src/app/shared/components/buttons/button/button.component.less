@@ -4,6 +4,9 @@
 @rectangle-width:  130px;
 @rectangle-height: 40px;
 
+@rectangle-width-sm: 110px;
+@rectangle-height-sm: 30px;
+
 @primary-color:     #2C5364;
 @primary-color-aux: rgb(0, 106, 141);
 
@@ -70,6 +73,7 @@
     & when(@isCircle = false) {
       width: @width + 10px;
     }
+
   }
 
   &:active {
@@ -106,6 +110,9 @@
   .button-container(@rectangle-width, @rectangle-height, @danger-color, @danger-color-aux, false);
 }
 
+.button-rectangle-black-sm {
+  .button-container(@rectangle-width-sm, @rectangle-height-sm, rgb(61, 61, 61), rgb(42, 42, 42), false);
+}
 
 .button-circle-primary {
   .button-container(@circle-width, @circle-height, @primary-color, @primary-color-aux, true);

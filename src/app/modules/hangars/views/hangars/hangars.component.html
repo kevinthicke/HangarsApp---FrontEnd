@@ -1,24 +1,13 @@
-<app-aux-navbar
-[title]=' "hangars.list.title" | translate '>
-</app-aux-navbar>
-
-<div class='container'>
+<div>
   <app-list
   [hangarsMinified]='this.hangarsMinified'
   [hangarSelected]='this.hangarSelected'
   (toPreviousPageEmitter)='this.handleToPreviousPage()'
   (toNextPageEmitter)='this.handleToNextPage()'
-  (hangarSelectedEmitter)='this.handleSelectHangar($event)'>
+  (hangarSelectedEmitter)='this.handleSelectHangar($event)'
+  (moreButtonClickEmitter)='this.expandMenu()'
+  (plusButtonClickEmitter)='this.navigateToInsert()'>
   </app-list>
-</div>
-
-<div class='float-button'>
-    <app-button
-     bclass='button-rectangle-primary'
-    class='button float'
-    (click)='this.handleFloatButtonClick()'>
-     {{ this.hangarSelected ? "More": "Insertar" }}
-    </app-button>
 </div>
 
 <div

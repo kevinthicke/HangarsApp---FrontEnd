@@ -1,19 +1,39 @@
-<div class='btn-group w-100 bg-grimary' role='group'>
-  <button class='btn btn-primary' (click)='this.toPreviousPage()'>
-    {{ 'hangars.list.previous-page' | translate }}
-  </button>
-  <button class='btn btn-primary' (click)='this.toNextPage()'>
-    {{ 'hangars.list.next-page' | translate }}
-  </button>
-</div>
-<ul class='list'>
-  <li *ngFor='let hangar of this.hangarsMinified; let i = index;'
-  (click)='handleSelectHangar(hangar)'
-  (dblclick)='goDetails(hangar)'>
-    <a
-    [ngClass]='{"selected": this.hangarSelected && (this.hangarSelected.id==hangar.id)}'
-    class='list-item text-primary'>
+<ul>
+  <li
+  *ngFor='let hangar of this.hangarsMinified; let i = index;'
+  [ngClass]='{"selected": this.hangarSelected && (this.hangarSelected.id==hangar.id)}'
+  (click)='handleSelectHangar(hangar)'>
+    <span>
       {{ hangar.name }}
-    </a>
+    </span>
+    <app-button
+    *ngIf='this.hangarSelected && (this.hangarSelected.id==hangar.id)'
+    bclass='button-rectangle-black-sm'
+    (click)='this.handleMoreButtonClick($event)'
+    @fullFade>
+      {{ this.hangarSelected ? "More": "Insertar" }}
+    </app-button>
   </li>
 </ul>
+
+<div class='buttons'>
+  <app-button 
+  bclass='button-rectangle-primary'
+  (click)='this.toPreviousPage()'>
+    {{ 'hangars.list.previous-page' | translate }}
+  </app-button>
+  <div>
+    <app-button
+    *ngIf='!this.hangarSelected'
+    bclass='button-circle-primary-darker'
+    icon='fa fa-plus'
+    (click)='this.handlePlusButtonClick()'
+    @fullFade>
+    </app-button>
+  </div>
+  <app-button 
+  bclass='button-rectangle-primary'
+  (click)='this.toNextPage()'>
+    {{ 'hangars.list.next-page' | translate }}
+  </app-button>
+</div>

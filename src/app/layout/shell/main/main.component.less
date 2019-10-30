@@ -1,3 +1,41 @@
+@import './../../../app.component.less';
+
+.main {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+
+  @media screen and (max-width: @medium) {
+    padding-top: 5%;
+  }
+}
+
+.router-outlet {
+
+  @media screen and (min-width: @extra-large) {
+    width: 60%;
+  }
+
+  @media screen and (min-width: @large) and (max-width: @extra-large) {
+    width: 75%;
+  }
+
+  @media screen and (min-width: @medium) and (max-width: @large) {
+    width: 85%;
+  }
+
+  @media screen and (min-width: @small) and (max-width: @medium) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: @small) {
+    width: 95%;
+  }
+
+}
+
 .float-toast {
   position:fixed;
   z-index: 2;

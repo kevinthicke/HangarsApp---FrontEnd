@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 import { Router } from '@angular/router';
+import { fullFade } from '../../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-hangars',
   templateUrl: './hangars.component.html',
-  styleUrls: ['./hangars.component.less']
+  styleUrls: ['./hangars.component.less'],
+  animations: [ fullFade ]
 })
 export class HangarsComponent implements OnInit {
 
@@ -35,14 +37,12 @@ export class HangarsComponent implements OnInit {
     this.hangarSelectedEmitter.emit(hangarMinified);
   }
 
-  handleFloatButtonClick(): void {
+  expandMenu(): void {
+    this.showLateralNavbar = true;
+  }
 
-    if (this.hangarSelected) {
-      this.showLateralNavbar = true;
-    } else {
-      this.router.navigate(['hangars/insert']);
-    }
-
+  navigateToInsert(): void {
+    this.router.navigate(['hangars/insert']);
   }
 
   handleCloseLateralNavbar(): void {

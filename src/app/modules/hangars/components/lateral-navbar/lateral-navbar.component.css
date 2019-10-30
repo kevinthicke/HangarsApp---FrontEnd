@@ -84,57 +84,39 @@ div {
   z-index: 999;
   background: #292b2c;
   height: 100vh;
-  
   width: 30vw;
 }
-
 ul {
   margin: 0;
   padding: 25% 2%;
-
-
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  
 }
-
 li {
   list-style-type: none;
-
   width: 100%;
-
   padding: 0% 2%;
   margin: 0px 2px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   transition: all 200ms ease-in-out;
-
   color: #0275d8;
-
-  cursor: pointer; 
-
+  cursor: pointer;
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-  
-  &:hover {
-    background: rgb(54, 54, 54);
-
-  }
-
-  span {
-    height: 7vh;
-
-    padding-left: 0% 10%;
-
-    display: flex;
-    align-items: center;
-  }
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+li:hover {
+  background: #363636;
+}
+li span {
+  height: 7vh;
+  padding-left: 0% 10%;
+  display: flex;
+  align-items: center;
 }

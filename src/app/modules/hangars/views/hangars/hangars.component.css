@@ -1,0 +1,15 @@
+.lateral-navbar {
+  position: fixed;
+  top: 0vh;
+  right: -70vw;
+  opacity: 0.99;
+  transition: all 400ms cubic-bezier(1, 0.01, 0.71, 1.02);
+}
+.lateral-navbar-active {
+  position: fixed;
+  top: 0vh;
+  right: -70vw;
+  opacity: 0.99;
+  transition: all 400ms cubic-bezier(1, 0.01, 0.71, 1.02);
+  transform: translateX(-70vw);
+}

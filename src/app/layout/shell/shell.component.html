@@ -1,9 +1,3 @@
-<!--  -->
-<!-- <app-main
-class='main'
-[renderShoppingCart]='this.renderShoppingCart'
-[error]='this.error$ | async'>
-</app-main> -->
 <div class="shell">
   <app-navbar-container
   (changeLanguageEmitter)='this.handleChangeLanguage()'
@@ -11,5 +5,9 @@ class='main'
   [activeLang]='this.activeLang'
   class='navbar-container'>
   </app-navbar-container>
-  <div class="app-main">app main</div>
+  <app-main
+    class='main'
+    [renderShoppingCart]='this.renderShoppingCart'
+    [error]='this.error$ | async'>
+  </app-main>
 </div>

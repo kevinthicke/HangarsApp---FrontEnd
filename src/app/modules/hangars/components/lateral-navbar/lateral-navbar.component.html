@@ -1,8 +1,20 @@
-<div class='custom-lateral-nav'>
-  <ul class='button-list d-flex flex-column'>
-    <a class='button-list-item' [routerLink]="['/hangars/details']" routerLinkActive='router-link-active'>{{ 'hangars.lateral-navbar.hangar-details' | translate }}</a>
-    <a class='button-list-item' [routerLink]="['/hangars/modify']" routerLinkActive="router-link-active" >{{ 'hangars.lateral-navbar.hangar-details' | translate }}</a>
-    <a class='button-list-item text-white' (click)='this.emitDelete()'>{{ 'hangars.lateral-navbar.delete-hangar' | translate }}</a>
-    <a class='button-list-item text-white' (click)='this.close()'>{{ 'hangars.lateral-navbar.close' | translate }}</a>
+<div>
+  <ul>
+    <li [routerLink]="['/hangars/details']" routerLinkActive='router-link-active'>
+      <span>{{ 'hangars.lateral-navbar.hangar-details' | translate }}</span>  
+      <i class="fa fa-align-justify"></i>    
+    </li>
+    <li [routerLink]="['/hangars/modify']" routerLinkActive="router-link-active" >
+      <span>{{ 'hangars.lateral-navbar.modify-hangar' | translate }}</span>
+      <i class="fa fa-edit"></i>
+    </li>
+    <li (click)='this.emitDelete()'>
+      <span>{{ 'hangars.lateral-navbar.delete-hangar' | translate }}</span>
+      <i class="fa fa-trash"></i>
+    </li>
+    <li (click)='this.close()'>
+      <span>{{ 'hangars.lateral-navbar.close' | translate }}</span>
+      <i class="fa fa-times"></i>
+    </li>
   </ul>
 </div>
