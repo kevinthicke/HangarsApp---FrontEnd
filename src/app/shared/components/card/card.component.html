@@ -1,7 +1,9 @@
 <div class='custom-card'>
 
   <div class='header'>
-    <span class='title'>{{ product.name }}</span>
+    <span class='title'>
+      {{ (product.name.length> 10) ? (product.name | slice:0:10) + ' ...' : product.name }}
+    </span>
     <app-pill>{{ product.price }} $</app-pill>
   </div>
 
