@@ -1,6 +1,4 @@
-<app-aux-navbar [title]=" 'products.list.title' | translate "></app-aux-navbar>
-
-<div *ngIf='this.existsSelectedHangar' class='container'>
+<!-- <div *ngIf='this.existsSelectedHangar' class='container'>
   <app-card-deck
   [products]='this.products'
   [leftButtonText]='this.isShoppingModeEnabled
@@ -54,3 +52,16 @@ class='small-toast'
 @bounceInRight (@bounceInRight.done)='this.enableShoppingMode()'
 @bounceOutRight (@bounceOutRight.done)='this.disableShoppingMode()'>
 </app-small-toast>
+ -->
+
+<div class="card-deck">card deck</div>
+<div class="hangar-list-container">
+    <app-hangar-list-bar
+    [hangarsMinified]='this.hangarsMinified'
+    class='hangar-list'
+    (hangarSelectedEmmiter)='this.handleHangarSelected($event)'>
+    </app-hangar-list-bar>
+    <div class='expand-button'>
+      <i class="fa fa-chevron-circle-right"></i>
+    </div>
+</div>

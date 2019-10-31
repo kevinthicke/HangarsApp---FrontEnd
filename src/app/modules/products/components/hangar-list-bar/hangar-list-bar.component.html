@@ -1,16 +1,12 @@
-<div class='ul-container'>
+<ul>
+  <div *ngFor='let hangarName of this.hangarsMinified; let i = index'>
 
-  <ul class='nav'>
-    <div *ngFor='let hangarName of this.hangarsMinified; let i = index' class='list' @hangarListBarAnimation>
-      
-      <li 
-      [ngClass]='{
-        "nav-item selected": i == this.hangarSelectedIndex,
-        "nav-item": i != this.hangarSelectedIndex }'>
-        <a class='nav-link' (click)='this.handleHangarSelectedClick(hangarName, i)'>{{ hangarName.name }}</a>
-      </li>
-     
-    </div>
-  </ul>
+    <li
+    [ngClass]='{
+      "nav-item selected": i == this.hangarSelectedIndex,
+      "nav-item": i != this.hangarSelectedIndex }'>
+      <span (click)='this.handleHangarSelectedClick(hangarName, i)'>{{ hangarName.name }}</span>
+    </li>
 
-</div>
+  </div>
+</ul>

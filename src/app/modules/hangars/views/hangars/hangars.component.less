@@ -3,6 +3,7 @@
 .lateral-navbar {
 
   position: fixed;
+  z-index: 4;
   top: 0vh;
 
   @media screen and (min-width: @extra-large) {
@@ -53,4 +54,9 @@
     transform: translateX(-100vw);
   }
 
+}
+
+.blur-list-container {
+  filter: blur(3px);
+  transition: 1s filter ease-in-out;
 }

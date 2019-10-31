@@ -1,5 +1,6 @@
 .lateral-navbar {
   position: fixed;
+  z-index: 4;
   top: 0vh;
   transition: all 400ms cubic-bezier(1, 0.01, 0.71, 1.02);
   opacity: 0.99;
@@ -31,6 +32,7 @@
 }
 .lateral-navbar-active {
   position: fixed;
+  z-index: 4;
   top: 0vh;
   transition: all 400ms cubic-bezier(1, 0.01, 0.71, 1.02);
   opacity: 0.99;
@@ -84,4 +86,8 @@
   .lateral-navbar-active {
     transform: translateX(-100vw);
   }
+}
+.blur-list-container {
+  filter: blur(3px);
+  transition: 1s filter ease-in-out;
 }

@@ -24,6 +24,7 @@
 }
 .navbar-container {
   grid-area: navbar-container;
+  z-index: 2;
 }
 .main {
   grid-area: app-main;
