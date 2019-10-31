@@ -1,14 +1,56 @@
+@import './../../../../app.component.less';
+
 .lateral-navbar {
+
   position: fixed;
   top: 0vh;
-  right: -70vw;
-  opacity: 0.99;
+
+  @media screen and (min-width: @extra-large) {
+    right: -70vw;
+  }
+
+  @media screen and (min-width: @large) and (max-width: @extra-large) {
+    right: -80vw;
+  }
+
+  @media screen and (min-width: @medium) and (max-width: @large) {
+    right: -82vw;
+  }
+
+  @media screen and (min-width: @small) and (max-width: @medium) {
+    right: -82vw;
+  }
+
+  @media screen and (max-width: @small) {
+    right: -100vw;
+  }
 
   transition: all 400ms cubic-bezier(1,.01,.71,1.02);
+  opacity: 0.99;
 
 }
 
 .lateral-navbar-active {
   .lateral-navbar;
-  transform: translateX(-70vw);
+
+  @media screen and (min-width: @extra-large) {
+    transform: translateX(-70vw);
+  }
+
+  @media screen and (min-width: @large) and (max-width: @extra-large) {
+    transform: translateX(-80vw);
+  }
+
+  @media screen and (min-width: @medium) and (max-width: @large) {
+    transform: translateX(-80vw);
+  }
+
+  @media screen and (min-width: @small) and (max-width: @medium) {
+    transform: translateX(-80vw);
+  }
+
+  @media screen and (max-width: @small) {
+    transform: translateX(-100vw);
+  }
+
 }

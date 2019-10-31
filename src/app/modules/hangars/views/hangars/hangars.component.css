@@ -1,15 +1,87 @@
 .lateral-navbar {
   position: fixed;
   top: 0vh;
-  right: -70vw;
-  opacity: 0.99;
   transition: all 400ms cubic-bezier(1, 0.01, 0.71, 1.02);
+  opacity: 0.99;
+}
+@media screen and (min-width: 1200px) {
+  .lateral-navbar {
+    right: -70vw;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .lateral-navbar {
+    right: -80vw;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .lateral-navbar {
+    right: -82vw;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .lateral-navbar {
+    right: -82vw;
+  }
+}
+@media screen and (max-width: 640px) {
+  .lateral-navbar {
+    right: -100vw;
+  }
 }
 .lateral-navbar-active {
   position: fixed;
   top: 0vh;
-  right: -70vw;
-  opacity: 0.99;
   transition: all 400ms cubic-bezier(1, 0.01, 0.71, 1.02);
-  transform: translateX(-70vw);
+  opacity: 0.99;
+}
+@media screen and (min-width: 1200px) {
+  .lateral-navbar-active {
+    right: -70vw;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .lateral-navbar-active {
+    right: -80vw;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .lateral-navbar-active {
+    right: -82vw;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .lateral-navbar-active {
+    right: -82vw;
+  }
+}
+@media screen and (max-width: 640px) {
+  .lateral-navbar-active {
+    right: -100vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .lateral-navbar-active {
+    transform: translateX(-70vw);
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .lateral-navbar-active {
+    transform: translateX(-80vw);
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .lateral-navbar-active {
+    transform: translateX(-80vw);
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .lateral-navbar-active {
+    transform: translateX(-80vw);
+  }
+}
+@media screen and (max-width: 640px) {
+  .lateral-navbar-active {
+    transform: translateX(-100vw);
+  }
 }

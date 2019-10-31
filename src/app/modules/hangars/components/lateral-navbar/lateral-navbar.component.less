@@ -1,91 +1,30 @@
-/* .background(@x, @y) {
-  background-size: 100% 300%;
-  background-position: @x @y;
-  background-image: linear-gradient(to top, #29323c, #485563, #2b5876);
-}
+@import './../../../../app.component.less';
 
-.transition() {
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
-.border() {
-  -webkit-border-top-left-radius: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-  -moz-border-radius-topleft: 10px;
-  -moz-border-radius-bottomleft: 10px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.no-select() {
-  -webkit-touch-callout: none; 
-  -webkit-user-select: none; 
-  -khtml-user-select: none; 
-  -moz-user-select: none; 
-  -ms-user-select: none; 
-  user-select: none; 
-}
-
-.display-flex-center() {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-lateral-nav {
-  .background(0, 100%);
-  .transition();
-  .border();
-  .display-flex-center();
-
-  box-shadow: 0px 0px 3px black;
-
-  width: 100%;
-  height: 30vh;
-  margin: 2px 0;
-
-  cursor: default;
-
-   &:hover {
-    .background(0, 0);
-  }
-
-}
-
-.button-list {
-  list-style-type: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-right: 5px;
-  width: 95%;
-  a {
-    .no-select();
-    .display-flex-center();
-    width: 100%;
-    height: 70px;
-    margin: 5px;
-    border-radius: 2pt;
-    text-decoration: none;
-    font-size: 15pt;
-    color: white;
-    box-shadow: 0 0 4px -2px white;
-    transition: all 0.1s ease-in-out;
-    &:hover {
-      background: #29323c;
-      transform: translateX(-3%);
-    }
-  }
-}
- */
 div {
   z-index: 999;
   background: #292b2c;
   height: 100vh;
-  
-  width: 30vw;
+
+  @media screen and (min-width: @extra-large) {
+    width: 30vw;
+  }
+
+  @media screen and (min-width: @large) and (max-width: @extra-large) {
+    width: 40vw;
+  }
+
+  @media screen and (min-width: @medium) and (max-width: @large) {
+    width: 60vw;
+  }
+
+  @media screen and (min-width: @small) and (max-width: @medium) {
+    width: 80vw;
+  }
+
+  @media screen and (max-width: @small) {
+    width: 100vw;
+  }
+
 }
 
 ul {
@@ -96,7 +35,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  
+
 }
 
 li {
@@ -115,7 +54,7 @@ li {
 
   color: #0275d8;
 
-  cursor: pointer; 
+  cursor: pointer;
 
   -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -123,7 +62,7 @@ li {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-  
+
   &:hover {
     background: rgb(54, 54, 54);
 
