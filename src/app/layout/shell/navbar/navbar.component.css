@@ -20,6 +20,7 @@ nav {
   display: grid;
   height: 100%;
   color: #f7f7f7;
+  min-height: 60px;
 }
 nav:hover {
   background-position: 100% 0;
@@ -33,15 +34,17 @@ nav:hover {
 @media screen and (min-width: 1024px) and (max-width: 1200px) {
   nav {
     grid-template-columns: 1fr 1.4fr;
-    grid-template-rows: 0.8fr 1.2fr;
+    grid-template-rows: 1fr 0.8fr;
     grid-template-areas: "title secondary-buttons" "primary-buttons primary-buttons";
+    min-height: 110px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   nav {
     grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: 0.8fr 1.2fr;
+    grid-template-rows: 1fr 0.8fr;
     grid-template-areas: "title secondary-buttons" "primary-buttons primary-buttons";
+    min-height: 110px;
   }
 }
 @media screen and (min-width: 640px) and (max-width: 768px) {
@@ -56,11 +59,12 @@ nav:hover {
     grid-template-columns: 1fr;
     grid-template-rows: 0.7fr 1fr 1.3fr;
     grid-template-areas: "title" "secondary-buttons" "primary-buttons";
+    font-size: 10pt;
   }
 }
 div:nth-child(1) {
   grid-area: title;
-  font-size: 24pt;
+  font-size: 20pt;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -70,7 +74,6 @@ div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1%;
 }
 div:nth-child(2) li {
   height: 80%;

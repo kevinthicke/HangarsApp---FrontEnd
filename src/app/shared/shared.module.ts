@@ -35,7 +35,7 @@ import { PillComponent } from './components/pill/pill.component';
     SmallToastComponent,
     CardComponent,
     LimitCharactersPipe,
-    PillComponent
+    PillComponent,
   ],
   imports: [
     CommonModule,

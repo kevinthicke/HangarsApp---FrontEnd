@@ -12,8 +12,14 @@ export class SmallToastComponent implements OnInit {
 
   @Input() shoppingCart: ShoppingCart;
 
+  isSmallToastMinified: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void { }
+
+  minimize(): void {
+    this.isSmallToastMinified = !this.isSmallToastMinified;
+  }
 
 }

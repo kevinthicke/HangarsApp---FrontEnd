@@ -1,7 +1,7 @@
 @import './../../app.component.less';
 
 .shell {
-  height: 100vh;
+  min-height: 100vh;
 
   display: grid;
   grid-template-areas: "navbar-container" "app-main";
@@ -28,9 +28,17 @@
 .navbar-container {
   grid-area: navbar-container;
   z-index: 2;
-  
+  width: 100vw;
+  position: fixed;
 }
 
 .main {
   grid-area: app-main;
+  margin-top: 5vh;
+
+  @media screen and (max-width: @medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 12fr;
+    margin-top: 2vh;
+  }
 }

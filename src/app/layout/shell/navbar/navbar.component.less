@@ -40,6 +40,7 @@ nav {
   display: grid;
   height: 100%;
   color: #f7f7f7;
+  min-height: 60px;
 
   @media screen and (min-width: @extra-large) {
     grid-template-columns: 1fr 3fr 1fr;
@@ -48,14 +49,16 @@ nav {
 
   @media screen and (min-width: @large) and (max-width: @extra-large) {
     grid-template-columns: 1fr 1.4fr;
-    grid-template-rows: 0.8fr 1.2fr;
-    grid-template-areas: "title secondary-buttons" "primary-buttons primary-buttons"
+    grid-template-rows: 1fr 0.8fr;
+    grid-template-areas: "title secondary-buttons" "primary-buttons primary-buttons";
+    min-height: 110px;
   }
 
   @media screen and (min-width: @medium) and (max-width: @large) {
     grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: 0.8fr 1.2fr;
-    grid-template-areas: "title secondary-buttons" "primary-buttons primary-buttons"
+    grid-template-rows: 1fr 0.8fr;
+    grid-template-areas: "title secondary-buttons" "primary-buttons primary-buttons";
+    min-height: 110px;
   }
 
   @media screen and (min-width: @small) and (max-width: @medium) {
@@ -68,12 +71,13 @@ nav {
     grid-template-columns: 1fr;
     grid-template-rows: 0.7fr 1fr 1.3fr;
     grid-template-areas: "title" "secondary-buttons" "primary-buttons";
+    font-size: 10pt;
   }
 }
 
 div:nth-child(1) {
   grid-area: title;
-  font-size: 24pt;
+  font-size: 20pt;
 
   display: flex;
   align-items: center;
@@ -89,7 +93,6 @@ div:nth-child(2) {
   align-items: center;
   justify-content: space-around;
 
-  padding: 1%;
 }
 
 div:nth-child(2) li {

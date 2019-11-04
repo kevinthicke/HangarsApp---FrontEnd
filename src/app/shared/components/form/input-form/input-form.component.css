@@ -1,15 +1,14 @@
-input, textarea {
+input,
+textarea {
   background: #191b1b;
   color: #fafafa;
-
   transition: all 200ms ease-in-out;
-
-  &:focus {
-    background:  #292b2c;
-    color: #fafafa;
-  }
 }
-
+input:focus,
+textarea:focus {
+  background: #292b2c;
+  color: #fafafa;
+}
 label {
   font-weight: 500;
 }

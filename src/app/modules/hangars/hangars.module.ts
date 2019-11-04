@@ -12,7 +12,6 @@ import { HangarsComponent } from './views/hangars/hangars.component';
 import { HangarCrudContainer } from './container/hangar-crud/hangar-crud.container';
 import { HangarCrudComponent } from './views/hangar-crud/hangar-crud.component';
 
-
 @NgModule({
   declarations: [
     ListComponent,
@@ -21,7 +20,7 @@ import { HangarCrudComponent } from './views/hangar-crud/hangar-crud.component';
     HangarContainer,
     HangarsComponent,
     HangarCrudContainer,
-    HangarCrudComponent
+    HangarCrudComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, HostBinding, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { fade } from 'src/app/shared/animations/fade.animation';
+import { fade, fullFade } from 'src/app/shared/animations/fade.animation';
 import { ShoppingCart } from '../../../../core/models/commerce/shopping-cart.model';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 import { ProductMinified } from '../../../../core/models/product/product-minified';
@@ -12,19 +12,7 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.less'],
-  animations: [ fade, pulse, bounceInRight, bounceOutRight,
-    trigger('expandLeft', [
-      state('closed', style({
-          //transform: 'translateX(0)',
-          background: 'red'
-      })),
-      state('opened', style({
-          //transform: 'translateX(80vw)'
-          background: 'green'
-      })),
-      transition('closed <=> opened', animate(300))
-  ])
-  ]
+  animations: [ fade, fullFade, bounceInRight, bounceOutRight ]
 })
 export class ProductsComponent implements OnInit {
 

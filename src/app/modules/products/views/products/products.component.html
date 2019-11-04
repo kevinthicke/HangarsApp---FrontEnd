@@ -44,6 +44,7 @@ class='lateral-bar-list'
   </app-button>
 </div>
 
+-->
 
 <app-small-toast
 *ngIf='this.isSmallToastRendered'
@@ -52,7 +53,16 @@ class='small-toast'
 @bounceInRight (@bounceInRight.done)='this.enableShoppingMode()'
 @bounceOutRight (@bounceOutRight.done)='this.disableShoppingMode()'>
 </app-small-toast>
+
+<!-- <div class="footer-toast-container" *ngIf='this.isShoppingModeEnabled'>
+  <app-footer-toast [shoppingCart]='this.shoppingCart'></app-footer-toast>
+</div>
  -->
+
+<div *ngIf='!this.existsSelectedHangar' class="jumbotron">
+  <p class='lead'>{{ 'products.list.message' | translate }}</p>
+</div>
+
 
 <div class="custom-card-deck" *ngIf='this.existsSelectedHangar'>
   <app-card-deck
@@ -73,6 +83,7 @@ class='small-toast'
   (cardRightButtonClickEmitter)='this.handleCardRightButtonClick($event)'>
   </app-card-deck>
 </div>
+
 <div class="hangar-list-container">
     <app-hangar-list-bar
     [hangarsMinified]='this.hangarsMinified'
@@ -83,3 +94,20 @@ class='small-toast'
       <i class="fa fa-chevron-circle-right"></i>
     </div>
 </div>
+
+
+<div class='float-buttons'>
+    <app-button
+    bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
+    (click)='this.changeSmallToastRenderState()'
+    class='button-shopping-cart'>
+    </app-button>
+    <app-button
+    *ngIf='!this.isSmallToastRendered'
+    bclass='button-circle-secondary' icon='fa fa-plus'
+    (click)='this.changeSmallToastRenderState()'
+    class='button-shopping-cart'
+    [routerLink]=" ['insert'] "
+    @fullFade>
+    </app-button>
+  </div>

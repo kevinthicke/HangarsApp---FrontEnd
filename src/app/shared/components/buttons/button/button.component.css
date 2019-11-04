@@ -554,3 +554,68 @@ span {
   justify-content: center;
   align-items: center;
 }
+.button-circle-secondary {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-secondary button {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  border-radius: 3px;
+  border-radius: 50%;
+  background: #137645;
+  color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 200ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+}
+.button-circle-secondary button:hover {
+  background: #10492d;
+}
+.button-circle-secondary button:active {
+  background: #137645;
+  -webkit-box-shadow: 0px 0px 2px 1px #137645;
+  -moz-box-shadow: 0px 0px 2px 1px #137645;
+  box-shadow: 0px 0px 2px 1px #137645;
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .button-circle-secondary button {
+    width: 35px;
+    height: 35px;
+    font-size: 10pt;
+  }
+}
+@media screen and (max-width: 640px) {
+  .button-circle-secondary button {
+    width: 30px;
+    height: 30px;
+    font-size: 10pt;
+  }
+}
+.button-circle-secondary span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

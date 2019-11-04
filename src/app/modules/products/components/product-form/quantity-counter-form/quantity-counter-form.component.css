@@ -2,11 +2,9 @@ input {
   margin: auto;
   text-align: center;
 }
-
 label {
   font-weight: 500;
 }
-
 .counter-container {
   margin: auto;
   display: grid;
@@ -14,11 +12,9 @@ label {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2pt;
 }
-
 .quantity {
   width: 50px;
 }
-
 .is-custom-invalid {
   border-color: #dc3545;
 }

@@ -12,6 +12,7 @@ import { HangarListFormComponent } from './components/product-form/hangar-list-f
 import { QuantityCounterFormComponent } from './components/product-form/quantity-counter-form/quantity-counter-form.component';
 import { CardDeckComponent } from './components/card-deck/card-deck.component'
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
+import { FooterToastComponent } from './components/footer-toast/footer-toast.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductCrudComponent } from './views/product-crud/product-crud.componen
     ProductCrudContainer,
     ProductCrudComponent,
     HangarListFormComponent,
-    QuantityCounterFormComponent
+    QuantityCounterFormComponent,
+    FooterToastComponent
   ],
   imports: [
     CommonModule,
