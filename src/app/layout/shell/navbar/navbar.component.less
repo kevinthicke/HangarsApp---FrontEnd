@@ -44,7 +44,7 @@ nav {
 
   @media screen and (min-width: @extra-large) {
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas: "title primary-buttons secondary-buttons"
+    grid-template-areas: "title primary-buttons secondary-buttons";
   }
 
   @media screen and (min-width: @large) and (max-width: @extra-large) {
@@ -92,6 +92,10 @@ div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  @media screen and (min-width: @large) {
+  font-size: 14pt;
+  }
 
 }
 

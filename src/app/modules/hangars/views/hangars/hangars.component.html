@@ -11,8 +11,9 @@
 </div>
 
 <div
-*ngIf='this.showLateralNavbar'
-class='transparent-glass'>
+*ngIf='this.showLateralNavbar || this.showWarningPopUp'
+class='transparent-glass'
+[ngClass]='{ "darker": this.showWarningPopUp }'>
 </div>
 
 <div
@@ -24,4 +25,23 @@ class='transparent-glass'>
   (closeEmitter)='this.handleCloseLateralNavbar()'
   (deleteHangarEmitter)='this.handleDeleteHangar()'>
   </app-lateral-navbar>
+</div>
+
+<div
+*ngIf='this.showWarningPopUp'
+class='app-warning-pop-up'
+@fullFade>
+  <app-warning-pop-up
+  (leftButtonClickEmitter)='this.deleteHangar()'
+  (rightButtonClickEmitter)='this.closeWarningPopUp()'>
+    <ng-container class='message'>
+        {{ 'hangars.warning-pop-up.message' | translate }}
+    </ng-container>
+    <ng-container class='left-button'>
+      {{ 'hangars.warning-pop-up.left-button' | translate }}
+    </ng-container>
+    <ng-container class='right-button'>
+        {{ 'hangars.warning-pop-up.right-button' | translate }}
+    </ng-container>
+  </app-warning-pop-up>
 </div>

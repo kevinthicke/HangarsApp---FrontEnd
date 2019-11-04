@@ -5,9 +5,10 @@ import { Observable } from 'rxjs';
 import { map, switchMap, withLatestFrom, tap } from 'rxjs/operators';
 import { Hangar } from '../../app/core/models/hangar/hangar.model';
 import { HangarService } from '../../app/core/services/hangar.service';
-import { HangarActions, HangarActionTypes, HangarDetailsLoadedAction, HangarsLoadedAction, LoadHangarsAction, ChangeHangarSelectedAction, SetHangarSelectedAction, UpdateHangarAction, SaveHangarAction, ManageInsertHangarAction } from '../actions/hangar.action';
+import { HangarActions, HangarActionTypes, HangarDetailsLoadedAction, HangarsLoadedAction, LoadHangarsAction, ChangeHangarSelectedAction, SetHangarSelectedAction, UpdateHangarAction, SaveHangarAction, ManageInsertHangarAction, DeleteHangarAction } from '../actions/hangar.action';
 import { AppState } from '../state';
 import { Router } from '@angular/router';
+import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,17 @@ export class HangarEffects {
 
     })
   )
+
+   @Effect() deleteHangar$: Observable<LoadHangarsAction> = this.actions$.pipe(
+    ofType(HangarActionTypes.DELETE_HANGAR),
+
+    withLatestFrom(this.store$.select('hangar', 'hangarSelected')),
+    tap(v => console.log(v)),
+    switchMap(([ action , hangar]: [any, HangarMinified]) => {
+      return this.hangarService.deleteHangarById(hangar.id);
+    }),
+    map(() => new LoadHangarsAction(0))
+  );
 
   @Effect({ dispatch: false }) saveHangar$ = this.actions$.pipe(
     ofType(HangarActionTypes.SAVE_HANGAR),

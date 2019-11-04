@@ -18,6 +18,7 @@ import { ClickOutSideDirective } from './directives/click-outside.directive';
 import { HoverDirective } from './directives/hover.directive';
 import { HomeComponent } from './views/home/home.component';
 import { PillComponent } from './components/pill/pill.component';
+import { WarningPopUpComponent } from './components/warning-pop-up/warning-pop-up.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PillComponent } from './components/pill/pill.component';
     CardComponent,
     LimitCharactersPipe,
     PillComponent,
+    WarningPopUpComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import { PillComponent } from './components/pill/pill.component';
     CardComponent,
     PillComponent,
     SearchBarComponent,
+    WarningPopUpComponent,
     HoverDirective,
     ClickOutSideDirective,
     LimitCharactersPipe

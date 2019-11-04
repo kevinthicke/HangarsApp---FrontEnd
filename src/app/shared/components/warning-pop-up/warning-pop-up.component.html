@@ -1,0 +1,17 @@
+<div class="pop-up">
+  <span>
+    <ng-content select='.message'></ng-content>
+  </span>
+  <div class="button-container">
+    <app-button
+    bclass='button-rectangle-danger'
+    (click)='this.handleLeftButtonClick()'>
+    <ng-content select='.left-button'></ng-content>
+    </app-button>
+    <app-button
+    bclass='button-rectangle-secondary'
+    (click)='this.handleRightButtonClick()'>
+    <ng-content select='.right-button'></ng-content>
+    </app-button>
+  </div>
+</div>

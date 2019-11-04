@@ -5,7 +5,7 @@ import { Hangar } from 'src/app/core/models/hangar/hangar.model';
 import { HangarAdapter } from '../../app/core/models/auxiliary/adapters/hangar.adapter';
 import { HangarBuilder } from '../../app/core/models/auxiliary/builders/hangar-minified.builder';
 import { HangarMinified } from '../../app/core/models/hangar/hangar-minified.model';
-import { ChangeHangarSelectedAction, LoadHangarDetailsAction, LoadHangarsAction, ManageInsertHangarAction } from '../actions/hangar.action';
+import { ChangeHangarSelectedAction, LoadHangarDetailsAction, LoadHangarsAction, ManageInsertHangarAction, DeleteHangarAction } from '../actions/hangar.action';
 import { AppState } from '../state/index';
 
 @Injectable({
@@ -29,15 +29,14 @@ export class HangarFacade {
   }
 
   changeHangarSelected(hangarMinified: HangarMinified): void {
+
     let hangar = new HangarBuilder<HangarMinified>().build(hangarMinified);
     this.store$.dispatch(new ChangeHangarSelectedAction(hangar));
 
   }
 
   deleteHangar(): void {
-    this.hangarSelected$.subscribe(hangar => {
-      console.log('Borrando ' + hangar.name);
-    });
+    this.store$.dispatch(new DeleteHangarAction());
   }
 
   loadHangarDetails(): void {

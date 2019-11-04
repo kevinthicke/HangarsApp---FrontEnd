@@ -44,6 +44,11 @@ export class HangarService {
     return this.http.post<Hangar>(`${this.url}hangars`, hangarDto);
   }
 
+  public deleteHangarById(id: number): Observable<Hangar> {
+    return this.http.put<Hangar>(`${ this.url }hangars/safe-delete/${ id }`, null);
+  }
+
+
 /*   public getHangarsNames(): Observable<HangarMinified[]> {
     const endpoint = `${ this.url }hangars/names`;
 

@@ -73,6 +73,11 @@
       "modify-hangar": "Modificar hangar",
       "delete-hangar": "Borrar hangar",
       "close": "Cerrar"
+    },
+    "warning-pop-up": {
+      "message": "¿Seguro que desea borrar el hangar?",
+      "left-button": "Eliminar",
+      "right-button": "Cerrar"
     }
   },
   "products": {

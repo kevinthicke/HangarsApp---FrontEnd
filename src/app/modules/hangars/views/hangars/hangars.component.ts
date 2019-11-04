@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 import { Router } from '@angular/router';
-import { fullFade } from '../../../../shared/animations/fade.animation';
+import { fullFade, fade } from '../../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-hangars',
   templateUrl: './hangars.component.html',
   styleUrls: ['./hangars.component.less'],
-  animations: [ fullFade ]
+  animations: [ fullFade, fade ]
 })
 export class HangarsComponent implements OnInit {
 
@@ -19,7 +19,8 @@ export class HangarsComponent implements OnInit {
   @Output() hangarSelectedEmitter = new EventEmitter<HangarMinified>();
   @Output() deleteHangarEmitter   = new EventEmitter<void>();
 
-  showLateralNavbar: boolean = false;
+  showLateralNavbar : boolean = false;
+  showWarningPopUp  : boolean = false;
 
   constructor(private router: Router) { }
 
@@ -50,7 +51,16 @@ export class HangarsComponent implements OnInit {
   }
 
   handleDeleteHangar(): void {
+    this.showWarningPopUp = true;
+  }
+
+  deleteHangar(): void {
     this.deleteHangarEmitter.emit();
+    this.showWarningPopUp = false;
+  }
+
+  closeWarningPopUp(): void {
+    this.showWarningPopUp = false;
   }
 
 }

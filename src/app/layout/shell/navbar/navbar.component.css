@@ -75,6 +75,11 @@ div:nth-child(2) {
   align-items: center;
   justify-content: space-around;
 }
+@media screen and (min-width: 1024px) {
+  div:nth-child(2) {
+    font-size: 14pt;
+  }
+}
 div:nth-child(2) li {
   height: 80%;
   width: 20%;

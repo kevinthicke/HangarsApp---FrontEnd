@@ -6,19 +6,22 @@ import { Hangar } from '../../app/core/models/hangar/hangar.model';
 
 export enum HangarActionTypes {
 
-  LOAD_HANGARS = '[HANGAR] LOAD_HANGARS',
-  HANGARS_LOADED = '[HANGAR] HANGARS_LOADED',
+  LOAD_HANGARS           = '[HANGAR] LOAD_HANGARS',
+  HANGARS_LOADED         = '[HANGAR] HANGARS_LOADED',
 
   CHANGE_HANGAR_SELECTED = '[HANGAR] CHANGE_HANGAR_SELECTED',
-  SET_HANGAR = '[HANGAR] SET_HANGAR',
+  SET_HANGAR             = '[HANGAR] SET_HANGAR',
 
-  LOAD_HANGAR_DETAILS = '[HANGAR] LOAD_HANGAR_DETAILS',
-  HANGAR_DETAILS_LOADED = '[HANGAR] HANGAR_DETAILS_LOADED',
+  LOAD_HANGAR_DETAILS    = '[HANGAR] LOAD_HANGAR_DETAILS',
+  HANGAR_DETAILS_LOADED  = '[HANGAR] HANGAR_DETAILS_LOADED',
 
-  MANAGE_INSERT_HANGAR = '[HANGAR] MANAGE_INSERT_HANGAR',
+  MANAGE_INSERT_HANGAR   = '[HANGAR] MANAGE_INSERT_HANGAR',
 
-  SAVE_HANGAR = '[HANGAR] SAVE',
-  UPDATE_HANGAR = '[HANGAR] UPDATE'
+  SAVE_HANGAR            = '[HANGAR] SAVE',
+  UPDATE_HANGAR          = '[HANGAR] UPDATE',
+
+  DELETE_HANGAR          = '[HANGAR] DELETE_HANGAR',
+  HANGAR_DELETED         ='[HANGAR] HANGAR_DELETED'
 
 }
 
@@ -74,6 +77,18 @@ export class ManageInsertHangarAction implements Action {
   constructor(public payload: Hangar) { }
 }
 
+export class DeleteHangarAction implements Action {
+  readonly type = HangarActionTypes.DELETE_HANGAR;
+
+  constructor() { }
+}
+
+/* export class HangarDeletedAction implements Action {
+  readonly type = HangarActionTypes.HANGAR_DELETED;
+
+  constructor() { }
+} */
+
 export type HangarActions = (
   LoadHangarsAction |
   HangarsLoadedAction |
@@ -83,5 +98,7 @@ export type HangarActions = (
   HangarDetailsLoadedAction |
   SaveHangarAction |
   UpdateHangarAction |
-  ManageInsertHangarAction
+  ManageInsertHangarAction |
+  DeleteHangarAction 
+//  HangarDeletedAction
 );
