@@ -36,9 +36,11 @@
  @import './../../../../app.component.less';
 
 
-.card-deck {
-  background: teal;
+.custom-card-deck {
   height: 100%;
+
+  display: flex;
+  justify-content: center;
 }
 
 .hangar-list-container {
@@ -50,7 +52,7 @@
 
     left: 0vw;
     top: 15%;
-    
+
     width: 400px;
 
     transform: translateX(-380px);
@@ -112,7 +114,7 @@
 }
 
 .expand-button {
-  
+
   background-size: 100% 300%;
   background-image: linear-gradient(to bottom, #29323c, #485563, #2b5876, #4e4376);
 
@@ -122,7 +124,7 @@
   transition: background-position 0.4s ease-in-out;
 
   width: 5%;
-  
+
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 

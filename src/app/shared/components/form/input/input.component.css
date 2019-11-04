@@ -2,35 +2,28 @@ body {
   display: flex;
   justify-content: center;
 }
-
-@color: rgb(0, 106, 141);
-
 .custom-form {
   display: flex;
   flex-direction: column;
   height: 70px;
   margin: 20px 0px;
 }
-
 .custom-form-group {
   display: flex;
   align-items: flex-end;
   height: 70%;
   width: 100%;
 }
-
 label {
   transition-property: transform, padding-left, font-size;
   transition-duration: 400ms;
   transition-delay: 0ms;
   transition-timing-function: ease-out;
-
   transform: translateY(-2px);
   z-index: 1;
   position: absolute;
   padding-left: 2%;
 }
-
 input {
   color: #292b2c;
   width: 100%;
@@ -39,40 +32,34 @@ input {
   margin-left: 20%;
   padding-left: 1%;
   padding-bottom: 2px;
-
   font-size: 15pt;
   box-shadow: 0px 1px 0px 0px #5bc0de;
-
   transition-property: margin-left, box-shadow, width;
   transition-duration: 200ms;
   transition-delay: 100ms;
-  transition-timing-function: cubic-bezier(.09,1.23,.76,.95) fowards;
-
-  &:focus {
-    width: 100%;
-    margin-left: 0px;
-    box-shadow: 0px 1px 0px 0px #5bc0de;
-    outline: none;
-    background: #f7f7f7;
-
-    padding-left: 1%;
-  +label {
-    transform: translateY(-50px);
-    font-size: 12pt;
-    padding-left: 0;
-    color: @color;
-  }
-  }
+  transition-timing-function: cubic-bezier(0.09, 1.23, 0.76, 0.95) fowards;
 }
-
+input:focus {
+  width: 100%;
+  margin-left: 0px;
+  box-shadow: 0px 1px 0px 0px #5bc0de;
+  outline: none;
+  background: #f7f7f7;
+  padding-left: 1%;
+}
+input:focus + label {
+  transform: translateY(-50px);
+  font-size: 12pt;
+  padding-left: 0;
+  color: #006a8d;
+}
 .error {
   height: 20%;
   padding-left: 2%;
   display: flex;
   justify-content: flex-end;
-
-  span {
-    color: #d9534f;
-    font-size: 10pt;
-  }
+}
+.error span {
+  color: #d9534f;
+  font-size: 10pt;
 }

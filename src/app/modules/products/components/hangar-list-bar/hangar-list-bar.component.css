@@ -15,7 +15,7 @@
   background: #868686;
 }
 ul {
-  background: #292b2c;
+  background: #191b1b;
   margin: 0;
   padding: 2% 0%;
   height: 100%;
@@ -36,7 +36,7 @@ li {
   cursor: pointer;
 }
 li:hover {
-  background: #363636;
+  background: #292b2c;
 }
 li span {
   display: flex;

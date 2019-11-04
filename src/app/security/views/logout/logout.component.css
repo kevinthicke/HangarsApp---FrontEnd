@@ -4,22 +4,15 @@
   align-items: center;
   height: 20vh;
 }
-
 .content {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
-
-
-@width: 400px;
-@height: 60px;
-
 .button-container {
-  width: @width + 10px;
-  height: @height;
+  width: 410px;
+  height: 60px;
   border: none;
 }
-
 .button-primary {
   margin: auto;
   background: #2C5364;
@@ -28,33 +21,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: @width;
-  height: @height;
+  width: 400px;
+  height: 60px;
   border-radius: 3px;
   transition-duration: 200ms;
   transition-property: all;
   border: 0;
   outline: 0;
-
   /* No select */
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently*/
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/
 }
-
 .button-primary:hover {
-  background: rgb(0, 106, 141);
+  background: #006a8d;
   -webkit-box-shadow: 0px 0px 2px 0px #2C5364;
   -moz-box-shadow: 0px 0px 2px 0px #2C5364;
   box-shadow: 0px 0px 2px 0px #2C5364;
-  width: @width + 10px;
+  width: 410px;
 }
-
 .button-primary:active {
-
   -webkit-box-shadow: 0px 0px 2px 0px #2C5364;
   -moz-box-shadow: 0px 0px 2px 0px #2C5364;
   box-shadow: 0px 0px 2px 1px #2C5364;

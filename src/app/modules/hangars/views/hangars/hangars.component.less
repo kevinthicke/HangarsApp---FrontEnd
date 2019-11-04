@@ -56,7 +56,16 @@
 
 }
 
-.blur-list-container {
-  filter: blur(3px);
-  transition: 1s filter ease-in-out;
+.transparent-glass {
+  background: transparent;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 3;
+  backdrop-filter: blur(2px);
 }

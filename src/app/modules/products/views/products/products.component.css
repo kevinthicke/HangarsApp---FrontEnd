@@ -32,9 +32,10 @@
   right: 5vw;
 }
  */
-.card-deck {
-  background: teal;
+.custom-card-deck {
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 .hangar-list-container {
   display: flex;

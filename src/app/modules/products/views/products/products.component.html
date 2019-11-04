@@ -54,7 +54,25 @@ class='small-toast'
 </app-small-toast>
  -->
 
-<div class="card-deck">card deck</div>
+<div class="custom-card-deck" *ngIf='this.existsSelectedHangar'>
+  <app-card-deck
+  [products]='this.products'
+  [leftButtonText]='this.isShoppingModeEnabled
+    ? ("products.card-deck.add-to-cart" | translate)
+    : ("products.card-deck.modify-button" | translate)'
+  [rightButtonText]='this.isShoppingModeEnabled
+    ? ("products.card-deck.remove-from-cart" | translate)
+    : ("products.card-deck.details-button" | translate)'
+  [leftButtonClass]='this.isShoppingModeEnabled
+    ? "button-rectangle-secondary"
+    : "button-rectangle-primary"'
+  [rightButtonClass]='this.isShoppingModeEnabled
+    ? "button-rectangle-danger"
+    : "button-rectangle-primary"'
+  (cardLeftButtonClickEmitter)='this.handleCardLeftButtonClick($event)'
+  (cardRightButtonClickEmitter)='this.handleCardRightButtonClick($event)'>
+  </app-card-deck>
+</div>
 <div class="hangar-list-container">
     <app-hangar-list-bar
     [hangarsMinified]='this.hangarsMinified'

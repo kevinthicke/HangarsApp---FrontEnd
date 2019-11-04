@@ -2,16 +2,13 @@ li {
   list-style-type: none;
   text-decoration: none;
 }
+li:focus {
+  outline: 0;
+}
 li span:focus {
   outline: none;
   border: 0;
 }
-/*
-.search-bar {
-  top: 8vh;
-  right: 10vw;
-}
- */
 nav {
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -74,7 +71,6 @@ div:nth-child(2) {
   align-items: center;
   justify-content: space-around;
   padding: 1%;
-  font-size: 100%;
 }
 div:nth-child(2) li {
   height: 80%;
@@ -96,7 +92,6 @@ div:nth-child(2) li {
   div:nth-child(2) li {
     height: 70%;
     width: 23%;
-    font-size: 80%;
   }
 }
 div:nth-child(2) li:hover {
@@ -113,5 +108,34 @@ div:nth-child(3) {
 @media screen and (max-width: 640px) {
   div:nth-child(3) {
     align-items: flex-end;
+  }
+}
+.search-bar {
+  position: fixed;
+}
+@media screen and (min-width: 1200px) {
+  .search-bar {
+    top: 10vh;
+    right: 5vw;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .search-bar {
+    top: 15vh;
+    right: 5vw;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .search-bar {
+    top: 15vh;
+    margin-left: -300px;
+    left: 50%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .search-bar {
+    top: 20vh;
+    margin-left: -45vw;
+    left: 50%;
   }
 }

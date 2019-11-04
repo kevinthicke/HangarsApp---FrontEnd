@@ -1,8 +1,11 @@
 <div>
+  <span class='close-button-container' (click)='this.close()'>
+    <i class="fa fa-times"></i>
+  </span>
   <ul>
     <li [routerLink]="['/hangars/details']" routerLinkActive='router-link-active'>
-      <span>{{ 'hangars.lateral-navbar.hangar-details' | translate }}</span>  
-      <i class="fa fa-align-justify"></i>    
+      <span>{{ 'hangars.lateral-navbar.hangar-details' | translate }}</span>
+      <i class="fa fa-align-justify"></i>
     </li>
     <li [routerLink]="['/hangars/modify']" routerLinkActive="router-link-active" >
       <span>{{ 'hangars.lateral-navbar.modify-hangar' | translate }}</span>
@@ -11,10 +14,6 @@
     <li (click)='this.emitDelete()'>
       <span>{{ 'hangars.lateral-navbar.delete-hangar' | translate }}</span>
       <i class="fa fa-trash"></i>
-    </li>
-    <li (click)='this.close()'>
-      <span>{{ 'hangars.lateral-navbar.close' | translate }}</span>
-      <i class="fa fa-times"></i>
     </li>
   </ul>
 </div>

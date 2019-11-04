@@ -26,10 +26,11 @@
 
 .button-container(@width, @height, @color, @color-aux, @isCircle) {
 
-  width: 100%;
+  width: @width;
   & when(@isCircle = false) {
     width: @width + 10px;
   }
+
   height: @height;
   border: none;
 
@@ -84,18 +85,27 @@
   @media screen and (min-width: @small) and (max-width: @medium) {
     width: @width - 5px;
     height: @height - 5px;
+    font-size: 10pt;
   }
 
   @media screen and (max-width: @small){
     width: @width - 10px;
     height: @height - 10px;
-    font-size: 80%;
+    font-size: 10pt;
   }
 
 }
 
+span {
+  font-size: 12pt;
+}
+
 .button-rectangle-primary {
   .button-container(@rectangle-width, @rectangle-height, @primary-color, @primary-color-aux, false);
+}
+
+.button-rectangle-primary-sm {
+  .button-container(@rectangle-width-sm, @rectangle-height-sm, @primary-color, @primary-color-aux, false);
 }
 
 .button-rectangle-primary-darker {

@@ -1,8 +1,13 @@
 @import './../../../app.component.less';
 
+
 li {
   list-style-type: none;
   text-decoration: none;
+
+  &:focus {
+    outline: 0;
+  }
 
   span:focus {
     outline: none;
@@ -23,13 +28,6 @@ li {
   background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
-
-/*
-.search-bar {
-  top: 8vh;
-  right: 10vw;
-}
- */
 
 nav {
   .transition();
@@ -92,7 +90,6 @@ div:nth-child(2) {
   justify-content: space-around;
 
   padding: 1%;
-  font-size: 100%;
 }
 
 div:nth-child(2) li {
@@ -116,7 +113,6 @@ div:nth-child(2) li {
   @media screen and (max-width: @small){
     height: 70%;
     width: 23%;
-    font-size: 80%;
   }
 
   &:hover {
@@ -133,7 +129,34 @@ div:nth-child(3) {
   align-items: center;
   justify-content: space-around;
 
-  @media screen and (max-width: @small){ 
+  @media screen and (max-width: @small){
     align-items: flex-end;
   }
+}
+
+.search-bar {
+  position: fixed;
+
+  @media screen and (min-width: @extra-large) {
+    top: 10vh;
+    right: 5vw;
+  }
+
+  @media screen and (min-width: @medium) and (max-width: @extra-large) {
+    top: 15vh;
+    right: 5vw;
+  }
+
+  @media screen and (min-width: @small) and (max-width: @medium) {
+    top: 15vh;
+    margin-left: -300px;
+    left: 50%;
+  }
+
+  @media screen and (max-width: @small) {
+    top: 20vh;
+    margin-left: -45vw;
+    left: 50%;
+  }
+
 }

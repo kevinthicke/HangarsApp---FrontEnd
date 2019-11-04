@@ -1,4 +1,4 @@
-<div [ngClass]='{ "blur-list-container": this.showLateralNavbar }'>
+<div>
   <app-list
   [hangarsMinified]='this.hangarsMinified'
   [hangarSelected]='this.hangarSelected'
@@ -8,6 +8,11 @@
   (moreButtonClickEmitter)='this.expandMenu()'
   (plusButtonClickEmitter)='this.navigateToInsert()'>
   </app-list>
+</div>
+
+<div
+*ngIf='this.showLateralNavbar'
+class='transparent-glass'>
 </div>
 
 <div

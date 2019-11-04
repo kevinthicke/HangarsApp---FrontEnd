@@ -1,12 +1,13 @@
 <nav>
   <div>Hangar App</div>
 
-  <div>
-    <li *ngFor='let button of this.buttons; let i = index'>
+  <div >
+    <li
+    *ngFor='let button of this.buttons; let i = index'
+    (click)='selected = i'
+    [routerLink]='[button.link]' routerLinkActive='router-link-active'>
       <span
-      (click)='selected = i'
-      [ngClass]='{ "selected": selected==i }'
-      [routerLink]='[button.link]' routerLinkActive='router-link-active'>
+      [ngClass]='{ "selected": selected==i }'>
       {{ button.title | translate }}
       </span>
     </li>

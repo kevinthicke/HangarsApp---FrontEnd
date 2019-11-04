@@ -2,16 +2,12 @@ form {
   width: 80%;
   padding: 5%;
 }
-
-
-
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 20vh;
 }
-
 .container {
   height: 70vh;
   display: flex;
@@ -19,7 +15,6 @@ form {
   justify-content: flex-start;
   align-items: center;
 }
-
 .float-toast {
   position: fixed;
   z-index: 1;
@@ -27,11 +22,9 @@ form {
   left: 80vw;
   transition: all 200ms ease-out;
 }
-
 .float-toast:hover {
   opacity: 0.7;
 }
-
 a {
   cursor: pointer;
 }

@@ -2,7 +2,7 @@
 
 div {
   z-index: 999;
-  background: #292b2c;
+  background: #111213;
   height: 100vh;
 
   @media screen and (min-width: @extra-large) {
@@ -64,7 +64,7 @@ li {
             user-select: none;
 
   &:hover {
-    background: rgb(54, 54, 54);
+    background: rgb(36, 36, 36);
 
   }
 
@@ -75,5 +75,32 @@ li {
 
     display: flex;
     align-items: center;
+  }
+}
+
+
+.close-button-container {
+
+  i {
+    color: #0275d8;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 17pt;
+
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      background: rgb(36, 36, 36);
+      color: rgb(204, 26, 47);
+      transform: rotate(360deg);
+      font-size: 18pt;
+    }
   }
 }

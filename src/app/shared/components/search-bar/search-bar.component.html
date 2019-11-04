@@ -1,6 +1,6 @@
-<form [formGroup]='this.form' class="card" (ngSubmit)='this.onSubmit()'>
-  <input class='form-control' formControlName='search'/>
+<form [formGroup]='this.form' class="search-bar-container" (ngSubmit)='this.onSubmit()'>
+  <input formControlName='search'/>
   <div class='button'>
-    <app-button btype='submit'>{{ 'search-bar.search' | translate }}</app-button>
+    <app-button bclass='button-circle-primary' btype='submit' icon='fa fa-search'></app-button>
   </div>
 </form>

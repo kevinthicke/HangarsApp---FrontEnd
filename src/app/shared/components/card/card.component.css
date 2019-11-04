@@ -1,0 +1,41 @@
+.header,
+.button-container {
+  display: flex;
+  align-items: center;
+}
+.custom-card {
+  background: #f9f9f9;
+  height: 120px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px #292b2c;
+}
+@media screen and (max-width: 768px) {
+  .custom-card {
+    height: 100px;
+  }
+}
+.custom-card .header {
+  padding: 0% 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40%;
+}
+.custom-card .button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 60%;
+  box-shadow: 0px 1px 0px inset #d4d4d4;
+}
+.badge-pill {
+  background: #2C5364;
+  color: #f9f9f9;
+  font-weight: 300;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+.badge-pill:hover {
+  background: #006a8d;
+}

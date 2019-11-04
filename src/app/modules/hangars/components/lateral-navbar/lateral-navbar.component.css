@@ -1,6 +1,6 @@
 div {
   z-index: 999;
-  background: #292b2c;
+  background: #111213;
   height: 100vh;
 }
 @media screen and (min-width: 1200px) {
@@ -54,11 +54,28 @@ li {
   user-select: none;
 }
 li:hover {
-  background: #363636;
+  background: #242424;
 }
 li span {
   height: 7vh;
   padding-left: 0% 10%;
   display: flex;
   align-items: center;
+}
+.close-button-container i {
+  color: #0275d8;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17pt;
+  transition: all 200ms ease-in-out;
+}
+.close-button-container i:hover {
+  background: #242424;
+  color: #cc1a2f;
+  transform: rotate(360deg);
+  font-size: 18pt;
 }

@@ -1,7 +1,23 @@
+@import './../../../../app.component.less';
+
 .custom-card-deck {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8px;
+
+  @media screen and (min-width: @extra-large) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+  }
+
+  @media screen and (min-width: @medium) and (max-width: @extra-large) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+  }
+
+  @media screen and (max-width: @medium) {
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+  }
+
 }
 
 i {
