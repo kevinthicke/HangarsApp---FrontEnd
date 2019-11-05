@@ -100,13 +100,13 @@ class='small-toast'
 
 <div class='float-buttons'>
     <app-button
-    bclass='button-circle-primary-darker' icon='fa fa-shopping-cart'
+    bclass='button-circle-primary-darker' icon='fa fa-shopping-cart' toastMessage='Tienda'
     (click)='this.changeSmallToastRenderState()'
     class='button-shopping-cart'>
     </app-button>
     <app-button
     *ngIf='!this.isSmallToastRendered'
-    bclass='button-circle-secondary' icon='fa fa-plus'
+    bclass='button-circle-secondary' icon='fa fa-plus' toastMessage='Insertar'
     (click)='this.changeSmallToastRenderState()'
     class='button-shopping-cart'
     [routerLink]=" ['insert'] "
@@ -115,5 +115,5 @@ class='small-toast'
   </div>
 
   <div *ngIf='this.isInfoToastRendered && this.products.length == 0' class="info-toast" @fullFade>
-    <app-info-toast>{{ 'products.info-toast.message' | translate }}</app-info-toast>
+    <app-info-toast tclass='left animate'>{{ 'products.info-toast.message' | translate }}</app-info-toast>
   </div>

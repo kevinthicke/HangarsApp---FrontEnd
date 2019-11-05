@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-info-toast',
@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoToastComponent implements OnInit {
 
-  constructor() { }
+  @Input() tclass: string;
 
-  ngOnInit() {
+  constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef
+  ) { }
+
+  ngOnInit(): void {
+
+    if (this.tclass && this.tclass.includes('animate')) {
+      this.renderer.addClass(this.elementRef.nativeElement.querySelector('div'), 'animate');
+    }
+
+    if (this.tclass && this.tclass.includes('left')) {
+      this.renderer.addClass(this.elementRef.nativeElement.querySelector('div'), 'left');
+    }
+
+    if (this.tclass && this.tclass.includes('right')) {
+      this.renderer.addClass(this.elementRef.nativeElement.querySelector('div'), 'right');
+    }
+
   }
 
 }

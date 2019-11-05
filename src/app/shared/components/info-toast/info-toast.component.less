@@ -19,21 +19,37 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 5px 0px;
 
   border-radius: 5px;
   width: 80px;
 
-  animation: upDown 600ms linear infinite;
+}
 
+.left {
   &::before {
-   content: " ";
-    position: absolute;
-   background: black;
-   width: 15px;
-   height: 15px;
-   transform: rotate(45deg);
-   margin-left: -40px;
+    content: " ";
+     position: absolute;
+    background: black;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    margin-left: -40px;
+   }
+}
 
-  }
+.right {
+  &::after {
+    content: " ";
+    position: absolute;
+    background: black;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    margin-left: 40px;
+   }
+}
+
+.animate {
+  animation: upDown 600ms linear infinite;
 }

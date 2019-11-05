@@ -28,6 +28,10 @@
 span {
   font-size: 12pt;
 }
+.info-toast {
+  position: absolute;
+  margin-left: -80px;
+}
 .button-rectangle-primary {
   width: 130px;
   width: 140px;

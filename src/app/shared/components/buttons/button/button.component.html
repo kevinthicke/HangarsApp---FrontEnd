@@ -1,6 +1,12 @@
-<div [class]='this.bclass'>
+<div [class]='this.bclass' (mouseover)='this.renderInfoToast()' (mouseleave)='this.hideInfoToast()'>
   <button [type]='this.btype'>
     <ng-content></ng-content>
     <span *ngIf='this.icon' [class]='this.icon'></span>
+    <span
+    *ngIf='this.toastMessage && this.isInfoToastRendered'
+    class='info-toast'
+    @fullFade>
+      <app-info-toast tclass='right'>{{ this.toastMessage }}</app-info-toast>
+    </span>
   </button>
 </div>
