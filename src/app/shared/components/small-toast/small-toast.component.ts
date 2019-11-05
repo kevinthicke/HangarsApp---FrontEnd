@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ShoppingCart } from '../../../core/models/commerce/shopping-cart.model';
 import { fade } from '../../animations/fade.animation';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-small-toast',
@@ -10,8 +11,7 @@ import { fade } from '../../animations/fade.animation';
   })
 export class SmallToastComponent implements OnInit {
 
-  @Input() shoppingCart: ShoppingCart;
-
+  @Input() shoppingCart : ShoppingCart;
   isSmallToastMinified: boolean = false;
 
   constructor() { }

@@ -84,7 +84,9 @@ class='small-toast'
   </app-card-deck>
 </div>
 
-<div class="hangar-list-container">
+<div class="hangar-list-container"
+(mouseover)='this.handleHangarListMouseOver()'
+(mouseleave)='this.handleHangarListMouseLeave()'>
     <app-hangar-list-bar
     [hangarsMinified]='this.hangarsMinified'
     class='hangar-list'
@@ -110,4 +112,8 @@ class='small-toast'
     [routerLink]=" ['insert'] "
     @fullFade>
     </app-button>
+  </div>
+
+  <div *ngIf='this.isInfoToastRendered && this.products.length == 0' class="info-toast" @fullFade>
+    <app-info-toast>{{ 'products.info-toast.message' | translate }}</app-info-toast>
   </div>

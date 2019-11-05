@@ -19,6 +19,7 @@ import { HoverDirective } from './directives/hover.directive';
 import { HomeComponent } from './views/home/home.component';
 import { PillComponent } from './components/pill/pill.component';
 import { WarningPopUpComponent } from './components/warning-pop-up/warning-pop-up.component';
+import { InfoToastComponent } from './components/info-toast/info-toast.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { WarningPopUpComponent } from './components/warning-pop-up/warning-pop-u
     LimitCharactersPipe,
     PillComponent,
     WarningPopUpComponent,
+    InfoToastComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +61,7 @@ import { WarningPopUpComponent } from './components/warning-pop-up/warning-pop-u
     PillComponent,
     SearchBarComponent,
     WarningPopUpComponent,
+    InfoToastComponent,
     HoverDirective,
     ClickOutSideDirective,
     LimitCharactersPipe

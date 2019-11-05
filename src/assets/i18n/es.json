@@ -112,6 +112,9 @@
     },
     "small-toast": {
       "go-shop": "Ir a la tienda"
+    },
+    "info-toast": {
+      "message": "Deslizar!"
     }
   },
   "commerce": {

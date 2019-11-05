@@ -1,0 +1,31 @@
+@keyframes upDown {
+  from {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+  to {
+    transform: translateY(-1px);
+  }
+}
+div {
+  background: black;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  width: 80px;
+  animation: upDown 600ms linear infinite;
+}
+div::before {
+  content: " ";
+  position: absolute;
+  background: black;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  margin-left: -40px;
+}

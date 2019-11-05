@@ -1,12 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output, HostBinding, HostListener } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { fade, fullFade } from 'src/app/shared/animations/fade.animation';
 import { ShoppingCart } from '../../../../core/models/commerce/shopping-cart.model';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 import { ProductMinified } from '../../../../core/models/product/product-minified';
 import { bounceInRight, bounceOutRight } from '../../../../shared/animations/bounce.animation';
-import { pulse } from '../../../../shared/animations/pulse.animation';
-import { trigger, state, transition, animate, style } from '@angular/animations';
 
 @Component({
   selector: 'app-products',
@@ -27,6 +25,7 @@ export class ProductsComponent implements OnInit {
   existsSelectedHangar  : boolean = false;
   isShoppingModeEnabled : boolean = false;
   isSmallToastRendered  : boolean = false;
+  isInfoToastRendered   : boolean = true;
 
   constructor(public router: Router) { }
 
@@ -68,6 +67,14 @@ export class ProductsComponent implements OnInit {
 
   disableShoppingMode(): void {
     this.isShoppingModeEnabled = false;
+  }
+
+  handleHangarListMouseOver(): void {
+    this.isInfoToastRendered = false;
+  }
+
+  handleHangarListMouseLeave(): void {
+    this.isInfoToastRendered = true;
   }
 
 }

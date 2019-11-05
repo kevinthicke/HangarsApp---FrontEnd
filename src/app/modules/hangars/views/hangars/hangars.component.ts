@@ -19,8 +19,8 @@ export class HangarsComponent implements OnInit {
   @Output() hangarSelectedEmitter = new EventEmitter<HangarMinified>();
   @Output() deleteHangarEmitter   = new EventEmitter<void>();
 
-  showLateralNavbar : boolean = false;
-  showWarningPopUp  : boolean = false;
+  showLateralNavbar               : boolean = false;
+  showWarningPopUp                : boolean = false;
 
   constructor(private router: Router) { }
 
@@ -55,7 +55,8 @@ export class HangarsComponent implements OnInit {
   }
 
   deleteHangar(): void {
-    this.deleteHangarEmitter.emit();
+//    this.deleteHangarEmitter.emit();
+    this.hangarsMinified.pop();
     this.showWarningPopUp = false;
   }
 

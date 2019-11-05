@@ -1,22 +1,14 @@
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { animate, query, style, transition, trigger, group, stagger, animateChild, state } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HangarMinified } from '../../../../core/models/hangar/hangar-minified.model';
 import { fade, fullFade } from '../../../../shared/animations/fade.animation';
+import { fadeOutLeft } from '../../../../shared/animations/fade-out.animation';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.less'],
-  animations: [ fullFade,
-    trigger('hangar-list-animation', [
-      transition(':enter', [
-        query('li', [
-          style({ transform: 'translateX(-50px)' }),
-          animate(500)
-        ])
-      ])
-    ])
-   ]
+  animations: [ fullFade ]
 })
 export class ListComponent implements OnInit {
 
