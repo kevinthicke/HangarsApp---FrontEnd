@@ -1,0 +1,13 @@
+<ul>
+  <div *ngFor='let hangarName of this.hangarsMinified; let i = index'>
+
+    <li
+    [ngClass]='{
+      "nav-item selected": i == this.hangarSelectedIndex,
+      "nav-item": i != this.hangarSelectedIndex }'>
+      <span (click)='this.handleHangarSelectedClick(hangarName, i)'>{{ hangarName.name }}</span>
+    </li>
+
+  </div>
+</ul>
+

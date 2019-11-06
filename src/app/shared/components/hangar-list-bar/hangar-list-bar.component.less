@@ -1,0 +1,58 @@
+@import './../../../app.component.less';
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(80, 80, 80);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(134, 134, 134);
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    background: rgb(134, 134, 134);
+  }
+}
+
+ul {
+
+  background:  #191b1b;
+  margin: 0;
+  padding: 2% 0%;
+
+  height: 100%;
+  overflow-y: auto;
+}
+
+li {
+  list-style-type: none;
+  color: @white;
+
+  padding: 0% 5%;
+  margin: 0px 2px;
+
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+  transition: all 200ms ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    background: #292b2c;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    height: 45px;
+  }
+}

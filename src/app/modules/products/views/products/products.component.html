@@ -49,9 +49,9 @@ class='lateral-bar-list'
 <app-small-toast
 *ngIf='this.isSmallToastRendered'
 [shoppingCart]='this.shoppingCart'
-class='small-toast'
 @bounceInRight (@bounceInRight.done)='this.enableShoppingMode()'
-@bounceOutRight (@bounceOutRight.done)='this.disableShoppingMode()'>
+@bounceOutRight (@bounceOutRight.done)='this.disableShoppingMode()'
+class='small-toast'>
 </app-small-toast>
 
 <!-- <div class="footer-toast-container" *ngIf='this.isShoppingModeEnabled'>
@@ -114,6 +114,8 @@ class='small-toast'
     </app-button>
   </div>
 
-  <div *ngIf='this.isInfoToastRendered && this.products.length == 0' class="info-toast" @fullFade>
-    <app-info-toast tclass='left animate'>{{ 'products.info-toast.message' | translate }}</app-info-toast>
+  <div class="div">
+    <div *ngIf='this.isInfoToastRendered && this.products.length == 0' class="info-toast"  @fullFade >
+      <app-info-toast tclass='left animate'>{{ 'products.info-toast.message' | translate }}</app-info-toast>
+    </div>
   </div>

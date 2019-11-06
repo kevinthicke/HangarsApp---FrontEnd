@@ -623,3 +623,198 @@ span {
   justify-content: center;
   align-items: center;
 }
+.button-circle-danger {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-danger button {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  border-radius: 3px;
+  border-radius: 50%;
+  background: #cc1a2f;
+  color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 200ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+}
+.button-circle-danger button:hover {
+  background: #93291E;
+}
+.button-circle-danger button:active {
+  background: #cc1a2f;
+  -webkit-box-shadow: 0px 0px 2px 1px #cc1a2f;
+  -moz-box-shadow: 0px 0px 2px 1px #cc1a2f;
+  box-shadow: 0px 0px 2px 1px #cc1a2f;
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .button-circle-danger button {
+    width: 35px;
+    height: 35px;
+    font-size: 10pt;
+  }
+}
+@media screen and (max-width: 640px) {
+  .button-circle-danger button {
+    width: 30px;
+    height: 30px;
+    font-size: 10pt;
+  }
+}
+.button-circle-danger span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-secondary-sm {
+  width: 30px;
+  height: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-secondary-sm button {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  border-radius: 3px;
+  border-radius: 50%;
+  background: #137645;
+  color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 200ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+}
+.button-circle-secondary-sm button:hover {
+  background: #10492d;
+}
+.button-circle-secondary-sm button:active {
+  background: #137645;
+  -webkit-box-shadow: 0px 0px 2px 1px #137645;
+  -moz-box-shadow: 0px 0px 2px 1px #137645;
+  box-shadow: 0px 0px 2px 1px #137645;
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .button-circle-secondary-sm button {
+    width: 25px;
+    height: 25px;
+    font-size: 10pt;
+  }
+}
+@media screen and (max-width: 640px) {
+  .button-circle-secondary-sm button {
+    width: 20px;
+    height: 20px;
+    font-size: 10pt;
+  }
+}
+.button-circle-secondary-sm span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-danger-sm {
+  width: 30px;
+  height: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-danger-sm button {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  border-radius: 3px;
+  border-radius: 50%;
+  background: #cc1a2f;
+  color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 200ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+}
+.button-circle-danger-sm button:hover {
+  background: #93291E;
+}
+.button-circle-danger-sm button:active {
+  background: #cc1a2f;
+  -webkit-box-shadow: 0px 0px 2px 1px #cc1a2f;
+  -moz-box-shadow: 0px 0px 2px 1px #cc1a2f;
+  box-shadow: 0px 0px 2px 1px #cc1a2f;
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .button-circle-danger-sm button {
+    width: 25px;
+    height: 25px;
+    font-size: 10pt;
+  }
+}
+@media screen and (max-width: 640px) {
+  .button-circle-danger-sm button {
+    width: 20px;
+    height: 20px;
+    font-size: 10pt;
+  }
+}
+.button-circle-danger-sm span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

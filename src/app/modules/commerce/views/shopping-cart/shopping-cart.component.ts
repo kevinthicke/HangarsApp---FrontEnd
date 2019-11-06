@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CartProduct } from 'src/app/core/models/commerce/cart-product.model';
 import { ShoppingCart } from '../../../../core/models/commerce/shopping-cart.model';
-import { fade } from '../../../../shared/animations/fade.animation';
+import { fade, fullFade } from '../../../../shared/animations/fade.animation';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.less'],
-  animations: [ fade ]
+  animations: [ fade, fullFade ]
 })
 export class ShoppingCartComponent implements OnInit {
 

@@ -1,48 +1,41 @@
 <app-aux-navbar [title]=" 'commerce.title' | translate "></app-aux-navbar>
 
-<div *ngIf='this.shoppingCart.cart.length > 0'>
-  <ul>
-    <li
-    class='custom-list-item'
-    *ngFor='let cartProduct of this.shoppingCart.cart'>
-      <div class='d-flex'>
-          <span class="badge badge-primary badge-pill">
-            {{ cartProduct.quantity }}
-          </span>
-          <span>
-            {{ cartProduct.productMinified.name }}
-          </span>
-      </div>
-      <div class='btn-group btn-group-toggle'>
-        <span class='cart-product-price'>{{cartProduct.quantity}} x {{ cartProduct.productMinified.price }} $</span>
-        <button class='btn btn-success' (click)='this.increaseCartProductQuantity(cartProduct)' >+</button>
-        <button class='btn btn-danger' (click)='this.decreaseCartProductQuantity(cartProduct)'>-</button>
-      </div>
-    </li>
+ <div *ngIf='this.shoppingCart.cart.length > 0'>
+   <ul>
+     <li *ngFor='let cartProduct of this.shoppingCart.cart'>
+        <div>
+          <app-pill>{{ cartProduct.quantity }}</app-pill>
+          <span>{{ cartProduct.productMinified.name }}</span>
+        </div>
+        <div>
+          <span>{{cartProduct.quantity}} x {{ cartProduct.productMinified.price }} $</span>
+          <app-button
+          bclass='button-circle-secondary-sm' icon='fa fa-plus'
+          (click)='this.decreaseCartProductQuantity(cartProduct)'
+          class='app-button'>
+          </app-button>
+          <app-button
+          bclass='button-circle-danger-sm' icon='fa fa-minus'
+          (click)='this.increaseCartProductQuantity(cartProduct)'
+          class='app-button'>
+          </app-button>
+        </div>
+     </li>
+   </ul>
+   <div class='purchase'>
+      <input
+      class='input-group-text'
+      [value]='this.shoppingCart.totalPrice + " $" '
+      disabled>
+      <app-button
+       bclass='button-rectangle-secondary'
+      (click)='this.purchaseOrder()'>
+      {{ "commerce.purchase" | translate }}
+      </app-button>
+    </div>
+ </div>
 
-  </ul>
-  <div class="d-flex justify-content-end">
-    <input
-    class='input-group-text'
-    [value]='this.shoppingCart.totalPrice + " $" '
-    disabled>
-    <app-button
-     bclass='button-rectangle-secondary'
-    (click)='this.purchaseOrder()'>
-    {{ "commerce.purchase" | translate }}
-    </app-button>
-  </div>
-</div>
-
-<div *ngIf='!this.blurState' class='float-button'>
-    <app-button
-     bclass='button-rectangle-primary'
-    (click)='this.showHistory()'>
-      Ver Historial
-    </app-button>
-</div>
-
-  <div class='jumbotron' *ngIf='this.shoppingCart.cart.length == 0'>
+ <div class='jumbotron' *ngIf='this.shoppingCart.cart.length == 0'>
     <div class="container">
       <h1 class="display-4">{{ 'commerce.cart-empty' | translate }}</h1>
     </div>

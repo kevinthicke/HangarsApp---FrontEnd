@@ -20,6 +20,7 @@ import { HomeComponent } from './views/home/home.component';
 import { PillComponent } from './components/pill/pill.component';
 import { WarningPopUpComponent } from './components/warning-pop-up/warning-pop-up.component';
 import { InfoToastComponent } from './components/info-toast/info-toast.component';
+import { DraggeableDirective } from './directives/draggeable.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { InfoToastComponent } from './components/info-toast/info-toast.component
     PillComponent,
     WarningPopUpComponent,
     InfoToastComponent,
+    DraggeableDirective
   ],
   imports: [
     CommonModule,
@@ -64,6 +66,7 @@ import { InfoToastComponent } from './components/info-toast/info-toast.component
     InfoToastComponent,
     HoverDirective,
     ClickOutSideDirective,
+    DraggeableDirective,
     LimitCharactersPipe
   ]
 })

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, Renderer2, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { fade, fullFade } from 'src/app/shared/animations/fade.animation';
 import { ShoppingCart } from '../../../../core/models/commerce/shopping-cart.model';
@@ -27,7 +27,9 @@ export class ProductsComponent implements OnInit {
   isSmallToastRendered  : boolean = false;
   isInfoToastRendered   : boolean = true;
 
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router
+  ) { }
 
   ngOnInit(): void { }
 
@@ -76,5 +78,4 @@ export class ProductsComponent implements OnInit {
   handleHangarListMouseLeave(): void {
     this.isInfoToastRendered = true;
   }
-
 }
