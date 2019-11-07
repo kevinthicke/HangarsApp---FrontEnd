@@ -17,6 +17,8 @@ export class ShoppingCartComponent implements OnInit {
   @Output() decreaseCartProductQuantityEmitter = new EventEmitter<CartProduct>();
   @Output() purchaseOrderEmitter = new EventEmitter<void>();
 
+  isWarningPopUpDisplayed: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void { }
@@ -33,5 +35,11 @@ export class ShoppingCartComponent implements OnInit {
     this.purchaseOrderEmitter.emit();
   }
 
-  showHistory(): void { }
+  closeWarningPopUp(): void {
+    this.isWarningPopUpDisplayed = false;
+  }
+
+  displayWarningPopUp(): void {
+    this.isWarningPopUpDisplayed = true;
+  }
 }

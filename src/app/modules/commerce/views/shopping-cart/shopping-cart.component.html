@@ -11,12 +11,12 @@
           <span>{{cartProduct.quantity}} x {{ cartProduct.productMinified.price }} $</span>
           <app-button
           bclass='button-circle-secondary-sm' icon='fa fa-plus'
-          (click)='this.decreaseCartProductQuantity(cartProduct)'
+          (click)='this.increaseCartProductQuantity(cartProduct)'
           class='app-button'>
           </app-button>
           <app-button
           bclass='button-circle-danger-sm' icon='fa fa-minus'
-          (click)='this.increaseCartProductQuantity(cartProduct)'
+          (click)='this.decreaseCartProductQuantity(cartProduct)'
           class='app-button'>
           </app-button>
         </div>
@@ -29,14 +29,36 @@
       disabled>
       <app-button
        bclass='button-rectangle-secondary'
-      (click)='this.purchaseOrder()'>
+      (click)='this.displayWarningPopUp()'>
       {{ "commerce.purchase" | translate }}
       </app-button>
     </div>
  </div>
 
  <div class='jumbotron' *ngIf='this.shoppingCart.cart.length == 0'>
-    <div class="container">
-      <h1 class="display-4">{{ 'commerce.cart-empty' | translate }}</h1>
-    </div>
-  </div>
+  <p class='lead'>{{ 'commerce.cart-empty' | translate }}</p>
+</div>
+
+<div
+*ngIf='this.isWarningPopUpDisplayed'
+class='transparent-glass'>
+</div>
+
+<div
+*ngIf='this.isWarningPopUpDisplayed'
+class='app-warning-pop-up'
+@fullFade>
+  <app-warning-pop-up
+  (leftButtonClickEmitter)='this.purchaseOrder()'
+  (rightButtonClickEmitter)='this.closeWarningPopUp()'>
+    <ng-container class='message'>
+      ¿Está usted seguro de lo que está haciendo?
+    </ng-container>
+    <ng-container class='left-button'>
+      Más o menos
+    </ng-container>
+    <ng-container class='right-button'>
+      Quizás no
+    </ng-container>
+  </app-warning-pop-up>
+</div>

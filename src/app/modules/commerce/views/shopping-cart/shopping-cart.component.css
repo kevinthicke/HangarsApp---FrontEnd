@@ -73,3 +73,26 @@ li .app-button {
   display: flex;
   justify-content: space-between;
 }
+.transparent-glass {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  backdrop-filter: blur(5px) brightness(40%);
+  transition: all 200ms ease-in-out;
+}
+.app-warning-pop-up {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  min-width: 300px;
+  width: 20vw;
+  height: 120px;
+  margin-left: -10vw;
+  margin-top: -75px;
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}

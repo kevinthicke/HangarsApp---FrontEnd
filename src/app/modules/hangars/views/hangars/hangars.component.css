@@ -99,7 +99,7 @@
   transition: all 200ms ease-in-out;
 }
 .darker {
-  backdrop-filter: blur(2px) brightness(80%);
+  backdrop-filter: blur(2px) brightness(40%);
 }
 .app-warning-pop-up {
   position: fixed;

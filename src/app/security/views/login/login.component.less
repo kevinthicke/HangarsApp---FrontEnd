@@ -1,37 +1,51 @@
+@import './../../../app.component.less';
+
+.content {
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+
+}
+
+h2 {
+  text-align: center;
+  @media screen and (max-width: @medium) {
+    font-size: 12pt;
+    margin-top: auto;
+  }
+}
+
 form {
-  width: 80%;
-  padding: 5%;
+  margin: auto;
+  width: 70%;
+
+  @media screen and (max-width: @small) {
+    width: 100%;
+  }
+
+  background: #fafafa;
+  display: grid;
+
+  padding: 5% 10%;
+
+  grid-template-rows: 1fr 1fr 1fr;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
+span {
+  color: #0275d8;
+  font-size: 10pt;
+  font-weight: 300;
 
+  width: 100%;
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-}
-
-.container {
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.float-toast {
-  position: fixed;
-  z-index: 1;
-  top: 14vh;
-  left: 80vw;
-  transition: all 200ms ease-out;
-}
-
-.float-toast:hover {
-  opacity: 0.7;
-}
-
-a {
-  cursor: pointer;
+  @media screen and (max-width: @small) {
+    font-size: 8pt;
+  }
 }

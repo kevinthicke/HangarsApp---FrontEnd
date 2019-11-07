@@ -1,63 +1,209 @@
-body {
+/* body {
   display: flex;
   justify-content: center;
 }
+
+@color: rgb(0, 106, 141);
+
 .custom-form {
   display: flex;
   flex-direction: column;
   height: 70px;
   margin: 20px 0px;
 }
+
 .custom-form-group {
   display: flex;
   align-items: flex-end;
   height: 70%;
   width: 100%;
 }
+
 label {
   transition-property: transform, padding-left, font-size;
   transition-duration: 400ms;
   transition-delay: 0ms;
   transition-timing-function: ease-out;
+
   transform: translateY(-2px);
   z-index: 1;
   position: absolute;
   padding-left: 2%;
 }
+
 input {
   color: #292b2c;
-  background: #dfdfdf;
+  background: #fafafa;
+
   width: 100%;
   height: 100%;
-  border: none;
   margin-left: 20%;
   padding-left: 1%;
   padding-bottom: 2px;
+
   font-size: 15pt;
   box-shadow: 0px 1px 0px 0px #5bc0de;
+
+  border: none;
   border-radius: 0px;
-  cursor: pointer;
+
   transition-property: margin-left, box-shadow, width, background;
+  transition-duration: 200ms;
+  transition-delay: 100ms;
+  transition-timing-function: cubic-bezier(.09,1.23,.76,.95) fowards;
+
+  cursor: pointer;
+
+  &:focus {
+    width: 100%;
+    margin-left: 0px;
+    box-shadow: 0px 1px 0px 0px #5bc0de;
+    outline: none;
+    background: #f7f7f7;
+    border-radius: 5px;
+
+    padding-left: 1%;
+
+    +label {
+      transform: translateY(-50px);
+      font-size: 12pt;
+      padding-left: 0;
+      color: @color;
+    }
+  }
+
+  @media screen and (max-width: @medium) {
+    font-size: 10pt;
+
+    &:focus + label {
+      font-size: 8pt;
+    }
+
+  @media screen and (min-width: @small) {
+    margin-left: 0;
+  }
+  }
+}
+
+.error {
+  height: 20%;
+  padding-left: 2%;
+  display: flex;
+  justify-content: flex-end;
+
+  span {
+    color: #d9534f;
+    font-size: 10pt;
+  }
+}
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+form {
+  background: #fafafa;
+  width: 100%;
+  height: 60px;
+  margin: 10px 0;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  form {
+    height: 30px;
+    margin: 5px 0px;
+  }
+}
+input,
+label {
+  width: 100%;
+  height: 70%;
+}
+@media screen and (max-width: 768px) {
+  input,
+  label {
+    font-size: 10pt;
+    height: 100%;
+  }
+}
+input {
+  background: transparent;
+  color: #182329;
+  box-shadow: 0 -1px 0px 0px inset #5bc0de;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  font-size: 14pt;
+  cursor: pointer;
+  transition-property: all;
   transition-duration: 200ms;
   transition-delay: 100ms;
   transition-timing-function: cubic-bezier(0.09, 1.23, 0.76, 0.95) fowards;
 }
+@media screen and (min-width: 1200px) {
+  input {
+    padding-left: 10vw;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  input {
+    padding-left: 10vw;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  input {
+    padding-left: 15vw;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  input {
+    padding-left: 15vw;
+    font-size: 12pt;
+  }
+}
+@media screen and (max-width: 640px) {
+  input {
+    padding-left: 30vw;
+    font-size: 12pt;
+  }
+}
 input:focus {
-  width: 100%;
-  margin-left: 0px;
-  box-shadow: 0px 1px 0px 0px #5bc0de;
   outline: none;
-  background: #f7f7f7;
-  border-radius: 5px;
-  padding-left: 1%;
+  padding-left: 0;
 }
 input:focus + label {
-  transform: translateY(-50px);
-  font-size: 12pt;
-  padding-left: 0;
+  transform: translateY(-30px);
+  left: 0;
+  font-size: 8pt;
   color: #006a8d;
 }
+@media screen and (max-width: 768px) {
+  input:focus + label {
+    transform: translateY(-22px);
+  }
+}
+label {
+  color: #00394d;
+  position: absolute;
+  top: 0;
+  left: 4%;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  font-weight: 200;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-delay: 100ms;
+  transition-timing-function: cubic-bezier(0.09, 1.23, 0.76, 0.95) fowards;
+}
 .error {
+  position: absolute;
+  right: 0;
+  top: -10px;
   height: 20%;
   padding-left: 2%;
   display: flex;
@@ -66,4 +212,20 @@ input:focus + label {
 .error span {
   color: #d9534f;
   font-size: 10pt;
+}
+@media screen and (max-width: 768px) {
+  .error {
+    display: none;
+  }
+}
+.error-icon {
+  position: absolute;
+  right: -20px;
+  top: 8px;
+  color: #d9534f;
+}
+@media screen and (min-width: 768px) {
+  .error-icon {
+    display: none;
+  }
 }

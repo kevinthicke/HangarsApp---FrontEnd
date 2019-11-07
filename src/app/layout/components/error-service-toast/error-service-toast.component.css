@@ -1,6 +1,6 @@
 .toast-error-container {
   height: 60px;
-  width: 20vw;
+  width: auto;
   background: #fe8c00;
   background-size: 300% 100%;
   background-image: linear-gradient(to left, #f83600, #fe8c00);

@@ -1,11 +1,7 @@
-<div class="content">
-  <div class='header'>
-    <h2>{{ 'login.title' | translate }}</h2>
-  </div>
+<div class='content'>
+  <h2>{{ 'login.title' | translate }}</h2>
 
-  <div class='container'>
-    <form [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()' class='card'>
-
+  <form [formGroup]='this.form' (ngSubmit)='this.submit()' (keyup.enter)='this.submit()'>
       <app-input formControlName='username'>
         {{ 'login.username' | translate }}
       </app-input>
@@ -13,16 +9,14 @@
         {{ 'login.password' | translate }}
       </app-input>
 
-      <a class='text-primary' [routerLink]="['/register']" routerLinkActive="router-link-active">
-        {{ 'login.create-account' | translate }}
-      </a>
-
-      <div class='d-flex justify-content-end'>
-        <app-button bclass='button-rectangle-primary' btype='submit'>
-          {{ 'login.submit' | translate }}
-        </app-button>
+      <div>
+        <span [routerLink]="['/register']" routerLinkActive="router-link-active">{{ 'login.create-account' | translate }}</span>
+        <app-button bclass='button-rectangle-primary' btype='submit'>{{ 'login.submit' | translate }}</app-button>
       </div>
+
+      <!-- <div class='d-flex justify-content-end'>
+
+      </div> -->
 
     </form>
   </div>
-</div>
