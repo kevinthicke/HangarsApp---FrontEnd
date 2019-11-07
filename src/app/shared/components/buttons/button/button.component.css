@@ -45,9 +45,9 @@ span {
   width: 130px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
-  background: #2C5364;
-  color: #f9f9f9;
+  border-radius: 0px;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -68,10 +68,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-rectangle-primary button:hover {
-  background: #006a8d;
-  width: 140px;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-rectangle-primary button:active {
   background: #2C5364;
@@ -111,9 +118,9 @@ span {
   width: 110px;
   height: 30px;
   margin: auto;
-  border-radius: 3px;
-  background: #2C5364;
-  color: #f9f9f9;
+  border-radius: 0px;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -134,10 +141,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-rectangle-primary-sm button:hover {
-  background: #006a8d;
-  width: 120px;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-rectangle-primary-sm button:active {
   background: #2C5364;
@@ -177,9 +191,9 @@ span {
   width: 130px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
-  background: #0F2027;
-  color: #f9f9f9;
+  border-radius: 0px;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -200,16 +214,23 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-rectangle-primary-darker button:hover {
-  background: #2C5364;
-  width: 140px;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-rectangle-primary-darker button:active {
-  background: #0F2027;
-  -webkit-box-shadow: 0px 0px 2px 1px #0F2027;
-  -moz-box-shadow: 0px 0px 2px 1px #0F2027;
-  box-shadow: 0px 0px 2px 1px #0F2027;
+  background: #191b1b;
+  -webkit-box-shadow: 0px 0px 2px 1px #191b1b;
+  -moz-box-shadow: 0px 0px 2px 1px #191b1b;
+  box-shadow: 0px 0px 2px 1px #191b1b;
 }
 @media screen and (min-width: 640px) and (max-width: 768px) {
   .button-rectangle-primary-darker button {
@@ -243,9 +264,9 @@ span {
   width: 130px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
-  background: #137645;
-  color: #f9f9f9;
+  border-radius: 0px;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -266,10 +287,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-rectangle-secondary button:hover {
-  background: #10492d;
-  width: 140px;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-rectangle-secondary button:active {
   background: #137645;
@@ -309,9 +337,9 @@ span {
   width: 130px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
-  background: #cc1a2f;
-  color: #f9f9f9;
+  border-radius: 0px;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -332,10 +360,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-rectangle-danger button:hover {
-  background: #93291E;
-  width: 140px;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-rectangle-danger button:active {
   background: #cc1a2f;
@@ -375,9 +410,9 @@ span {
   width: 110px;
   height: 30px;
   margin: auto;
-  border-radius: 3px;
-  background: #3d3d3d;
-  color: #f9f9f9;
+  border-radius: 0px;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -398,10 +433,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-rectangle-black-sm button:hover {
-  background: #2a2a2a;
-  width: 120px;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-rectangle-black-sm button:active {
   background: #3d3d3d;
@@ -440,10 +482,10 @@ span {
   width: 40px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 0px;
   border-radius: 50%;
-  background: #2C5364;
-  color: #f9f9f9;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -464,9 +506,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-circle-primary button:hover {
-  background: #006a8d;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-circle-primary button:active {
   background: #2C5364;
@@ -505,10 +555,10 @@ span {
   width: 40px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 0px;
   border-radius: 50%;
-  background: #0F2027;
-  color: #f9f9f9;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -529,9 +579,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-circle-primary-darker button:hover {
-  background: #2C5364;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-circle-primary-darker button:active {
   background: #0F2027;
@@ -570,10 +628,10 @@ span {
   width: 40px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 0px;
   border-radius: 50%;
-  background: #137645;
-  color: #f9f9f9;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -594,9 +652,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-circle-secondary button:hover {
-  background: #10492d;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-circle-secondary button:active {
   background: #137645;
@@ -635,10 +701,10 @@ span {
   width: 40px;
   height: 40px;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 0px;
   border-radius: 50%;
-  background: #cc1a2f;
-  color: #f9f9f9;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -659,9 +725,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-circle-danger button:hover {
-  background: #93291E;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-circle-danger button:active {
   background: #cc1a2f;
@@ -700,10 +774,10 @@ span {
   width: 30px;
   height: 30px;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 0px;
   border-radius: 50%;
-  background: #137645;
-  color: #f9f9f9;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -724,9 +798,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-circle-secondary-sm button:hover {
-  background: #10492d;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-circle-secondary-sm button:active {
   background: #137645;
@@ -765,10 +847,10 @@ span {
   width: 30px;
   height: 30px;
   margin: auto;
-  border-radius: 3px;
+  border-radius: 0px;
   border-radius: 50%;
-  background: #cc1a2f;
-  color: #f9f9f9;
+  background: #292b2c;
+  color: #ff8000;
   font-family: 'Roboto', sans-serif;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -789,9 +871,17 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
+  border: 2pt solid #ff8000;
+  transition: border 400ms;
 }
 .button-circle-danger-sm button:hover {
-  background: #93291E;
+  background: #ff8000;
+  color: #292b2c;
+  border: 2pt solid #292b2c;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
 }
 .button-circle-danger-sm button:active {
   background: #cc1a2f;

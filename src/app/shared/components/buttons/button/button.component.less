@@ -52,13 +52,13 @@
 
   margin: auto;
 
-  border-radius: 3px;
+  border-radius: 0px;
   & when(@isCircle = true) {
     border-radius: 50%;
   }
 
-  background: @color;
-  color: @white;
+  background: @black-primary;
+  color: @yellow;
 
   font-family: 'Roboto', sans-serif;
 
@@ -67,13 +67,19 @@
   .transition();
   .remove-default-button-border();
 
+  border: 2pt solid @yellow;
+  transition: border 400ms;
 
   &:hover {
-    background: @color-aux;
+    background: @yellow;
+    color: @black-primary;
+    border: 2pt solid @black-primary;
+    font-weight: bold;
+    //border-bottom: @rectangle-height solid @yellow;
 
-    & when(@isCircle = false) {
+/*     & when(@isCircle = false) {
       width: @width + 10px;
-    }
+    } */
 
   }
 
@@ -114,7 +120,7 @@ span {
 }
 
 .button-rectangle-primary-darker {
-  .button-container(@rectangle-width, @rectangle-height, @primary-color-darker, @primary-color-darker-aux, false);
+  .button-container(@rectangle-width, @rectangle-height, @black-secondary, @black-primary, false);
 }
 
 .button-rectangle-secondary {

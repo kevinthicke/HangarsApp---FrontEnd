@@ -15,11 +15,11 @@ nav {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   background-size: 300% 100%;
-  background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+  background-image: linear-gradient(to right, #191b1b, #292b2c, #191b1b);
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
   display: grid;
   height: 100%;
-  color: #f7f7f7;
+  color: #ff8000;
   min-height: 60px;
 }
 nav:hover {
@@ -80,15 +80,23 @@ div:nth-child(2) {
     font-size: 14pt;
   }
 }
+@keyframes grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
 div:nth-child(2) li {
   height: 80%;
   width: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  box-shadow: 0px 0px 4px -2px white;
+  border-radius: 2px;
   transition: all 0.2s ease-in;
+  position: relative;
   cursor: pointer;
 }
 @media screen and (min-width: 1024px) and (max-width: 1200px) {
@@ -102,10 +110,20 @@ div:nth-child(2) li {
     width: 23%;
   }
 }
+div:nth-child(2) li:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background: #ff8000;
+}
 div:nth-child(2) li:hover {
-  background: #29323c;
+  background: #292b2c;
   box-shadow: none;
-  transform: translateY(2px);
+}
+div:nth-child(2) li:hover:after {
+  animation: grow 200ms linear;
+  width: 100%;
 }
 div:nth-child(3) {
   grid-area: secondary-buttons;
