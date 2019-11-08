@@ -49,6 +49,7 @@ export class DraggeableDirective implements OnInit {
         (event.clientY + this.offset[1]).toString() + 'px'
       ];
 
+
       this.renderer.setStyle(
         this.parentDiv,
         'left',

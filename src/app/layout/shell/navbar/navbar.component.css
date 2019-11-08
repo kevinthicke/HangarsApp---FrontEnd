@@ -19,7 +19,7 @@ nav {
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
   display: grid;
   height: 100%;
-  color: #ff8000;
+  color: #fafafa;
   min-height: 60px;
 }
 nav:hover {
