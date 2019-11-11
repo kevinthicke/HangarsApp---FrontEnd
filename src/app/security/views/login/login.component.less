@@ -2,19 +2,22 @@
 
 .content {
   width: 100%;
+  height: 70%;
 
   display: grid;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 1fr 5fr;
 
 }
 
 h2 {
   text-align: center;
-  color: @yellow;
-  background: @black-secondary;
+  color: @black-secondary;
+  background: inherit;
   width: 70%;
   height: 10vh;
   margin: auto;
+
+  font-size: 2.5vw;
 
   @media screen and (max-width: @medium) {
     font-size: 12pt;
@@ -25,6 +28,9 @@ h2 {
 form {
   margin: auto;
   width: 70%;
+
+  box-shadow: 0 4px 15px 0px rgba(0, 0, 0, 0.541);
+  border-radius: 2px;
 
   @media screen and (max-width: @small) {
     width: 100%;

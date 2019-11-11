@@ -1,15 +1,17 @@
 .content {
   width: 100%;
+  height: 70%;
   display: grid;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 1fr 5fr;
 }
 h2 {
   text-align: center;
-  color: #ff8000;
-  background: #191b1b;
+  color: #000000;
+  background: inherit;
   width: 70%;
   height: 10vh;
   margin: auto;
+  font-size: 2.5vw;
 }
 @media screen and (max-width: 768px) {
   h2 {
@@ -20,7 +22,9 @@ h2 {
 form {
   margin: auto;
   width: 70%;
-  background: #191b1b;
+  box-shadow: 0 4px 15px 0px rgba(0, 0, 0, 0.541);
+  border-radius: 2px;
+  background: #000000;
   display: grid;
   padding: 5% 10%;
   grid-template-rows: 1fr 1fr 1fr;
@@ -36,7 +40,7 @@ form div {
   align-items: center;
 }
 span {
-  color: #ff8000;
+  color: #FDEE30;
   font-size: 10pt;
   font-weight: 300;
   width: 100%;

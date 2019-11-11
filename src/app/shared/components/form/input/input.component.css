@@ -128,7 +128,7 @@ label {
 }
 input {
   background: transparent;
-  box-shadow: 0 -1px 0px 0px inset #ff8000;
+  box-shadow: 0 -1px 0px 0px inset #E1E2E2;
   border: none;
   border-radius: 0;
   width: 100%;
@@ -178,8 +178,8 @@ input:focus {
 input:focus + label {
   transform: translateY(-30px);
   left: 0;
-  font-size: 8pt;
-  color: #ff8000;
+  font-size: 10pt;
+  color: #E1E2E2;
 }
 @media screen and (max-width: 768px) {
   input:focus + label {
@@ -187,7 +187,7 @@ input:focus + label {
   }
 }
 label {
-  color: #ff8000;
+  color: #E1E2E2;
   position: absolute;
   top: 0;
   left: 4%;

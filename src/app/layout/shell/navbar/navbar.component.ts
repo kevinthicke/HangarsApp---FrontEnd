@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { fade } from 'src/app/shared/animations/fade.animation';
 import { ShoppingCart } from '../../../core/models/commerce/shopping-cart.model';
 import { fullFade } from '../../../shared/animations/fade.animation';
 import { trigger, transition, keyframes, style, animate } from '@angular/animations';
+import { SearchBarComponent } from '../../../shared/components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-navbar',
@@ -39,7 +40,8 @@ export class NavbarComponent implements OnInit {
   @Output() logOutEmitter           = new EventEmitter<void>();
   @Output() searchValueEmitter      = new EventEmitter<string>();
 
-  isSearchBarDisplayed: boolean = false;
+  //isSearchBarDisplayed: boolean = false;
+  @ViewChild(SearchBarComponent, { static: false }) searchBarComponent: SearchBarComponent;
 
   constructor() { }
 
@@ -54,7 +56,8 @@ export class NavbarComponent implements OnInit {
   }
 
   handleSearchButtonClick(): void {
-    this.isSearchBarDisplayed = !this.isSearchBarDisplayed;
+    this.searchBarComponent.toggle();
+    //this.searchBarComponent.active = !this.searchBarComponent.active;
   }
 
   handleSearchValue(searchValue: string): void {

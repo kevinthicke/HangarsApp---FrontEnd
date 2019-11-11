@@ -8,7 +8,7 @@
     </span>
     <app-button
     *ngIf='this.hangarSelected && (this.hangarSelected.id==hangar.id)'
-    bclass='button-rectangle-black-sm'
+    bclass='button-rectangle-primary-darker sm'
     (click)='this.handleMoreButtonClick($event)'
     @fullFade>
       {{ this.hangarSelected ? "More": "Insertar" }}

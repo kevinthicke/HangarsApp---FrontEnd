@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-areas: "navbar-container" "app-main";
-  background: #fafafa;
+  background: #E1E2E2;
 }
 @media screen and (min-width: 1200px) {
   .shell {

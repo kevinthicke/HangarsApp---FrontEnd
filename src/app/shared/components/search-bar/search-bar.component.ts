@@ -11,6 +11,7 @@ export class SearchBarComponent implements OnInit {
   @Output() searchValueEmitter = new EventEmitter<string>();
 
   form: FormGroup;
+  active: boolean = false;
 
   constructor() { }
 
@@ -24,6 +25,10 @@ export class SearchBarComponent implements OnInit {
 
   onSubmit() {
     this.searchValueEmitter.emit(this.form.value['search']);
+  }
+
+  toggle(): void {
+    this.active = !this.active;
   }
 
 }

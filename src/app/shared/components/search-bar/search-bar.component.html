@@ -1,4 +1,6 @@
-<form [formGroup]='this.form' class="search-bar-container" (ngSubmit)='this.onSubmit()'>
+<form
+*ngIf='this.active'
+[formGroup]='this.form' class="search-bar-container" (ngSubmit)='this.onSubmit()'>
   <input formControlName='search'/>
   <div class='button'>
     <app-button bclass='button-circle-primary' btype='submit' icon='fa fa-search'></app-button>

@@ -25,8 +25,9 @@ li {
 
 .background() {
   background-size: 300% 100%;
-  background-image: linear-gradient(to right, @black-secondary, @black-primary, @black-secondary);
-  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  background: @black-secondary;
+  //box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  box-shadow: 0 4px 15px 0px rgba(0, 0, 0, 0.541);
 }
 
 nav {
@@ -79,6 +80,8 @@ div:nth-child(1) {
   grid-area: title;
   font-size: 20pt;
 
+  color: @white;
+
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -97,6 +100,7 @@ div:nth-child(2) {
   font-size: 14pt;
   }
 
+
 }
 
 @keyframes grow {
@@ -110,6 +114,8 @@ div:nth-child(2) {
 }
 
 div:nth-child(2) li {
+  color: @white;
+
   height: 80%;
   width: 20%;
 
@@ -143,6 +149,7 @@ div:nth-child(2) li {
 
   &:hover {
     background: @black-primary;
+    color: @yellow;
     box-shadow: none;
 
     &:after{
@@ -168,7 +175,7 @@ div:nth-child(3) {
   position: fixed;
 
   @media screen and (min-width: @extra-large) {
-    top: 10vh;
+    top: 8vh;
     right: 5vw;
   }
 
