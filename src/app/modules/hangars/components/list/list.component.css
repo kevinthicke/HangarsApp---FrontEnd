@@ -54,9 +54,17 @@ li span {
 }
 .selected {
   background: #191b1b;
+  color: #FDEE30;
 }
 .buttons {
   display: flex;
   justify-content: space-between;
-  padding-top: 1%;
+  margin: 2px 0px;
+  padding: 1% 1%;
+  background: #cccccc;
+  border-radius: 2px;
+  transition: background 200ms ease-in-out;
+}
+.buttons:hover {
+  background: #a7a7a7;
 }

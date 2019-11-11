@@ -87,16 +87,23 @@
     transform: translateX(-100vw);
   }
 }
+@keyframes toBlur {
+  from {
+    backdrop-filter: blur(0px);
+  }
+  to {
+    backdrop-filter: blur(3px);
+  }
+}
 .transparent-glass {
-  background: transparent;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 3;
-  backdrop-filter: blur(2px);
-  transition: all 200ms ease-in-out;
+  animation: toBlur 300ms linear;
+  backdrop-filter: blur(3px);
 }
 .darker {
   backdrop-filter: blur(2px) brightness(40%);

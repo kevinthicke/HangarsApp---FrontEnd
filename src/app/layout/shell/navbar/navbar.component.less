@@ -128,6 +128,8 @@ div:nth-child(2) li {
   transition: all 0.2s ease-in;
   position: relative;
 
+  font-weight: 200;
+
   cursor: pointer;
 
   @media screen and (min-width: @large) and (max-width: @extra-large) {
@@ -149,13 +151,27 @@ div:nth-child(2) li {
 
   &:hover {
     background: @black-primary;
-    color: @yellow;
-    box-shadow: none;
-
     &:after{
       animation: grow 200ms linear;
-    width: 100%;
+      width: 100%;
     }
+  }
+}
+
+.selected {
+  background: @black-primary;
+  color: @yellow;
+  box-shadow: none;
+
+  color: @yellow;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom:0;
+    height: 2px;
+    background: @yellow;
+    width: 100%;
   }
 }
 

@@ -1,6 +1,6 @@
 div {
   z-index: 999;
-  background: #111213;
+  background: #191b1b;
   height: 100vh;
 }
 @media screen and (min-width: 1200px) {
@@ -39,12 +39,13 @@ li {
   list-style-type: none;
   width: 100%;
   padding: 0% 2%;
+  padding-left: 3%;
   margin: 0px 2px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 200ms ease-in-out;
-  color: #0275d8;
+  color: #E1E2E2;
+  position: relative;
   cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -54,7 +55,17 @@ li {
   user-select: none;
 }
 li:hover {
-  background: #242424;
+  background: #000000;
+  color: #FDEE30;
+}
+li:hover::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 3px;
+  height: 100%;
+  background: #FDEE30;
 }
 li span {
   height: 7vh;
@@ -63,7 +74,7 @@ li span {
   align-items: center;
 }
 .close-button-container i {
-  color: #0275d8;
+  color: #FDEE30;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -74,8 +85,8 @@ li span {
   transition: all 200ms ease-in-out;
 }
 .close-button-container i:hover {
-  background: #242424;
-  color: #cc1a2f;
+  background: #000000;
+  color: #fd2a22;
   transform: rotate(360deg);
   font-size: 18pt;
 }

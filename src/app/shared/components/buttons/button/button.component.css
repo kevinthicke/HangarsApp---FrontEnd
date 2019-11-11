@@ -35,7 +35,7 @@ span {
   position: absolute;
   margin-left: -80px;
 }
-.button-rectangle-primary-darker {
+.button-rectangle-primary {
   width: 130px;
   width: 140px;
   height: 40px;
@@ -44,7 +44,7 @@ span {
   justify-content: center;
   align-items: center;
 }
-.button-rectangle-primary-darker button {
+.button-rectangle-primary button {
   width: 130px;
   height: 40px;
   margin: auto;
@@ -71,10 +71,10 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
-  border: 2pt solid #FDEE30;
+  border: 1.5pt solid #FDEE30;
   transition: border 400ms;
 }
-.button-rectangle-primary-darker button:hover {
+.button-rectangle-primary button:hover {
   background: #FDEE30;
   color: #191b1b;
   border: 2pt solid #191b1b;
@@ -83,32 +83,105 @@ span {
       width: @width + 10px;
     } */
 }
-.button-rectangle-primary-darker button:active {
-  background: #000000;
-  -webkit-box-shadow: 0px 0px 2px 1px #000000;
-  -moz-box-shadow: 0px 0px 2px 1px #000000;
-  box-shadow: 0px 0px 2px 1px #000000;
+.button-rectangle-primary button:active {
+  background: #191b1b;
+  -webkit-box-shadow: 0px 0px 2px 1px #191b1b;
+  -moz-box-shadow: 0px 0px 2px 1px #191b1b;
+  box-shadow: 0px 0px 2px 1px #191b1b;
 }
 @media screen and (min-width: 640px) and (max-width: 768px) {
-  .button-rectangle-primary-darker button {
+  .button-rectangle-primary button {
     width: 125px;
     height: 35px;
     font-size: 10pt;
   }
 }
 @media screen and (max-width: 640px) {
-  .button-rectangle-primary-darker button {
+  .button-rectangle-primary button {
     width: 120px;
     height: 30px;
     font-size: 10pt;
   }
 }
-.button-rectangle-primary-darker span {
+.button-rectangle-primary span {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.button-circle-primary-darker {
+.button-rectangle-primary-inverse {
+  width: 130px;
+  width: 140px;
+  height: 40px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-rectangle-primary-inverse button {
+  width: 130px;
+  height: 40px;
+  margin: auto;
+  border-radius: 0px;
+  background: #FDEE30;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 200ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+  border: 1.5pt solid #000000;
+  transition: border 400ms;
+}
+.button-rectangle-primary-inverse button:hover {
+  background: #000000;
+  color: #FDEE30;
+  border: 2pt solid #FDEE30;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
+}
+.button-rectangle-primary-inverse button:active {
+  background: #FDEE30;
+  -webkit-box-shadow: 0px 0px 2px 1px #FDEE30;
+  -moz-box-shadow: 0px 0px 2px 1px #FDEE30;
+  box-shadow: 0px 0px 2px 1px #FDEE30;
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .button-rectangle-primary-inverse button {
+    width: 125px;
+    height: 35px;
+    font-size: 10pt;
+  }
+}
+@media screen and (max-width: 640px) {
+  .button-rectangle-primary-inverse button {
+    width: 120px;
+    height: 30px;
+    font-size: 10pt;
+  }
+}
+.button-rectangle-primary-inverse span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-primary {
   width: 40px;
   height: 40px;
   border: none;
@@ -116,7 +189,7 @@ span {
   justify-content: center;
   align-items: center;
 }
-.button-circle-primary-darker button {
+.button-circle-primary button {
   width: 40px;
   height: 40px;
   margin: auto;
@@ -144,10 +217,10 @@ span {
   transition-property: all;
   border: 0;
   outline: 0;
-  border: 2pt solid #FDEE30;
+  border: 1.5pt solid #FDEE30;
   transition: border 400ms;
 }
-.button-circle-primary-darker button:hover {
+.button-circle-primary button:hover {
   background: #FDEE30;
   color: #191b1b;
   border: 2pt solid #191b1b;
@@ -156,28 +229,160 @@ span {
       width: @width + 10px;
     } */
 }
-.button-circle-primary-darker button:active {
-  background: #0F2027;
-  -webkit-box-shadow: 0px 0px 2px 1px #0F2027;
-  -moz-box-shadow: 0px 0px 2px 1px #0F2027;
-  box-shadow: 0px 0px 2px 1px #0F2027;
+.button-circle-primary button:active {
+  background: #191b1b;
+  -webkit-box-shadow: 0px 0px 2px 1px #191b1b;
+  -moz-box-shadow: 0px 0px 2px 1px #191b1b;
+  box-shadow: 0px 0px 2px 1px #191b1b;
 }
 @media screen and (min-width: 640px) and (max-width: 768px) {
-  .button-circle-primary-darker button {
+  .button-circle-primary button {
     width: 35px;
     height: 35px;
     font-size: 10pt;
   }
 }
 @media screen and (max-width: 640px) {
-  .button-circle-primary-darker button {
+  .button-circle-primary button {
     width: 30px;
     height: 30px;
     font-size: 10pt;
   }
 }
-.button-circle-primary-darker span {
+.button-circle-primary span {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.button-circle-primary-inverse {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-primary-inverse button {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  border-radius: 0px;
+  border-radius: 50%;
+  background: #FDEE30;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 200ms;
+  transition-property: all;
+  border: 0;
+  outline: 0;
+  border: 1.5pt solid #000000;
+  transition: border 400ms;
+}
+.button-circle-primary-inverse button:hover {
+  background: #000000;
+  color: #FDEE30;
+  border: 2pt solid #FDEE30;
+  font-weight: bold;
+  /*     & when(@isCircle = false) {
+      width: @width + 10px;
+    } */
+}
+.button-circle-primary-inverse button:active {
+  background: #FDEE30;
+  -webkit-box-shadow: 0px 0px 2px 1px #FDEE30;
+  -moz-box-shadow: 0px 0px 2px 1px #FDEE30;
+  box-shadow: 0px 0px 2px 1px #FDEE30;
+}
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .button-circle-primary-inverse button {
+    width: 35px;
+    height: 35px;
+    font-size: 10pt;
+  }
+}
+@media screen and (max-width: 640px) {
+  .button-circle-primary-inverse button {
+    width: 30px;
+    height: 30px;
+    font-size: 10pt;
+  }
+}
+.button-circle-primary-inverse span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-rectangle-secondary {
+  width: 130px;
+  height: 40px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-rectangle-secondary button {
+  background: #22293a;
+  color: white;
+  width: 130px;
+  height: 40px;
+  border: none;
+  transition: all 400ms ease-in-out;
+}
+.button-rectangle-secondary button:hover {
+  background: #FDEE30;
+  color: #000000;
+}
+.button-rectangle-secondary span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-secondary {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-circle-secondary button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #22293a;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  transition: all 400ms ease-in-out;
+}
+.button-circle-secondary button:hover {
+  background: #FDEE30;
+  color: #000000;
+}
+.button-circle-secondary span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sm button {
+  width: 120px;
+  height: 30px;
+  font-size: 10pt;
 }

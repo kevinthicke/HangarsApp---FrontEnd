@@ -5,29 +5,27 @@
     <li
     *ngFor='let button of this.buttons; let i = index'
     (click)='selected = i'
+    [ngClass]="{'selected': selected == i }"
     [routerLink]='[button.link]' routerLinkActive='router-link-active'>
-      <span
-      [ngClass]='{ "selected": selected==i }'>
-      {{ button.title | translate }}
-      </span>
+      <span>{{ button.title | translate }}</span>
     </li>
   </div>
 
   <div>
     <div class='search-button'>
       <app-button
-      bclass='button-circle-primary-darker'
+      bclass='button-circle-primary'
       (click)='this.handleSearchButtonClick()'
       icon='fa fa-search'>
       </app-button>
     </div>
     <app-button
-    bclass='button-circle-primary-darker'
+    bclass='button-circle-primary'
     (click)='this.changeLanguage()'>
       {{ this.activeLang }}
     </app-button>
     <app-button
-    bclass='button-rectangle-primary-darker'
+    bclass='button-rectangle-primary'
     (click)='this.logOut()'>
       {{  'navbar.log-out' | translate }}
     </app-button>

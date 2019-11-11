@@ -2,7 +2,7 @@
 
 div {
   z-index: 999;
-  background: #111213;
+  background: @black-primary;
   height: 100vh;
 
   @media screen and (min-width: @extra-large) {
@@ -44,16 +44,17 @@ li {
   width: 100%;
 
   padding: 0% 2%;
+  padding-left: 3%;
   margin: 0px 2px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  transition: all 200ms ease-in-out;
+  //transition: all 200ms ease-in-out;
 
-  color: #0275d8;
-
+  color: @white;
+  position: relative;
   cursor: pointer;
 
   -webkit-touch-callout: none;
@@ -64,8 +65,18 @@ li {
             user-select: none;
 
   &:hover {
-    background: rgb(36, 36, 36);
+    background: @black-secondary;
+    color: @yellow;
 
+    &::before {
+      position: absolute;
+      top:0;
+      left:0;
+      content: "";
+      width: 3px;
+      height: 100%;
+      background: @yellow;
+    }
   }
 
   span {
@@ -82,7 +93,7 @@ li {
 .close-button-container {
 
   i {
-    color: #0275d8;
+    color: @yellow;
     width: 30px;
     height: 30px;
 
@@ -97,8 +108,8 @@ li {
     transition: all 200ms ease-in-out;
 
     &:hover {
-      background: rgb(36, 36, 36);
-      color: rgb(204, 26, 47);
+      background: @black-secondary;
+      color: @red;
       transform: rotate(360deg);
       font-size: 18pt;
     }

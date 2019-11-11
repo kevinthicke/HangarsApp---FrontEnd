@@ -24,7 +24,7 @@
 
 @white: #f9f9f9;
 
-.button-container(@width, @height, @color, @color-aux, @isCircle) {
+.button-container(@width, @height, @color, @font-color, @border-color, @isCircle) {
 
   width: @width;
   & when(@isCircle = false) {
@@ -37,7 +37,7 @@
   .d-flex-center();
 
   button {
-    .custom-button(@width, @height, @color, @color-aux, @isCircle);
+    .custom-button(@width, @height, @color, @font-color, @isCircle);
   }
 
   span {
@@ -45,7 +45,7 @@
   }
 }
 
-.custom-button(@width, @height, @color, @color-aux, @isCircle) {
+.custom-button(@width, @height, @color, @font-color, @isCircle) {
 
   width: @width;
   height: @height;
@@ -57,8 +57,8 @@
     border-radius: 50%;
   }
 
-  background: @black-primary;
-  color: @yellow;
+  background: @color;
+  color: @font-color;
 
   font-family: 'Roboto', sans-serif;
 
@@ -67,13 +67,13 @@
   .transition();
   .remove-default-button-border();
 
-  border: 2pt solid @yellow;
+  border: 1.5pt solid @border-color;
   transition: border 400ms;
 
   &:hover {
-    background: @yellow;
-    color: @black-primary;
-    border: 2pt solid @black-primary;
+    background: @font-color;
+    color: @color;
+    border: 2pt solid @color;
     font-weight: bold;
     //border-bottom: @rectangle-height solid @yellow;
 
@@ -118,11 +118,89 @@ span {
 }
 
 //used
-.button-rectangle-primary-darker {
-  .button-container(@rectangle-width, @rectangle-height, @black-secondary, @black-primary, false);
+.button-rectangle-primary {
+  .button-container(@rectangle-width, @rectangle-height, @black-primary, @yellow, @yellow, false);
 }
 
 //used
-.button-circle-primary-darker {
-  .button-container(@circle-width, @circle-height, @primary-color-darker, @primary-color-darker-aux, true);
+.button-rectangle-primary-inverse {
+  .button-container(@rectangle-width, @rectangle-height, @yellow,  @black-secondary, @black-secondary, false);
+}
+
+//used
+.button-circle-primary {
+  .button-container(@circle-width, @circle-height, @black-primary, @yellow, @yellow, true);
+}
+
+//used
+.button-circle-primary-inverse {
+  .button-container(@circle-width, @circle-height, @yellow,  @black-secondary, @black-secondary, true);
+}
+
+.button-rectangle-secondary {
+  width: @rectangle-width;
+  height: @rectangle-height;
+  border: none;
+
+  .d-flex-center();
+
+  button {
+    background: @blue;
+    color: white;
+
+    width: @rectangle-width;
+    height: @rectangle-height;
+
+    border: none;
+    transition: all 400ms ease-in-out;
+
+    &:hover{
+      background: @yellow;
+      color: @black-secondary;
+    }
+  }
+
+  span {
+    .d-flex-center();
+  }
+}
+
+.button-circle-secondary {
+  width: @circle-width;
+  height: @circle-height;
+  border: none;
+
+  .d-flex-center();
+
+  button {
+    .d-flex-center();
+    background: @blue;
+    color: white;
+
+    width: @circle-width;
+    height: @circle-height;
+
+    border-radius: 50%;
+
+    border: none;
+    transition: all 400ms ease-in-out;
+
+    &:hover{
+      background: @yellow;
+      color: @black-secondary;
+    }
+  }
+
+  span {
+    .d-flex-center();
+  }
+}
+
+.sm {
+  button {
+    width: @rectangle-width - 10px;
+    height: @rectangle-height - 10px;
+
+    font-size: 10pt;
+  }
 }

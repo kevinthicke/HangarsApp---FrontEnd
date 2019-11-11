@@ -56,8 +56,17 @@
 
 }
 
+@keyframes toBlur {
+  from {
+    backdrop-filter: blur(0px);
+  }
+
+  to {
+    backdrop-filter: blur(3px);
+  }
+}
+
 .transparent-glass {
-  background: transparent;
 
   position: fixed;
   top: 0;
@@ -67,9 +76,10 @@
   height: 100vh;
 
   z-index: 3;
-  backdrop-filter: blur(2px);
-
-  transition: all 200ms ease-in-out;
+  //backdrop-filter: blur(10px);
+  animation: toBlur 300ms linear;
+  backdrop-filter: blur(3px);
+  //transition: all 200ms ease-in-out;
 }
 
 .darker {

@@ -8,7 +8,7 @@
     </span>
     <app-button
     *ngIf='this.hangarSelected && (this.hangarSelected.id==hangar.id)'
-    bclass='button-rectangle-primary-darker sm'
+    bclass='button-rectangle-primary sm'
     (click)='this.handleMoreButtonClick($event)'
     @fullFade>
       {{ this.hangarSelected ? "More": "Insertar" }}
@@ -18,21 +18,21 @@
 
 <div class='buttons'>
   <app-button
-  bclass='button-rectangle-primary'
+  bclass='button-rectangle-secondary'
   (click)='this.toPreviousPage()'>
     {{ 'hangars.list.previous-page' | translate }}
   </app-button>
   <div>
     <app-button
     *ngIf='!this.hangarSelected'
-    bclass='button-circle-primary-darker'
+    bclass='button-circle-secondary'
     icon='fa fa-plus'
     (click)='this.handlePlusButtonClick()'
     @fullFade>
     </app-button>
   </div>
   <app-button
-  bclass='button-rectangle-primary'
+  bclass='button-rectangle-secondary'
   (click)='this.toNextPage()'>
     {{ 'hangars.list.next-page' | translate }}
   </app-button>
